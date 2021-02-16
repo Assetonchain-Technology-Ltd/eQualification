@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="65cm" height="42cm" viewBox="-195 -25 1284 832" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <polygon style="fill: #ffffff" points="-193.176,90.7744 -183.176,80.7744 -122.126,80.7744 -122.126,208.774 -132.126,218.774 -193.176,218.774 -193.176,90.7744 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-193.176,90.7744 -183.176,80.7744 -122.126,80.7744 -122.126,208.774 -132.126,218.774 -193.176,218.774 -193.176,90.7744 "/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="-193.176" y1="90.7744" x2="-132.126" y2="90.7744"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="-132.126" y1="90.7744" x2="-122.126" y2="80.7744"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="-132.126" y1="90.7744" x2="-132.126" y2="218.774"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-183.176" y="113.574">
+      <tspan x="-183.176" y="113.574">Third</tspan>
+      <tspan x="-183.176" y="129.574">Party</tspan>
+      <tspan x="-183.176" y="145.574">System</tspan>
+    </text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="-183.176" y1="116.224" x2="-153.876" y2="116.224"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="-183.176" y1="132.224" x2="-154.126" y2="132.224"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="-183.176" y1="148.224" x2="-142.126" y2="148.224"/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="17.4924,39.573 27.4924,29.573 120.092,29.573 120.092,81.573 110.092,91.573 17.4924,91.573 17.4924,39.573 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="17.4924,39.573 27.4924,29.573 120.092,29.573 120.092,81.573 110.092,91.573 17.4924,91.573 17.4924,39.573 "/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="17.4924" y1="39.573" x2="110.092" y2="39.573"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="110.092" y1="39.573" x2="120.092" y2="29.573"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="110.092" y1="39.573" x2="110.092" y2="91.573"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="27.4924" y="62.373">
+      <tspan x="27.4924" y="62.373">BlockChain</tspan>
+      <tspan x="27.4924" y="78.373">API Gateway</tspan>
+    </text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="27.4924" y1="65.023" x2="88.8924" y2="65.023"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="27.4924" y1="81.023" x2="100.092" y2="81.023"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="63.7924" y1="92.49" x2="63.7924" y2="145.49"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="63.7924" y1="765.49" x2="63.7924" y2="800"/>
+    <rect style="fill: #ffffff" x="56.7924" y="145.49" width="14" height="620"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="56.7924" y="145.49" width="14" height="620"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="-104.123" y1="154.965" x2="56.7924" y2="155.49"/>
+    <polygon style="fill: #000000" points="-104.107,149.965 -120.123,154.913 -104.14,159.965 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-104.107,149.965 -120.123,154.913 -104.14,159.965 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-30.1742" y="139.781">GetUpdateQualificationRecord</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="229.07" y1="93.5414" x2="229.07" y2="174.492"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="229.07" y1="234.492" x2="229.07" y2="806.205"/>
+    <rect style="fill: #ffffff" x="222.07" y="174.492" width="14" height="60"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="222.07" y="174.492" width="14" height="60"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="205.07" y1="174.604" x2="70.7924" y2="175.49"/>
+    <polygon style="fill: #000000" points="205.103,179.604 221.07,174.499 205.037,169.604 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="205.103,179.604 221.07,174.499 205.037,169.604 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="142.117" y="166.323">IsProfileExist</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="87.792" y1="195.378" x2="222.07" y2="194.492"/>
+    <polygon style="fill: #000000" points="87.759,190.378 71.7924,195.483 87.825,200.378 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="87.759,190.378 71.7924,195.483 87.825,200.378 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="148.612" y="213.998">WorkerProfileContractList</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="180.07" y="52.5414" width="98" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="180.07" y="52.5414" width="98" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="229.07" y="75.3414">
+      <tspan x="229.07" y="75.3414">ProfileCabient</tspan>
+    </text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="190.07" y1="77.9914" x2="268.07" y2="77.9914"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="361.26" y="52.1572" width="136.45" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="361.26" y="52.1572" width="136.45" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="429.485" y="74.9572">
+      <tspan x="429.485" y="74.9572">ProfileSmartContract</tspan>
+    </text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="371.26" y1="77.6072" x2="487.71" y2="77.6072"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="745.744" y="51.2402" width="132.45" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="745.744" y="51.2402" width="132.45" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="811.969" y="74.0402">
+      <tspan x="811.969" y="74.0402">QualificationCabient</tspan>
+    </text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="755.744" y1="76.6902" x2="868.194" y2="76.6902"/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 56.7924,325.49 A 12.9315,12.9315 0 1 0 49.1287,348.41"/>
+    <polygon style="fill: #000000" points="55.0632,346.908 50.5003,357.115 49.2634,351.663 44.16,349.382 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="55.0632,346.908 50.5003,357.115 49.2634,351.663 44.16,349.382 "/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-40.9868" y="309.406">
+    <tspan x="-40.9868" y="309.406">Generate</tspan>
+    <tspan x="-40.9868" y="325.406">Digi Cert for</tspan>
+    <tspan x="-40.9868" y="341.406">Qualification</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="811.97" y1="87.2402" x2="811.97" y2="315"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="811.97" y1="515" x2="811.97" y2="800"/>
+    <rect style="fill: #ffffff" x="804.97" y="315" width="14" height="200"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="804.97" y="315" width="14" height="200"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="787.97" y1="375.011" x2="70.7924" y2="375.49"/>
+    <polygon style="fill: #000000" points="787.973,380.011 803.97,375.001 787.967,370.011 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="787.973,380.011 803.97,375.001 787.967,370.011 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="684" y="369">Mint Qualification to Worker Profile</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="922.808" y="49.3232" width="165.95" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="922.808" y="49.3232" width="165.95" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1005.78" y="72.1232">
+      <tspan x="1005.78" y="72.1232">QualificationSmartCabient</tspan>
+    </text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="932.808" y1="74.7732" x2="1078.76" y2="74.7732"/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 826.776,496.15 A 11.3937,11.3937 0 1 0 818.97,475"/>
+    <polygon style="fill: #000000" points="820.933,496.072 832.106,496.476 827.515,499.666 827.313,505.253 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="820.933,496.072 832.106,496.476 827.515,499.666 827.313,505.253 "/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="827.942" y="370.936">
+    <tspan x="827.942" y="370.936">CheckRights</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="1005.78" y1="67.3232" x2="1005.78" y2="405"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="1005.78" y1="545" x2="1005.78" y2="798"/>
+    <rect style="fill: #ffffff" x="998.783" y="405" width="14" height="140"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="998.783" y="405" width="14" height="140"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="981.783" y1="415" x2="818.97" y2="415"/>
+    <polygon style="fill: #000000" points="981.783,420 997.783,415 981.783,410 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="981.783,420 997.783,415 981.783,410 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="907.134" y="433.36">NewQualificationContract</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="835.97" y1="455" x2="998.783" y2="455"/>
+    <polygon style="fill: #000000" points="835.97,450 819.97,455 835.97,460 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="835.97,450 819.97,455 835.97,460 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="908.878" y="465">ContractAddress</text>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 826.651,397.82 A 12.825,12.825 0 1 0 818.97,375"/>
+    <polygon style="fill: #000000" points="820.714,396.4 831.641,398.763 826.561,401.096 825.38,406.56 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="820.714,396.4 831.641,398.763 826.561,401.096 825.38,406.56 "/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="825.758" y="513.462">
+    <tspan x="825.758" y="513.462">Assign</tspan>
+    <tspan x="825.758" y="529.462">Token to WorkerProfile</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="87.7924" y1="505.479" x2="804.97" y2="505"/>
+    <polygon style="fill: #000000" points="87.7891,500.479 71.7924,505.489 87.7957,510.479 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="87.7891,500.479 71.7924,505.489 87.7957,510.479 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="485.258" y="498.99">Qualification Contract Address</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="429.485" y1="88.1572" x2="429.485" y2="533.789"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="429.485" y1="593.789" x2="429.485" y2="797"/>
+    <rect style="fill: #ffffff" x="422.485" y="533.789" width="14" height="60"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="422.485" y="533.789" width="14" height="60"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="405.485" y1="543.872" x2="70.7924" y2="545.49"/>
+    <polygon style="fill: #000000" points="405.509,548.872 421.485,543.794 405.461,538.872 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="405.509,548.872 421.485,543.794 405.461,538.872 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="242.686" y="539.64">Update Qualification Record to Worker Profile</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="543.76" y="52.6618" width="155.9" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="543.76" y="52.6618" width="155.9" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="621.71" y="75.4618">
+      <tspan x="621.71" y="75.4618">Ethereum Name Service</tspan>
+    </text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="553.76" y1="78.1118" x2="689.66" y2="78.1118"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="621.71" y1="274" x2="621.71" y2="605"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="621.71" y1="645" x2="621.71" y2="797"/>
+    <rect style="fill: #ffffff" x="614.71" y="605" width="14" height="40"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="614.71" y="605" width="14" height="40"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="597.71" y1="615.015" x2="70.7924" y2="615.49"/>
+    <polygon style="fill: #000000" points="597.715,620.015 613.71,615.001 597.706,610.015 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="597.715,620.015 613.71,615.001 597.706,610.015 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="489" y="634">Register Qualification Contract Address</text>
+  </g>
+  <text font-size="19.1911" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:700" x="-140.176" y="-4.7382">
+    <tspan x="-140.176" y="-4.7382">Update/Renew of Qualification for Existing Profile</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="787.97" y1="325.011" x2="70.7924" y2="325.49"/>
+    <polygon style="fill: #000000" points="787.973,330.011 803.97,325.001 787.967,320.011 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="787.973,330.011 803.97,325.001 787.967,320.011 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="717" y="318">Is Qualification Exists</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="87.7924" y1="345.479" x2="804.97" y2="345"/>
+    <polygon style="fill: #000000" points="87.7891,340.479 71.7924,345.489 87.7957,350.479 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="87.7891,340.479 71.7924,345.489 87.7957,350.479 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="129" y="359">Result</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="39.793" y1="185.344" x2="-117.176" y2="184"/>
+    <polygon style="fill: #000000" points="39.7502,190.344 55.7924,185.481 39.8358,180.345 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="39.7502,190.344 55.7924,185.481 39.8358,180.345 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-30.1916" y="194.745">UpdateList</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="621.71" y1="70.6618" x2="621.71" y2="234"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="621.71" y1="274" x2="621.71" y2="312"/>
+    <rect style="fill: #ffffff" x="614.71" y="234" width="14" height="40"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="614.71" y="234" width="14" height="40"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="597.71" y1="244.047" x2="70.7924" y2="245.49"/>
+    <polygon style="fill: #000000" points="597.724,249.047 613.71,244.003 597.696,239.047 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="597.724,249.047 613.71,244.003 597.696,239.047 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="498" y="238">QueryQualificationCabientAddress</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="87.7923" y1="265.443" x2="614.71" y2="264"/>
+    <polygon style="fill: #000000" points="87.7786,260.443 71.7924,265.487 87.806,270.443 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="87.7786,260.443 71.7924,265.487 87.806,270.443 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="177" y="280">QualificationContractAddress</text>
+  </g>
+</svg>
