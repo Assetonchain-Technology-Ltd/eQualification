@@ -17,7 +17,7 @@ contract PermissionControl is AccessControl {
     bytes32 public constant ERC721TOKEN = keccak256("ERC721TOKEN");
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     
-    constructor() public {
+    constructor()  {
         _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
     }
     

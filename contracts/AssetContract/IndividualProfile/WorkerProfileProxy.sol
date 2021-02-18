@@ -1,9 +1,9 @@
 pragma solidity ^0.7.0;
 
 import "./WorkerProfileDS.sol";
-import "../Utils/access.sol";
-import "@ensdomains/ens/contracts/ENS.sol";
-import "@ensdomains/resolver/contracts/Resolver.sol";
+import "../../Utils/access.sol";
+import "../../Utils/ENS.sol";
+import "../../Utils/Resolver.sol";
 
 
 contract WorkerProfileProxy is WorkerProfileDS {
@@ -11,12 +11,12 @@ contract WorkerProfileProxy is WorkerProfileDS {
     using SafeMath for uint256;
     
     bytes4 constant private ADDR_INTERFACE_ID = 0x3b3b57de;
-
+    bytes32 constant private root = 0x0000000000000000000000000000000000000000000000000000000000000000;
     ENS ens;
     
-    constructor(bytes32  _imp,bytes32 _access,bytes32 _attributelist, address _ensaddress)  {
+    constructor(bytes32  _imp,bytes32 _attributelist, address _ensaddress)  {
         
-        require(_imp!=0x0 && _ensaddress !=address(0) && _access!=0x0 && _attributelist !=0x0,"WP01");
+        require(_imp!=0x0 && _ensaddress !=address(0) &&  _attributelist !=0x0,"WP01");
         publicENSRegistar = _ensaddress;
         ens = ENS(publicENSRegistar);
         
@@ -26,12 +26,8 @@ contract WorkerProfileProxy is WorkerProfileDS {
         res = Resolver(ens.resolver(_attributelist));
         require(res.addr(_attributelist)!=address(0) && res.supportsInterface(ADDR_INTERFACE_ID),"WP03");
         
-        res = Resolver(ens.resolver(_access));
-        require(res.addr(_access) != address(0) && res.supportsInterface(ADDR_INTERFACE_ID), "WP04");
         
-        publicAccessENSName=_access;
         attributeListENS = _attributelist;
-        publicAccessENSName = _access;
         profileLogicENSName = _imp;
      
         status="NEW";
@@ -66,20 +62,24 @@ contract WorkerProfileProxy is WorkerProfileDS {
             }
     }
     
-    function _updateAccess(bytes32 _accessENS) internal {
-        Resolver res = Resolver(ens.resolver(_accessENS));
-        address accessadr = res.addr(_accessENS);
-        require(accessadr!=address(0) && res.supportsInterface(ADDR_INTERFACE_ID),"WP09");
-        access = PermissionControl(accessadr);
-        
-    }
     
     function _updatePublicAccess() internal {
-        Resolver res = Resolver(ens.resolver(publicAccessENSName));
-        address accessadr = res.addr(publicAccessENSName);
+        bytes32 accessENS = _computeNamehash(ens.getPredefineENSPrefix("access"),root);
+        Resolver res = Resolver(ens.resolver(accessENS));
+        address accessadr = res.addr(accessENS);
         require(accessadr!=address(0) && res.supportsInterface(ADDR_INTERFACE_ID),"WP10");
         access = PermissionControl(accessadr);
         
     }
     
+    
+    function _computeNamehash(bytes32 _prefix,bytes32 _postfix) internal pure 
+    returns (bytes32) 
+    {
+      
+      bytes32 namehash = keccak256(abi.encodePacked(_postfix, _prefix));
+      return namehash;
+      
+    }
+
 }
