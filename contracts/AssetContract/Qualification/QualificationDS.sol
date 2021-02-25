@@ -3,13 +3,16 @@ pragma solidity ^0.7.0;
 
 import "../../Utils/access.sol";
 import "./QualificationAttributeList.sol";
-import "@openzeppelin/contracts/utils/Address.sol";
+
 import "@openzeppelin/contracts/math/SafeMath.sol";
+import "@openzeppelin/contracts/utils/EnumerableSet.sol";
+
 
 contract QualificationDS is Access {
     
 
     using SafeMath for uint256;
+    using EnumerableSet for EnumerableSet.Bytes32Set;
     
     struct Endorse {
         bytes signature;
@@ -20,6 +23,7 @@ contract QualificationDS is Access {
     }
     
     struct Attribute {
+        string name;
         bytes value;
         uint256 createDate;
         string datatype;
@@ -40,8 +44,9 @@ contract QualificationDS is Access {
     
     //Profile Para
     address qualificationOwner;
+    EnumerableSet.Bytes32Set attributeList;
     mapping (bytes32=> Attribute) Attributes;
-    uint256 attributecount;
+
     Keystore key;
     string status;
  

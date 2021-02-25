@@ -1,22 +1,53 @@
 pragma solidity ^0.7.0;
+pragma abicoder v2;
+import "@openzeppelin/contracts/utils/EnumerableSet.sol";
+
 
 contract AttributeList {
     
-    bytes32 public constant ENGNAME = keccak256("ENGNAME");
-    bytes32 public constant CHINAME = keccak256("CHINAME");
-    bytes32 public constant DOB = keccak256("DOB");
-    bytes32 public constant IDNUMBER = keccak256("IDNUMBER");
-    bytes32 public constant MOBILE = keccak256("MOBILE");
-    bytes32 public constant RESIDENALADDRESS = keccak256("RESIDENALADDRESS");
-    bytes32 public constant MOBILE2 = keccak256("MOBILE2");
-    bytes32 public constant MOBILE3 = keccak256("MOBILE3");
+    using EnumerableSet for EnumerableSet.Bytes32Set;
+    mapping(bytes32=>string) attributename;
+    EnumerableSet.Bytes32Set  attributeList;
+    
+
+    
+    constructor()
+    {
+        attributeList.add(keccak256("ENGNAME"));
+        attributeList.add(keccak256("CHINAME"));
+        attributeList.add(keccak256("DOB"));
+        attributeList.add(keccak256("IDNUMBER"));
+        attributeList.add(keccak256("MOBILE"));
+        attributeList.add(keccak256("RESIDENALADDRESS"));
+        attributeList.add(keccak256("MOBILE2"));
+        attributeList.add(keccak256("MOBILE3"));
+        
+        attributename[keccak256("ENGNAME")]="ENGNAME";
+        attributename[keccak256("CHINAME")]="CHINAME";
+        attributename[keccak256("DOB")]="DOB";
+        attributename[keccak256("IDNUMBER")]="IDNUMBER";
+        attributename[keccak256("MOBILE")]="MOBILE";
+        attributename[keccak256("RESIDENALADDRESS")]="RESIDENALADDRESS";
+        attributename[keccak256("MOBILE2")]="MOBILE2";
+        attributename[keccak256("MOBILE3")]="MOBILE3";
+        
+    }
+    
     
     function exists(bytes32 _key) public view 
     returns(bool)
     {
-        return (_key==ENGNAME) || (_key==CHINAME) || (_key==DOB) || (_key==IDNUMBER) || (_key==MOBILE) || (_key==RESIDENALADDRESS)
-                || (_key==MOBILE2) || (_key==MOBILE3);
-                
+        return attributeList.contains(_key);
+    }
+    
+    function listAttribute() public view
+    returns(string[] memory ){
+        string[] memory list;
+        uint256 count=attributeList.length();
+        for(uint256 i=0;i<count;i++){
+            list[i]=attributename[attributeList.at(i)];
+        }
+        return list;
     }
     
 }

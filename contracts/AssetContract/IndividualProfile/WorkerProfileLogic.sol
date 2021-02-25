@@ -1,16 +1,19 @@
-pragma solidity ^0.7.0;
+pragma solidity >=0.6.0;
+pragma abicoder v2;
 
 import "./WorkerProfileDS.sol";
 import "../../Utils/ENS.sol";
 import "../../Utils/Resolver.sol";
-import "../../Utils/OrgRoles.sol";
+import "../../Utils/Roles.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-contract WorkerProfileLogic is WorkerProfileDS,OrgRoles {
+contract WorkerProfileLogic is WorkerProfileDS,Roles {
     
     
     using Address for address;
     using SafeMath for uint256;
+    using EnumerableSet for EnumerableSet.Bytes32Set;
+    
     
     bytes4 constant private ADDR_INTERFACE_ID = 0x3b3b57de;
     bytes4 constant private ORG_INTERFACE_ID = 0x136ff12d;
@@ -27,16 +30,17 @@ contract WorkerProfileLogic is WorkerProfileDS,OrgRoles {
     
     
     
-    function addAttribute(bytes32 _key, bytes calldata _value, uint256 _datetime, string calldata _datatype) public onlyOwner 
+    function addAttribute(string memory _name, bytes calldata _value, uint256 _datetime, string calldata _datatype) public onlyOwner 
     returns (bytes32)
     {
-        
+        bytes32 _key = keccak256(bytes(_name));
         Resolver res = Resolver(ens.resolver(attributeListENS));
         require(res.addr(attributeListENS)!=address(0) && res.supportsInterface(ADDR_INTERFACE_ID),"WL02");
         AttributeList ab = AttributeList(res.addr(attributeListENS));
         require(ab.exists(_key),"WL03");
-        attributecount=attributecount.add(1);
+        attributeList.add(_key);
         require(Attributes[_key].createDate==0,"WL04");
+        Attributes[_key].name=_name;
         Attributes[_key].value=_value;
         Attributes[_key].createDate = _datetime;
         Attributes[_key].datatype = _datatype;
@@ -44,14 +48,33 @@ contract WorkerProfileLogic is WorkerProfileDS,OrgRoles {
         return datatosign;
     }
     
-    function removeAttribute(bytes32 _key,uint256 _datetime) public onlyOwner {
-        require(attributecount>0 && Attributes[_key].createDate>0,"WL06");
-        delete Attributes[_key];
-        attributecount=attributecount.sub(1);
+    function upateAttribute(bytes32 _key, bytes calldata _value, uint256 _datetime, string calldata _datatype) public onlyOwner 
+    returns (bytes32)
+    {
+        Resolver res = Resolver(ens.resolver(attributeListENS));
+        require(res.addr(attributeListENS)!=address(0) && res.supportsInterface(ADDR_INTERFACE_ID),"WL22");
+        AttributeList ab = AttributeList(res.addr(attributeListENS));
+        require(ab.exists(_key),"WL23");
+        require(Attributes[_key].createDate>0,"WL24");
+        uint256 ecount = Attributes[_key].endorsementcount;
+        for(uint256 i=0;i<ecount;i++){
+            Attributes[_key].endorsements[i].active = false;
+        }
+        Attributes[_key].value=_value;
+        Attributes[_key].createDate = _datetime;
+        Attributes[_key].datatype = _datatype;
+        bytes32 datatosign = _prefixed(keccak256(abi.encodePacked(msg.sender,_key,_value,_datatype,_datetime,ecount,address(this))));
+        return datatosign;
     }
     
-    function endorseAttribute(bytes32 _key,uint256 _datetime,uint256 _expiryDate,bytes32 _org,bytes calldata _signature) public {
-        require(_orgRoleCheck(_org,msg.sender,ENDORSE),"WL09");
+    function removeAttribute(bytes32 _key,uint256 _datetime) public onlyOwner {
+        require(attributeList.contains(_key),"WL06");
+        delete Attributes[_key];
+        attributeList.remove(_key);
+    }
+    
+    function endorseAttribute(bytes32 _key,uint256 _datetime,uint256 _expiryDate,string memory _org,bytes calldata _signature) public {
+        require(_orgRoleCheck(keccak256(bytes(_org)),msg.sender,ENDORSE),"WL09");
         require(_verifyAttributeSignature(msg.sender,_key,_signature),"WL10");
         uint256 ecount = Attributes[_key].endorsementcount;
         Attributes[_key].endorsementcount=Attributes[_key].endorsementcount.add(1);
@@ -62,44 +85,99 @@ contract WorkerProfileLogic is WorkerProfileDS,OrgRoles {
         Attributes[_key].endorsements[ecount].active = true;
     }
     
-    function removeEndorsement(bytes32 _key,uint256 _endorseNumber,bytes32 _org) public {
-        require(_orgRoleCheck(_org,msg.sender,ENDORSE),"WL11");
-        require(attributecount>0 && Attributes[_key].createDate>0,"WL12");
+
+    function removeEndorsement(bytes32 _key,uint256 _endorseNumber,string memory _org) public {
+        require(_orgRoleCheck(keccak256(bytes(_org)),msg.sender,ENDORSE),"WL11");
+        require(attributeList.contains(_key),"WL12");
         require(Attributes[_key].endorsements[_endorseNumber].endorser==msg.sender,"WL13");
-        Attributes[_key].endorsements[_endorseNumber].active=false;
+        delete Attributes[_key].endorsements[_endorseNumber];
         Attributes[_key].endorsementcount=Attributes[_key].endorsementcount.sub(1);
-        
     }
+
     
-    function addQualification(string memory _qERC721Name,bytes32 _org,bytes memory _encryptKey,uint256 _tokenid) public{
-        bytes32 hashqname = _computeNamehash(keccak256(bytes(_qERC721Name)),_org);
-        require(_orgRoleCheck(_org,msg.sender,ISSUE),"WL14");
-        require(qualificationExists[hashqname]==false,"WL15");
-        require(_hasqERC721Token(_org,hashqname,_tokenid,address(this)),"WL16");
-        qualificationcount= qualificationcount.add(1);
-        qualificationExists[hashqname]=true;
-        lastestQualifications[hashqname]=_qERC721Name;
+    function addQualification(string memory _qERC721Name,string memory _org,bytes memory _encryptKey,uint256 _tokenid) public{
+        bytes32 hashorg=keccak256(bytes(_org));
+        bytes32 hashqname = _computeNamehash(keccak256(bytes(_qERC721Name)),hashorg);
+        require(_orgRoleCheck(hashorg,msg.sender,ISSUE),"WL14");
+        require(qualificationList.contains(hashqname),"WL15");
+        require(_hasqERC721Token(hashorg,hashqname,_tokenid,address(this)),"WL16");
+        qualificationList.add(hashqname);
+        qualificationNames[hashqname].prefix=_qERC721Name;
+        qualificationNames[hashqname].postfix=_org;
         keystore[hashqname]=_encryptKey;
     }
     
-    function revokeQualification(string memory _qERC721Name,bytes32 _org,uint256 _tokenid,address _receiver) public{
-        bytes32 hashqname = _computeNamehash(keccak256(bytes(_qERC721Name)),_org);
-        require(_orgRoleCheck(_org,msg.sender,ISSUE),"WL17");
-        require(qualificationExists[hashqname]==true,"WL18");
-        require(_hasqERC721Token(_org,hashqname,_tokenid,address(this)),"WL19");
-        qualificationcount= qualificationcount.sub(1);
-        _withdrawERC721Token(_org,hashqname,_tokenid,_receiver);
-        qualificationExists[hashqname]=false;
-        delete lastestQualifications[hashqname];
+    function revokeQualification(string memory _qERC721Name,string memory _org,uint256 _tokenid,address _receiver) public{
+        bytes32 hashorg=keccak256(bytes(_org));
+        bytes32 hashqname = _computeNamehash(keccak256(bytes(_qERC721Name)),hashorg);
+        require(_orgRoleCheck(hashorg,msg.sender,ISSUE),"WL17");
+        require(qualificationList.contains(hashqname),"WL18");
+        require(_hasqERC721Token(hashorg,hashqname,_tokenid,address(this)),"WL19");
+        _withdrawERC721Token(hashorg,hashqname,_tokenid,_receiver);
+        qualificationList.remove(hashqname);
+        delete qualificationNames[hashqname];
         delete keystore[hashqname];
     }
     
-    function updateQualification(string memory _qERC721Name,bytes32 _org,bytes memory _encryptKey,uint256 _tokenid) public{
-        bytes32 hashqname = _computeNamehash(keccak256(bytes(_qERC721Name)),_org);
-        require(_orgRoleCheck(_org,msg.sender,ISSUE),"WL19");
-        require(qualificationExists[hashqname]==true,"WL20");
-        require(_hasqERC721Token(_org,hashqname,_tokenid,address(this)),"WL21");
+    function updateQualification(string memory _qERC721Name,string memory _org,bytes memory _encryptKey,uint256 _tokenid) public{
+        bytes32 hashorg=keccak256(bytes(_org));
+        bytes32 hashqname = _computeNamehash(keccak256(bytes(_qERC721Name)),hashorg);
+        require(_orgRoleCheck(hashorg,msg.sender,ISSUE),"WL19");
+        require(qualificationList.contains(hashqname),"WL20");
+        require(_hasqERC721Token(hashorg,hashqname,_tokenid,address(this)),"WL21");
         keystore[hashqname]=_encryptKey;
+    }
+    
+    function getAttribute(bytes32 _key,string memory _org) public
+    returns(bytes memory,string memory)
+    {
+        require(_orgRoleCheck(keccak256(bytes(_org)),msg.sender,VIEW)||msg.sender==owner(),"WL25");
+        require(attributeList.contains(_key),"WL26");
+        return (Attributes[_key].value,Attributes[_key].datatype);
+    }
+    
+    function listofAttribute(string memory _org) public
+    returns(string[] memory)
+    {
+        require(_orgRoleCheck(keccak256(bytes(_org)),msg.sender,VIEW)||msg.sender==owner(),"WL25");
+        string[] memory list;
+        uint256 count = attributeList.length();
+        for(uint256 i=0;i<count;i++){
+            list[i]=Attributes[attributeList.at(i)].name;
+        }
+        return list;
+    }
+    
+    function getEndorsement(bytes32 _key,string memory _org) public
+    returns(Endorse[] memory)
+    {
+        require(_orgRoleCheck(keccak256(bytes(_org)),msg.sender,VIEW)||msg.sender==owner(),"WL25");
+        Endorse[] memory list;
+        uint256 count = Attributes[_key].endorsementcount;
+        for(uint256 i=0;i<count;i++){
+            list[i]=Attributes[_key].endorsements[i];
+        }
+        return list;
+    }
+    
+    function getQualifications(string memory _org) public 
+    returns(qualificationname[] memory)
+    {
+        require(_orgRoleCheck(keccak256(bytes(_org)),msg.sender,VIEW)||msg.sender==owner(),"WL25");
+        qualificationname [] memory list;
+        uint256 count = qualificationList.length();
+        for(uint256 i=0;i<count;i++){
+            list[i]=qualificationNames[qualificationList.at(i)];
+        }
+        return list;
+    }
+    
+    function getQualificationKey(bytes32 _key,string memory _org) public
+    returns(bytes memory)
+    {
+        require(_orgRoleCheck(keccak256(bytes(_org)),msg.sender,VIEW)||msg.sender==owner(),"WL25");
+        require(qualificationList.contains(_key));
+        return keystore[_key];
     }
     
     function _orgRoleCheck(bytes32 _org,address _caller,bytes32 _role) internal 
@@ -115,7 +193,7 @@ contract WorkerProfileLogic is WorkerProfileDS,OrgRoles {
         require(res.addr(orgAccessENS)!=address(0) && res.supportsInterface(ADDR_INTERFACE_ID),"WL09");
         address orgAccessAdr = res.addr(orgAccessENS);
         access = PermissionControl(orgAccessAdr);
-        return _isAdmin(_caller);
+        return access.hasRole(_role,_caller);
         
     }
     

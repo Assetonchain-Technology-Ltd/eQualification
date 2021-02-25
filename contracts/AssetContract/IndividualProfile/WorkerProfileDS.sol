@@ -4,13 +4,14 @@ pragma solidity ^0.7.0;
 import "../../Utils/access.sol";
 import "./AttributeList.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/Address.sol";
 import "@openzeppelin/contracts/math/SafeMath.sol";
+import "@openzeppelin/contracts/utils/EnumerableSet.sol";
 
 contract WorkerProfileDS is Ownable,Access {
     
 
     using SafeMath for uint256;
+    using EnumerableSet for EnumerableSet.Bytes32Set;
     
     struct Endorse {
         bytes signature;
@@ -21,11 +22,17 @@ contract WorkerProfileDS is Ownable,Access {
     }
     
     struct Attribute {
+        string name;
         bytes value;
         uint256 createDate;
         string datatype;
         mapping(uint256 => Endorse) endorsements;
         uint256 endorsementcount;
+    }
+    
+    struct qualificationname{
+        string prefix;
+        string postfix;
     }
     
     //System Para
@@ -34,11 +41,10 @@ contract WorkerProfileDS is Ownable,Access {
     address publicENSRegistar;
     
     //Profile Para
+    EnumerableSet.Bytes32Set attributeList;
     mapping (bytes32=> Attribute) Attributes;
-    uint256 attributecount;
-    mapping (bytes32=>bool) qualificationExists;
-    mapping (bytes32=>string) lastestQualifications;
-    uint256 qualificationcount;
+    EnumerableSet.Bytes32Set qualificationList;
+    mapping (bytes32=>qualificationname) qualificationNames;
     mapping (bytes32=>bytes) keystore;
     string status;
     
