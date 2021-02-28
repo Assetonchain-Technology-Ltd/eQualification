@@ -4,6 +4,7 @@ import "./WorkerProfileDS.sol";
 import "../../Utils/access.sol";
 import "../../Utils/ENS.sol";
 import "../../Utils/Resolver.sol";
+import "../../Utils/Library.sol";
 
 
 contract WorkerProfileProxy is WorkerProfileDS {
@@ -11,24 +12,23 @@ contract WorkerProfileProxy is WorkerProfileDS {
     using SafeMath for uint256;
     
     bytes4 constant private ADDR_INTERFACE_ID = 0x3b3b57de;
-    bytes32 constant private root = 0x0000000000000000000000000000000000000000000000000000000000000000;
     ENS ens;
     
-    constructor(bytes32  _imp,bytes32 _attributelist, address _ensaddress)  {
+    constructor(string memory  _imp,string memory _attributelist, address _ensaddress)  {
         
-        require(_imp!=0x0 && _ensaddress !=address(0) &&  _attributelist !=0x0,"WP01");
+        require(keccak256(bytes(_imp))!=keccak256("") && _ensaddress !=address(0) &&  keccak256(bytes(_attributelist)) !=keccak256(""),"WP01");
         publicENSRegistar = _ensaddress;
         ens = ENS(publicENSRegistar);
         
-        Resolver res = Resolver(ens.resolver(_imp));
-        require(res.addr(_imp)!=address(0) && res.supportsInterface(ADDR_INTERFACE_ID),"WP02");
+        bytes32 hashname = Utility._computeNamehash(_imp);
+        Resolver res = Resolver(ens.resolver(hashname));
+        require(res.addr(hashname)!=address(0) && res.supportsInterface(ADDR_INTERFACE_ID),"WP02");
+        profileLogicENSName = hashname;
+        hashname = Utility._computeNamehash(_attributelist);
+        res = Resolver(ens.resolver(hashname));
+        require(res.addr(hashname)!=address(0) && res.supportsInterface(ADDR_INTERFACE_ID),"WP03");
+        attributeListENS = hashname;
         
-        res = Resolver(ens.resolver(_attributelist));
-        require(res.addr(_attributelist)!=address(0) && res.supportsInterface(ADDR_INTERFACE_ID),"WP03");
-        
-        
-        attributeListENS = _attributelist;
-        profileLogicENSName = _imp;
      
         status="NEW";
     }
@@ -46,6 +46,11 @@ contract WorkerProfileProxy is WorkerProfileDS {
         ens = ENS(publicENSRegistar);
     }
     
+    function supportsInterface(bytes4 interfaceId) public view returns (bool) {
+        return interfaceId == Utility.INTERFACE_ID_WORKERPROFILE;
+    }
+    
+    function workerProfileProxy() public view {}
     
     fallback() external payable  {
         
@@ -64,7 +69,7 @@ contract WorkerProfileProxy is WorkerProfileDS {
     
     
     function _updatePublicAccess() internal {
-        bytes32 accessENS = _computeNamehash(ens.getPredefineENSPrefix("access"),root);
+        bytes32 accessENS = Utility._computeNamehash(ens.getPredefineENSPrefix("access"));
         Resolver res = Resolver(ens.resolver(accessENS));
         address accessadr = res.addr(accessENS);
         require(accessadr!=address(0) && res.supportsInterface(ADDR_INTERFACE_ID),"WP10");
@@ -72,14 +77,14 @@ contract WorkerProfileProxy is WorkerProfileDS {
         
     }
     
-    
-    function _computeNamehash(bytes32 _prefix,bytes32 _postfix) internal pure 
-    returns (bytes32) 
+    function _checkInterfaceID(address _a,bytes4 _interfaceID) internal 
+    returns(bool)
     {
-      
-      bytes32 namehash = keccak256(abi.encodePacked(_postfix, _prefix));
-      return namehash;
-      
+        bytes memory payload = abi.encodeWithSignature("supportsInterface(bytes4)",_interfaceID);
+        (bool success, bytes memory result) = _a.call(payload);
+        require(success,"QT");
+        return abi.decode(result, (bool));
     }
+    
 
 }

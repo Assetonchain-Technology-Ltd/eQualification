@@ -1,4 +1,4 @@
-pragma solidity ^0.7.0;
+pragma solidity >=0.7.0;
 
 import "./ENS.sol";
 
@@ -15,7 +15,7 @@ contract ENSRegistry is ENS {
 
     mapping (bytes32 => Record) records;
     mapping (address => mapping(address => bool)) operators;
-    mapping (string => bytes32) predefineENS;
+    mapping (string => string) predefineENS;
 
     // Permits modifications only by the owner of the specified node.
     modifier authorised(bytes32 node) {
@@ -113,11 +113,11 @@ contract ENSRegistry is ENS {
     
     function setPredefineENSPrefix(string memory _key) public virtual override {
         require(records[0x0].owner==msg.sender,"ENS01");
-        predefineENS[_key]=keccak256(bytes(_key));
+        predefineENS[_key]=_key;
     }
     
     function getPredefineENSPrefix(string memory _key) public virtual override view
-    returns(bytes32)
+    returns(string memory)
     {
         return predefineENS[_key];
     }

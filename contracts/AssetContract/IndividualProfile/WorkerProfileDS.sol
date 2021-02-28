@@ -36,8 +36,8 @@ contract WorkerProfileDS is Ownable,Access {
     }
     
     //System Para
-    bytes32 attributeListENS;
-    bytes32 profileLogicENSName;
+    string attributeListENS;
+    string profileLogicENSName;
     address publicENSRegistar;
     
     //Profile Para

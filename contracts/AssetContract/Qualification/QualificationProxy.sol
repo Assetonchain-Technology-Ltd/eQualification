@@ -1,9 +1,10 @@
-pragma solidity ^0.7.0;
+pragma solidity >=0.7.0;
 
 import "./QualificationDS.sol";
 import "../../Utils/access.sol";
 import "../../Utils/ENS.sol";
 import "../../Utils/Resolver.sol";
+import "../../Utils/Library.sol";
 
 
 contract QualificationProxy is QualificationDS {
@@ -11,25 +12,24 @@ contract QualificationProxy is QualificationDS {
     using SafeMath for uint256;
     
     bytes4 constant private ADDR_INTERFACE_ID = 0x3b3b57de;
-    bytes32 private root;
     ENS ens;
     
-    constructor(bytes32  _imp,bytes32 _attributelist, address _ensaddress, string memory _ensOrgRoot ,address _qualificationOwner)  {
+    constructor(string memory _imp,string memory _attributelist, address _ensaddress ,address _qualificationOwner)  {
         
-        require(_imp!=0x0 && _ensaddress !=address(0) &&  _attributelist !=0x0,"QP01");
+        require(keccak256(bytes(_imp))!=keccak256("") && _ensaddress !=address(0) &&  keccak256(bytes(_attributelist))!= keccak256(""),"QP01");
         orgENSRegistar = _ensaddress;
         ens = ENS(orgENSRegistar);
         
-        Resolver res = Resolver(ens.resolver(_imp));
-        require(res.addr(_imp)!=address(0) && res.supportsInterface(ADDR_INTERFACE_ID),"QP02");
+        bytes32 namehash=Utility._computeNamehash(_imp);
+        Resolver res = Resolver(ens.resolver(namehash));
+        require(res.addr(namehash)!=address(0) && res.supportsInterface(ADDR_INTERFACE_ID),"QP02");
+        qualificationLogicENSName = namehash;
         
-        res = Resolver(ens.resolver(_attributelist));
-        require(res.addr(_attributelist)!=address(0) && res.supportsInterface(ADDR_INTERFACE_ID),"QP03");
+        namehash=Utility._computeNamehash(_attributelist);
+        res = Resolver(ens.resolver(namehash));
+        require(res.addr(namehash)!=address(0) && res.supportsInterface(ADDR_INTERFACE_ID),"QP03");
+        attributeListENS = namehash;
         
-        
-        attributeListENS = _attributelist;
-        qualificationLogicENSName = _imp;
-        root = keccak256(bytes(_ensOrgRoot));
         qualificationOwner = _qualificationOwner;     
         status="NEW";
     }
@@ -64,8 +64,9 @@ contract QualificationProxy is QualificationDS {
     }
     
     
+    
     function _updateAccess() internal {
-        bytes32 accessENS = _computeNamehash(ens.getPredefineENSPrefix("access"),root);
+        bytes32 accessENS = Utility._computeNamehash(ens.getPredefineENSPrefix("access"));
         Resolver res = Resolver(ens.resolver(accessENS));
         address accessadr = res.addr(accessENS);
         require(accessadr!=address(0) && res.supportsInterface(ADDR_INTERFACE_ID),"QP10");
@@ -73,13 +74,5 @@ contract QualificationProxy is QualificationDS {
         
     }
     
-    function _computeNamehash(bytes32 _prefix,bytes32 _postfix) internal pure 
-    returns (bytes32) 
-    {
-      
-      bytes32 namehash = keccak256(abi.encodePacked(_postfix, _prefix));
-      return namehash;
-      
-    }
 
 }
