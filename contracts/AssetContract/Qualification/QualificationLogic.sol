@@ -1,4 +1,5 @@
 pragma solidity ^0.7.0;
+// SPDX-License-Identifier: GPL-3.0-or-later
 pragma abicoder v2;
 import "./QualificationDS.sol";
 import "../../Utils/ENS.sol";
@@ -21,7 +22,8 @@ contract QualificationLogic is QualificationDS,Roles {
     ENS ens;
     
     constructor(address _ensAddress) {
-        require( _ensAddress !=address(0),"QL01");
+        require(_orgAccessCheck(msg.sender,ADMIN),"QL01");
+        require(Utility._checkInterfaceID(_ensAddress,Utility.INTERFACE_ID_ENSREGISTRY),"QL02");
         orgRegistarAddress = _ensAddress;
         ens = ENS(orgRegistarAddress);
     }
@@ -31,13 +33,13 @@ contract QualificationLogic is QualificationDS,Roles {
     function addAttribute(string memory _name, bytes calldata _value, uint256 _datetime, string calldata _datatype) public 
     returns (bytes32)
     {
+        require(_orgAccessCheck(msg.sender,TOKEN)||_orgAccessCheck(msg.sender,OPERATOR)||_orgAccessCheck(msg.sender,ADMIN) ,"QL03");
         bytes32 _key = keccak256(bytes(_name));
-        require(_orgAccessCheck(msg.sender,TOKEN)||_orgAccessCheck(msg.sender,OPERATOR)||_orgAccessCheck(msg.sender,ADMIN) ,"QL09");
-        Resolver res = Resolver(ens.resolver(attributeListENS));
-        require(res.addr(attributeListENS)!=address(0) && res.supportsInterface(Utility.ADDR_INTERFACE_ID),"QL02");
-        QualificationAttributeList ab = QualificationAttributeList(res.addr(attributeListENS));
+        bytes32 namehash = Utility._computeNamehash(attributeListENS);
+        Resolver res = Resolver(ens.resolver(namehash));
+        QualificationAttributeList ab = QualificationAttributeList(res.addr(namehash));
         require(attributeList.contains(_key),"QL04");
-        require(ab.exists(_key)==false,"QL03");
+        require(ab.exists(_key)==false,"QL05");
         attributeList.add(_key);
         Attributes[_key].name=_name;
         Attributes[_key].value=_value;
@@ -50,16 +52,16 @@ contract QualificationLogic is QualificationDS,Roles {
     
     function removeAttribute(bytes32 _key,uint256 _datetime) public  {
         
-        require(_orgAccessCheck(msg.sender,TOKEN)||_orgAccessCheck(msg.sender,OPERATOR)||_orgAccessCheck(msg.sender,ADMIN) ,"QL05");
-        require(attributeList.contains(_key),"QL06");
+        require(_orgAccessCheck(msg.sender,TOKEN)||_orgAccessCheck(msg.sender,OPERATOR)||_orgAccessCheck(msg.sender,ADMIN) ,"QL06");
+        require(attributeList.contains(_key),"QL07");
         delete Attributes[_key];
         attributeList.remove(_key);
     }
     
     function endorseAttribute(bytes32 _key,uint256 _datetime,uint256 _expiryDate,bytes calldata _signature) public {
         
-        require(_orgAccessCheck(msg.sender,ENDORSE),"QL09");
-        require(_verifyAttributeSignature(msg.sender,_key,_signature),"QL10");
+        require(_orgAccessCheck(msg.sender,ENDORSE),"QL08");
+        require(_verifyAttributeSignature(msg.sender,_key,_signature),"QL09");
         uint256 ecount = Attributes[_key].endorsementcount;
         Attributes[_key].endorsementcount=Attributes[_key].endorsementcount.add(1);
         Attributes[_key].endorsements[ecount].signature = _signature;
@@ -71,9 +73,9 @@ contract QualificationLogic is QualificationDS,Roles {
     
     function removeEndorsement(bytes32 _key,uint256 _endorseNumber) public {
        
-        require(_orgAccessCheck(msg.sender,ENDORSE),"QL11");
-        require(attributeList.contains(_key),"QL12");
-        require(Attributes[_key].endorsements[_endorseNumber].endorser==msg.sender,"QL13");
+        require(_orgAccessCheck(msg.sender,ENDORSE),"QL10");
+        require(attributeList.contains(_key),"QL11");
+        require(Attributes[_key].endorsements[_endorseNumber].endorser==msg.sender,"QL12");
         Attributes[_key].endorsements[_endorseNumber].active=false;
         Attributes[_key].endorsementcount=Attributes[_key].endorsementcount.sub(1);
         
@@ -82,7 +84,7 @@ contract QualificationLogic is QualificationDS,Roles {
     function addKeyStore(bytes memory _dercert,uint256 _datetime) public{
         
         require(_orgAccessCheck(msg.sender,TOKEN)||_orgAccessCheck(msg.sender,OPERATOR)
-                ||_orgAccessCheck(msg.sender,ADMIN)||msg.sender==qualificationOwner ,"QL14");
+                ||_orgAccessCheck(msg.sender,ADMIN)||msg.sender==qualificationOwner ,"QL13");
         key.cert=_dercert;
         key.createDate=_datetime;
     }
@@ -90,7 +92,7 @@ contract QualificationLogic is QualificationDS,Roles {
     function delKeyStore() public{
         
         require(_orgAccessCheck(msg.sender,TOKEN)||_orgAccessCheck(msg.sender,OPERATOR)
-                ||_orgAccessCheck(msg.sender,ADMIN)||msg.sender==qualificationOwner ,"QL15");
+                ||_orgAccessCheck(msg.sender,ADMIN)||msg.sender==qualificationOwner ,"QL14");
         delete key;
     }
     
@@ -109,7 +111,7 @@ contract QualificationLogic is QualificationDS,Roles {
     {
        
         require(_orgAccessCheck(msg.sender,TOKEN)||_orgAccessCheck(msg.sender,OPERATOR)
-                ||_orgAccessCheck(msg.sender,ADMIN)||msg.sender==qualificationOwner ,"QL17");
+                ||_orgAccessCheck(msg.sender,ADMIN)||msg.sender==qualificationOwner ,"QL18");
        string[] memory list;
         uint256 count = attributeList.length();
         for(uint256 i=0;i<count;i++){
@@ -123,9 +125,23 @@ contract QualificationLogic is QualificationDS,Roles {
     {
         
         require(_orgAccessCheck(msg.sender,TOKEN)||_orgAccessCheck(msg.sender,OPERATOR)
-                ||_orgAccessCheck(msg.sender,ADMIN)||msg.sender==qualificationOwner ,"QL14");
+                ||_orgAccessCheck(msg.sender,ADMIN)||msg.sender==qualificationOwner ,"QL19");
         return (key.cert,key.createDate);
     }
+    
+    function updateENSAddress(address _ens) public {
+        require(_orgAccessCheck(msg.sender,ADMIN),"QL20");
+        require(Utility._checkInterfaceID(_ens,Utility.INTERFACE_ID_ENSREGISTRY),"QL21");
+        orgRegistarAddress = _ens;
+        ens = ENS(orgRegistarAddress);
+    }
+    
+        
+    function supportsInterface(bytes4 interfaceId) public view returns (bool) {
+        return interfaceId == Utility.INTERFACE_ID_QUALIFICATIONLOGIC;
+    }
+
+    function qualificationLogic() public{}
     
     function _orgAccessCheck(address _caller,bytes32 _role) internal 
     returns(bool)

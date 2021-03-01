@@ -1,6 +1,6 @@
 pragma solidity >=0.7.0;
 import "./strings.sol";
-
+// SPDX-License-Identifier: GPL-3.0-or-later
 library Utility {
     
     bytes4 constant  ADDR_INTERFACE_ID = 0x3b3b57de;
@@ -8,9 +8,12 @@ library Utility {
     bytes4 constant INTERFACE_ID_ERC721 = 0x80ac58cd;
     bytes4 constant INTERFACE_ID_WORKERPROFILE = 0xdfd270ac;
     bytes4 constant INTERFACE_ID_WORKERLOGIC = 0xae9fcec8;
-    bytes4 constant INTERFACE_ID_QUALIFICATIONPROXY = 0xae9fcec8;
-    bytes4 constant INTERFACE_ID_QUALIFICATIONLOGIC = 0xae9fcec8;
+    bytes4 constant INTERFACE_ID_QUALIFICATIONPROXY = 0x43478428;
+    bytes4 constant INTERFACE_ID_QUALIFICATIONLOGIC = 0xd59742f2;
     bytes4 constant INTERFACE_ID_QUALIFICATIONFACTORY = 0x468a0d57;
+    bytes4 constant INTERFACE_ID_ATTRIBUTELIST = 0x3fe29da2;
+    bytes4 constant INTERFACE_ID_ENSREGISTRY = 0x7d73b231;
+    bytes4 constant INTERFACE_ID_QUALIFICATIONATTLIST = 0xa4d1215e;
     
     using strings for *;
     
@@ -69,6 +72,15 @@ library Utility {
              parts[i] = s.split(delim).toString();
         }
         return parts;
+    }
+    
+    function _checkInterfaceID(address _a,bytes4 _interfaceID) internal 
+    returns(bool)
+    {
+        bytes memory payload = abi.encodeWithSignature("supportsInterface(bytes4)",_interfaceID);
+        (bool success, bytes memory result) = _a.call(payload);
+        require(success,"QT");
+        return abi.decode(result, (bool));
     }
 
     function _recoverSigner(bytes32 _ethSignedMessageHash, bytes memory _signature) internal  pure

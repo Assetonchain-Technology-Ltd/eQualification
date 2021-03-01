@@ -1,5 +1,5 @@
 pragma solidity >=0.7.0;
-
+// SPDX-License-Identifier: GPL-3.0-or-later
 import "./ENS.sol";
 
 /**
@@ -186,5 +186,11 @@ contract ENSRegistry is ENS {
             records[node].ttl = ttl;
             emit NewTTL(node, ttl);
         }
+    }
+    
+    function ensRegistry() public {}
+    
+    function supportsInterface(bytes4 interfaceId) public view returns (bool) {
+        return interfaceId == 0x7d73b231;
     }
 }

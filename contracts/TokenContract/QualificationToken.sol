@@ -1,4 +1,5 @@
 pragma solidity >=0.7.0;
+// SPDX-License-Identifier: GPL-3.0-or-later
 pragma abicoder v2;
 import "../Utils/ENS.sol";
 import "../Utils/Resolver.sol";
@@ -11,7 +12,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721Burnable.sol";
 
 contract QualificationToken is ERC721Pausable,ERC721Burnable,Roles {
     
-    address private orgRoot;
+    address orgRoot;
     PermissionControl access;
     string[] ensnode;
     string qFactory;
@@ -20,16 +21,16 @@ contract QualificationToken is ERC721Pausable,ERC721Burnable,Roles {
     
     constructor(string memory _name,string memory _syb,string memory _qFactory ,address _orgENSRoot) ERC721(_name,_syb)
     {
+        require(Utility._checkInterfaceID(_orgENSRoot,Utility.INTERFACE_ID_ENSREGISTRY),"QT01");
         ens = ENS(_orgENSRoot);
-        require(_orgAccessCheck(msg.sender,ISSUE),"QT01");
+        require(_orgAccessCheck(msg.sender,ISSUE) || _orgAccessCheck(msg.sender,ADMIN),"QT02");
         bytes32 hashname = Utility._computeNamehash(_name);
-        require(ens.recordExists(hashname)==false,"QT02");
+        require(ens.recordExists(hashname),"QT03");
         
         hashname = Utility._computeNamehash(_qFactory);
-        require(ens.recordExists(hashname),"QT03");
         Resolver res = Resolver(ens.resolver(hashname));
         address a = res.addr(hashname);
-        require(_checkInterfaceID(a,Utility.INTERFACE_ID_QUALIFICATIONFACTORY),"QT04");
+        require(Utility._checkInterfaceID(a,Utility.INTERFACE_ID_QUALIFICATIONFACTORY),"QT04");
         
     
         hashname = Utility._computeParentNamehash(_name);
@@ -37,7 +38,7 @@ contract QualificationToken is ERC721Pausable,ERC721Burnable,Roles {
         a = res.addr(hashname);
         require(parent!=address(0) && (res.supportsInterface(Utility.ADDR_INTERFACE_ID) || res.supportsInterface(Utility.ORG_INTERFACE_ID)),"QT04" );
         
-        if(_checkInterfaceID(a,Utility.INTERFACE_ID_ERC721))
+        if(Utility._checkInterfaceID(a,Utility.INTERFACE_ID_ERC721))
             parent=a;
         _pause();
         ensnode=Utility.split(_name);
@@ -48,9 +49,9 @@ contract QualificationToken is ERC721Pausable,ERC721Burnable,Roles {
     function grantQualification(address _individual,address payable _to, bytes memory _cert) public {
         require(_orgAccessCheck(msg.sender,ISSUE),"QT05");
         if(parent!=address(0)){
-            require(_checkInterfaceID(_to,Utility.INTERFACE_ID_QUALIFICATIONPROXY),"QT06");
+            require(Utility._checkInterfaceID(_to,Utility.INTERFACE_ID_QUALIFICATIONPROXY),"QT06");
         }else{
-            require(_checkInterfaceID(_to,Utility.INTERFACE_ID_WORKERPROFILE),"QT07");
+            require(Utility._checkInterfaceID(_to,Utility.INTERFACE_ID_WORKERPROFILE),"QT07");
         }
         bytes32 hashname = Utility._computeNamehash(qFactory);
         Resolver res = Resolver(ens.resolver(hashname));
@@ -83,19 +84,7 @@ contract QualificationToken is ERC721Pausable,ERC721Burnable,Roles {
     }
     
     
-    function _beforeTokenTransfer(address from, address to, uint256 tokenId) internal virtual override (ERC721,ERC721Pausable) {
-        super._beforeTokenTransfer(from, to, tokenId);
-
-    }
+    function _beforeTokenTransfer(address from, address to, uint256 tokenId) internal virtual override (ERC721,ERC721Pausable) {}
     
-    function _checkInterfaceID(address _a,bytes4 _interfaceID) internal 
-    returns(bool)
-    {
-        bytes memory payload = abi.encodeWithSignature("supportsInterface(bytes4)",_interfaceID);
-        (bool success, bytes memory result) = _a.call(payload);
-        require(success,"QT");
-        return abi.decode(result, (bool));
-    }
-
     
 }

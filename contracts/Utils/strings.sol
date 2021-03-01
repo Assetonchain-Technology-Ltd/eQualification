@@ -35,7 +35,7 @@
  */
 
 pragma solidity >=0.4.14;
-
+// SPDX-License-Identifier: GPL-3.0-or-later
 library strings {
     struct slice {
         uint _len;

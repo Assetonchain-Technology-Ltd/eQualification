@@ -1,4 +1,5 @@
 pragma solidity >=0.6.0;
+// SPDX-License-Identifier: GPL-3.0-or-later
 import "@openzeppelin/contracts/access/AccessControl.sol";
 contract PermissionControl is AccessControl {
     

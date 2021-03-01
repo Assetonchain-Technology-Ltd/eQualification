@@ -1,4 +1,5 @@
-pragma solidity >=0.6.0;
+pragma solidity >=0.7.0;
+// SPDX-License-Identifier: GPL-3.0-or-later
 pragma abicoder v2;
 
 import "./WorkerProfileDS.sol";
@@ -20,7 +21,7 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
     ENS ens;
     
     constructor(address _ensAddress) {
-        require( _ensAddress !=address(0),"WL01");
+        require(Utility._checkInterfaceID(_ensAddress,Utility.INTERFACE_ID_ENSREGISTRY),"WL01");
         publicENSRegistarAddress = _ensAddress;
         ens = ENS(publicENSRegistarAddress);
     }
@@ -31,10 +32,10 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
     returns (bytes32)
     {
         bytes32 _key = keccak256(bytes(_name));
-        Resolver res = Resolver(ens.resolver(attributeListENS));
-        require(res.addr(attributeListENS)!=address(0) && res.supportsInterface(Utility.ADDR_INTERFACE_ID),"WL02");
-        AttributeList ab = AttributeList(res.addr(attributeListENS));
-        require(ab.exists(_key),"WL03");
+        bytes32 namehash = Utility._computeNamehash(attributeListENS);
+        Resolver res = Resolver(ens.resolver(namehash));
+        AttributeList ab = AttributeList(res.addr(namehash));
+        require(ab.exists(_key)==false,"WL03");
         attributeList.add(_key);
         require(Attributes[_key].createDate==0,"WL04");
         Attributes[_key].name=_name;
@@ -48,9 +49,9 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
     function upateAttribute(bytes32 _key, bytes calldata _value, uint256 _datetime, string calldata _datatype) public onlyOwner 
     returns (bytes32)
     {
-        Resolver res = Resolver(ens.resolver(attributeListENS));
-        require(res.addr(attributeListENS)!=address(0) && res.supportsInterface(Utility.ADDR_INTERFACE_ID),"WL22");
-        AttributeList ab = AttributeList(res.addr(attributeListENS));
+        bytes32 namehash = Utility._computeNamehash(attributeListENS);
+        Resolver res = Resolver(ens.resolver(namehash));
+        AttributeList ab = AttributeList(res.addr(namehash));
         require(ab.exists(_key),"WL23");
         require(Attributes[_key].createDate>0,"WL24");
         uint256 ecount = Attributes[_key].endorsementcount;
@@ -181,13 +182,21 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
         return interfaceId == Utility.INTERFACE_ID_WORKERPROFILE;
     }
     
+    function updateENSAddress(address _ens) public {
+        require(_pubAccessCheck(msg.sender,ADMIN),"WL27");
+        require(Utility._checkInterfaceID(_ens,Utility.INTERFACE_ID_ENSREGISTRY),"WP28");
+        publicENSRegistarAddress = _ens;
+        ens = ENS(publicENSRegistarAddress);
+    }
+    
     function _orgRoleCheck(bytes32 _org,address _caller,bytes32 _role) internal 
     returns(bool)
     {
         Resolver res = Resolver(ens.resolver(_org));
         require(res.addr(_org)!=address(0) && res.supportsInterface(Utility.ORG_INTERFACE_ID),"WL07");
         address orgENSAddress =  res.addr(_org);
-        require(res.hasRole(_org,_role),"WL08");
+        if(_role==ISSUE || _role==ENDORSE)
+            require(res.hasRole(_org,_role),"WL08");
         ENS orgENS = ENS(orgENSAddress);
         bytes32 orgAccessENS = Utility._computeNamehash(orgENS.getPredefineENSPrefix("access"));
         res = Resolver(orgENS.resolver(orgAccessENS));
@@ -197,6 +206,20 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
         return access.hasRole(_role,_caller);
         
     }
+    
+    function _pubAccessCheck(address _caller,bytes32 _role) internal 
+    returns(bool)
+    {
+        bytes32 orgAccessENS = Utility._computeNamehash(ens.getPredefineENSPrefix("access"));
+        Resolver res = Resolver(ens.resolver(orgAccessENS));
+        require(res.addr(orgAccessENS)!=address(0) && res.supportsInterface(Utility.ADDR_INTERFACE_ID),"QL07");
+        address orgAccessAdr = res.addr(orgAccessENS);
+        access = PermissionControl(orgAccessAdr);
+        return access.hasRole(_role,_caller);
+        
+    }
+    
+    
     
     function _hasqERC721Token(bytes32 _org,bytes32 _qERC721Name, uint256 _tokenid,address _owner) internal view
     returns(bool)

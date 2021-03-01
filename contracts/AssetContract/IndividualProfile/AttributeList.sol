@@ -1,4 +1,5 @@
-pragma solidity ^0.7.0;
+pragma solidity >=0.7.0;
+// SPDX-License-Identifier: GPL-3.0-or-later
 pragma abicoder v2;
 import "@openzeppelin/contracts/utils/EnumerableSet.sol";
 
@@ -33,6 +34,13 @@ contract AttributeList {
         
     }
     
+    function addAttribute(string memory _attr) public{
+        bytes32 _key = keccak256(bytes(_attr));
+        require(attributeList.contains(_key)==false,"A01");
+        attributeList.add(_key);
+        attributename[_key]=_attr;
+    }
+    
     
     function exists(bytes32 _key) public view 
     returns(bool)
@@ -49,5 +57,7 @@ contract AttributeList {
         }
         return list;
     }
+    
+    function attributeListInterface() public{}
     
 }

@@ -1,5 +1,5 @@
 pragma solidity >=0.5.0;
-
+// SPDX-License-Identifier: GPL-3.0-or-later
 import "@ensdomains/resolver/contracts/ResolverBase.sol";
 
 contract OrgResolver is ResolverBase {

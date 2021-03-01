@@ -1,5 +1,5 @@
-pragma solidity ^0.7.0;
-
+pragma solidity >=0.7.0;
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 import "../../Utils/access.sol";
 import "./QualificationAttributeList.sol";
@@ -38,8 +38,8 @@ contract QualificationDS is Access {
     }
     
     //System Para
-    bytes32 attributeListENS;
-    bytes32 qualificationLogicENSName;
+    string attributeListENS;
+    string qualificationLogicENSName;
     address orgENSRegistar;
     
     //Profile Para
