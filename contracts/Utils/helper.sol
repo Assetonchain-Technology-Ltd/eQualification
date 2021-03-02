@@ -1,10 +1,10 @@
 pragma solidity >=0.5.8;
-import "../AssetContract/Qualification/QualificationLogic.sol";
+import "../TokenContract/QualificationToken.sol";
 contract Selector {
   // 0x75b24222
   function calcInterfaceId() external pure returns (bytes4) {
-    QualificationLogic i;
-    return i.qualificationLogic.selector;
+    QualificationToken i;
+    return i.qualificationToken.selector;
     
   }
 }

@@ -83,7 +83,9 @@ contract QualificationFactory is Roles{
     function qualificationFactory() public{}
     
     
-    
+    function supportsInterface(bytes4 interfaceId) public view returns (bool) {
+        return interfaceId == Utility.INTERFACE_ID_QUALIFICATIONFACTORY;
+    }
     
     
 }

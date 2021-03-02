@@ -8,12 +8,15 @@ library Utility {
     bytes4 constant INTERFACE_ID_ERC721 = 0x80ac58cd;
     bytes4 constant INTERFACE_ID_WORKERPROFILE = 0xdfd270ac;
     bytes4 constant INTERFACE_ID_WORKERLOGIC = 0xae9fcec8;
+    bytes4 constant INTERFACE_ID_WORKERFACTORY = 0xbc44a3b5; 
+    bytes4 constant INTERFACE_ID_WORKERTOKEN = 0xa2d262ba;
     bytes4 constant INTERFACE_ID_QUALIFICATIONPROXY = 0x43478428;
     bytes4 constant INTERFACE_ID_QUALIFICATIONLOGIC = 0xd59742f2;
     bytes4 constant INTERFACE_ID_QUALIFICATIONFACTORY = 0x468a0d57;
     bytes4 constant INTERFACE_ID_ATTRIBUTELIST = 0x3fe29da2;
     bytes4 constant INTERFACE_ID_ENSREGISTRY = 0x7d73b231;
     bytes4 constant INTERFACE_ID_QUALIFICATIONATTLIST = 0xa4d1215e;
+    bytes4 constant INTERFACE_ID_QUALIFICATIONTOKEN = 0x71966f25;
     
     using strings for *;
     

@@ -46,7 +46,7 @@ contract QualificationToken is ERC721Pausable,ERC721Burnable,Roles {
         orgRoot=_orgENSRoot;
     }
     
-    function grantQualification(address _individual,address payable _to, bytes memory _cert) public {
+    function grantQualification(address _individual,address payable _to) public {
         require(_orgAccessCheck(msg.sender,ISSUE),"QT05");
         if(parent!=address(0)){
             require(Utility._checkInterfaceID(_to,Utility.INTERFACE_ID_QUALIFICATIONPROXY),"QT06");
@@ -81,6 +81,12 @@ contract QualificationToken is ERC721Pausable,ERC721Burnable,Roles {
         access = PermissionControl(orgAccessAdr);
         return access.hasRole(_role,_caller);
         
+    }
+    
+    function qualificationToken() public{}
+    
+    function supportsInterface(bytes4 interfaceId) public virtual override(ERC165) view returns (bool) {
+        return interfaceId == Utility.INTERFACE_ID_QUALIFICATIONTOKEN;
     }
     
     
