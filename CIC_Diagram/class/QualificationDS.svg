@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="54cm" height="24cm" viewBox="36 50 1078 462" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="794.822" y="232.908" width="318" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="794.822" y="232.908" width="318" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="953.822" y="252.908">QualificationDS</text>
+    <rect style="fill: #ffffff" x="794.822" y="260.908" width="318" height="180"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="794.822" y="260.908" width="318" height="180"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="797.822" y="274.108">-Attribute: struct</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="797.822" y="290.108">-Attributes: mapping(bytes32-&gt;Attribute)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="797.822" y="306.108">-attributeListENS;: string</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="797.822" y="322.108">-qualificationLogicENSName: string</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="797.822" y="338.108">-orgENSRegistar: address</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="797.822" y="354.108">-Endorse: struct</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="797.822" y="370.108">-Keystore: struct</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="797.822" y="386.108">-attributeList: EnumerableSet.Bytes32Set</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="797.822" y="402.108">-key: Keystore</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="797.822" y="418.108">-status: string</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="797.822" y1="424.508" x2="913.322" y2="424.508"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="797.822" y="434.108">-qualificationOwner: address</text>
+    <rect style="fill: #ffffff" x="794.822" y="440.908" width="318" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="794.822" y="440.908" width="318" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="146.301" y="51.4526" width="318" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="146.301" y="51.4526" width="318" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="305.301" y="66.6526">&lt;&lt;Struct&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="305.301" y="87.4526">Attribute</text>
+    <rect style="fill: #ffffff" x="146.301" y="95.4526" width="318" height="100"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="146.301" y="95.4526" width="318" height="100"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="149.301" y="108.653">-name: string</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="149.301" y="124.653">-value: bytes</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="149.301" y="140.653">-createDate: uint256</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="149.301" y="156.653">-datatype: string</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="149.301" y="172.653">-endorsements: mapping(uint256-&gt;Endorse)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="149.301" y="188.653">-endorsementcount: uint256</text>
+    <rect style="fill: #ffffff" x="146.301" y="195.453" width="318" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="146.301" y="195.453" width="318" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="221.744" y="218.056" width="217.9" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="221.744" y="218.056" width="217.9" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="330.694" y="233.256">&lt;&lt;Struct&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="330.694" y="254.056">Endorse</text>
+    <rect style="fill: #ffffff" x="221.744" y="262.056" width="217.9" height="84"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="221.744" y="262.056" width="217.9" height="84"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="224.744" y="275.256">-signature: bytes</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="224.744" y="291.256">-endorseDate: uint256</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="224.744" y="307.256">-endorseExpiryDate: uint256</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="224.744" y="323.256">-endorser: address</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="224.744" y="339.256">-active: bool</text>
+    <rect style="fill: #ffffff" x="221.744" y="346.056" width="217.9" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="221.744" y="346.056" width="217.9" height="8"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="769.65,270.908 779.964,270.908 779.964,105.453 464.302,105.453 "/>
+    <polygon style="fill: #ffffff" points="794.822,270.908 780.822,275.708 766.822,270.908 780.822,266.108 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="794.822,270.908 780.822,275.708 766.822,270.908 780.822,266.108 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="781.964" y="184.18"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="762.822" y="266.908"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.302" y="101.453"></text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="769.65,350.908 503.4,350.908 503.4,286.056 440.322,286.056 "/>
+    <polygon style="fill: #ffffff" points="794.822,350.908 780.822,355.708 766.822,350.908 780.822,346.108 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="794.822,350.908 780.822,355.708 766.822,350.908 780.822,346.108 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="505.4" y="314.482"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="762.822" y="346.908"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="444.322" y="282.056"></text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="146.301,169.453 37,169.453 37,240.056 221.744,240.056 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="39" y="200.754">endorsed by</text>
+    <polygon style="fill: #000000" points="125.7,200.754 125.7,192.754 133.7,196.754 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="142.301" y="165.453"> attribute</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="142.301" y="181.453">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="217.744" y="236.056"> signature(s)</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="217.744" y="252.056">*</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="441.316" y="422.502" width="164" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="441.316" y="422.502" width="164" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="523.316" y="437.702">&lt;&lt;Struct&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="523.316" y="458.502">Keystore</text>
+    <rect style="fill: #ffffff" x="441.316" y="466.502" width="164" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="441.316" y="466.502" width="164" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="444.316" y="479.702">-cert: bytes</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="444.316" y="495.702">-createDate: uint256</text>
+    <rect style="fill: #ffffff" x="441.316" y="502.502" width="164" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="441.316" y="502.502" width="164" height="8"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="769.65,366.908 523.316,366.908 523.316,422.502 "/>
+    <polygon style="fill: #ffffff" points="794.822,366.908 780.822,371.708 766.822,366.908 780.822,362.108 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="794.822,366.908 780.822,371.708 766.822,366.908 780.822,362.108 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="659.069" y="362.908"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="762.822" y="362.908"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="527.316" y="418.502"></text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="793.74,300.92 599.074,300.92 599.074,153.453 464.302,153.453 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="601.074" y="223.186">map</text>
+    <polygon style="fill: #000000" points="597.074,223.186 597.074,215.186 589.074,219.186 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="789.74" y="296.92"> hashValueOfAttributeName</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="789.74" y="312.92">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.302" y="149.453"> Attribute</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="468.302" y="165.453">1</text>
+  </g>
+</svg>

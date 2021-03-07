@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="35cm" height="10cm" viewBox="250 212 682 199" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="251.9" y="213" width="679.9" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="251.9" y="213" width="679.9" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="591.85" y="228.2">&lt;&lt;ERC721Pausable,ERC721Burnable&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="591.85" y="249">QualificaitonToken</text>
+    <rect style="fill: #ffffff" x="251.9" y="257" width="679.9" height="84"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="251.9" y="257" width="679.9" height="84"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="254.9" y="270.2">-orgRoot: address</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="254.9" y="286.2">-access: PermissionControl</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="254.9" y="302.2">-qFactory: string</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="254.9" y="318.2">-ens: ENS</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="254.9" y="334.2">-parent: address = address(0)</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="254.9" y1="340.6" x2="478.2" y2="340.6"/>
+    <rect style="fill: #ffffff" x="251.9" y="341" width="679.9" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="251.9" y="341" width="679.9" height="68"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="254.9" y="354.2">+constructor(in _name:string,in _syb:string,in _qFactory:string,in _orgENSRoot:address)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="254.9" y="370.2">+grantQualification(in _individual:address,in _to:address)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="254.9" y="386.2">+_mint(in to:address,in tokenid:uint256)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="254.9" y="402.2">+_pubAccessCheck(in _caller:address,in _role:bytes32): internal</text>
+  </g>
+</svg>

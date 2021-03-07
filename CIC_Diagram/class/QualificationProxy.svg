@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="42cm" height="17cm" viewBox="151 131 836 327" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="152.9" y="261" width="833.9" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="152.9" y="261" width="833.9" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="569.85" y="281">QualificationProxy</text>
+    <rect style="fill: #ffffff" x="152.9" y="289" width="833.9" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="152.9" y="289" width="833.9" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="155.9" y="302.2">-ADDR_INTERFACE_ID : bytes4 constant</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="155.9" y="318.2">-ens: ENS</text>
+    <rect style="fill: #ffffff" x="152.9" y="325" width="833.9" height="132"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="152.9" y="325" width="833.9" height="132"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="155.9" y="338.2">+fallback(): payable</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="155.9" y="354.2">+constructor(in _imp:string,in _attributelist:string,in _ensaddress:address,in _qualificationOwner:address)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="155.9" y="370.2">+updateImplemetENSname(in _imp:string)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="155.9" y="386.2">+updateENSAddress(in _ens:address)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="155.9" y="402.2">+updateAttributeListENSname(in _attributelist:string)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="155.9" y="418.2">+getSystemPara(out profileLogicENSNam:string,out attributeListENS:string,out publicENSRegistar:address)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="155.9" y="434.2">+_orgAccessCheck(in _caller:address,in _role:bytes32,out result:bool): internal</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="155.9" y="450.2">+supportsInterface(in interfaceId:bytes4,out result:bool): view</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="407" y="133" width="134.75" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="407" y="133" width="134.75" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="474.375" y="153">QualificationDS</text>
+    <rect style="fill: #ffffff" x="407" y="161" width="134.75" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="407" y="161" width="134.75" height="8"/>
+    <rect style="fill: #ffffff" x="407" y="169" width="134.75" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="407" y="169" width="134.75" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="611.9" y="132" width="54.1" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="611.9" y="132" width="54.1" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="638.95" y="152">Roles</text>
+    <rect style="fill: #ffffff" x="611.9" y="160" width="54.1" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="611.9" y="160" width="54.1" height="8"/>
+    <rect style="fill: #ffffff" x="611.9" y="168" width="54.1" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="611.9" y="168" width="54.1" height="8"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="474.375,195.236 474.375,227 569.85,227 569.85,261 "/>
+    <polygon style="fill: #ffffff" points="482.375,195.236 474.375,179.236 466.375,195.236 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="482.375,195.236 474.375,179.236 466.375,195.236 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="638.95,194.236 638.95,226.5 569.85,226.5 569.85,261 "/>
+    <polygon style="fill: #ffffff" points="646.95,194.236 638.95,178.236 630.95,194.236 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="646.95,194.236 638.95,178.236 630.95,194.236 "/>
+  </g>
+</svg>

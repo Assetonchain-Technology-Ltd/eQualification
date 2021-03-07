@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="34cm" height="23cm" viewBox="-86 288 667 455" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="286.224" y="434.815" width="144.3" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="286.224" y="434.815" width="144.3" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="358.374" y="450.015">&lt;&lt;Ownable&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="358.374" y="470.815">WorkerProfileDS</text>
+    <rect style="fill: #ffffff" x="286.224" y="478.815" width="144.3" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="286.224" y="478.815" width="144.3" height="8"/>
+    <rect style="fill: #ffffff" x="286.224" y="486.815" width="144.3" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="286.224" y="486.815" width="144.3" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="48.8526" y="289.666" width="87" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="48.8526" y="289.666" width="87" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="92.3526" y="304.866">&lt;&lt;Struct&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="92.3526" y="325.666">Attribute</text>
+    <rect style="fill: #ffffff" x="48.8526" y="333.666" width="87" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="48.8526" y="333.666" width="87" height="8"/>
+    <rect style="fill: #ffffff" x="48.8526" y="341.666" width="87" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="48.8526" y="341.666" width="87" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="50.2186" y="368.339" width="87" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="50.2186" y="368.339" width="87" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="93.7186" y="383.539">&lt;&lt;Struct&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="93.7186" y="404.339">Endorse</text>
+    <rect style="fill: #ffffff" x="50.2186" y="412.339" width="87" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="50.2186" y="412.339" width="87" height="8"/>
+    <rect style="fill: #ffffff" x="50.2186" y="420.339" width="87" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="50.2186" y="420.339" width="87" height="8"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="260.057,464.03 261.743,464.044 261.743,319.666 136.861,319.666 "/>
+    <polygon style="fill: #ffffff" points="285.228,464.231 271.19,468.919 257.229,464.008 271.267,459.32 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="285.228,464.231 271.19,468.919 257.229,464.008 271.267,459.32 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="263.743" y="391.855"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="253.228" y="460.231"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="140.861" y="315.666"></text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="260.087,464.815 261.705,464.815 261.705,398.339 138.227,398.339 "/>
+    <polygon style="fill: #ffffff" points="285.258,464.815 271.258,469.615 257.258,464.815 271.258,460.015 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="285.258,464.815 271.258,469.615 257.258,464.815 271.258,460.015 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="263.705" y="431.577"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="253.258" y="460.815"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="142.227" y="394.339"></text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="47.8631,319.666 -84.4831,319.666 -84.4831,398.339 49.2335,398.339 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-82.4831" y="359.003">endorsed by</text>
+    <polygon style="fill: #000000" points="4.21688,359.003 4.21688,351.003 12.2169,355.003 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="43.8631" y="315.666"> attribute</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="43.8631" y="331.666">1</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="45.2335" y="394.339"> signature(s)</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="45.2335" y="410.339">*</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="-14.2731" y="442.549" width="154.85" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-14.2731" y="442.549" width="154.85" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="63.1519" y="457.749">&lt;&lt;Struct&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="63.1519" y="478.549">qualificationname</text>
+    <rect style="fill: #ffffff" x="-14.2731" y="486.549" width="154.85" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-14.2731" y="486.549" width="154.85" height="8"/>
+    <rect style="fill: #ffffff" x="-14.2731" y="494.549" width="154.85" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-14.2731" y="494.549" width="154.85" height="8"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="260.043,464.815 205.896,464.815 205.896,464.549 140.577,464.549 "/>
+    <polygon style="fill: #ffffff" points="285.215,464.815 271.215,469.615 257.215,464.815 271.215,460.015 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="285.215,464.815 271.215,469.615 257.215,464.815 271.215,460.015 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="102.674" y="576.53" width="168.25" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="102.674" y="576.53" width="168.25" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="186.799" y="596.53">WorkerProfileProxy</text>
+    <rect style="fill: #ffffff" x="102.674" y="604.53" width="168.25" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="102.674" y="604.53" width="168.25" height="8"/>
+    <rect style="fill: #ffffff" x="102.674" y="612.53" width="168.25" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="102.674" y="612.53" width="168.25" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="95.7275" y="698.027" width="182.1" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="95.7275" y="698.027" width="182.1" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="186.778" y="718.027">WorkerProfileFactory</text>
+    <rect style="fill: #ffffff" x="95.7275" y="726.027" width="182.1" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="95.7275" y="726.027" width="182.1" height="8"/>
+    <rect style="fill: #ffffff" x="95.7275" y="734.027" width="182.1" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="95.7275" y="734.027" width="182.1" height="8"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="358.374,514.058 358.374,544.176 186.799,544.176 186.799,576.53 "/>
+    <polygon style="fill: #ffffff" points="366.374,514.058 358.374,498.058 350.374,514.058 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="366.374,514.058 358.374,498.058 350.374,514.058 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="358.374,513.051 358.374,544.791 497.403,544.791 497.403,578.767 "/>
+    <polygon style="fill: #ffffff" points="366.374,513.051 358.374,497.051 350.374,513.051 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="366.374,513.051 358.374,497.051 350.374,513.051 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" points="186.778,697.202 186.778,671.735 186.799,671.735 186.799,628.183 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="191.799,640.83 186.799,624.83 181.799,640.83 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="186.788" y="667.735">&lt;&lt;import&gt;&gt;</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="415.178" y="579.772" width="164.45" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="415.178" y="579.772" width="164.45" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="497.403" y="599.772">WorkerProfileLogic</text>
+    <rect style="fill: #ffffff" x="415.178" y="607.772" width="164.45" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="415.178" y="607.772" width="164.45" height="8"/>
+    <rect style="fill: #ffffff" x="415.178" y="615.772" width="164.45" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="415.178" y="615.772" width="164.45" height="8"/>
+  </g>
+</svg>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="42cm" height="17cm" viewBox="269 205 821 337" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="270" y="313" width="818.5" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="270" y="313" width="818.5" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="679.25" y="333">WorkerProfileFactory</text>
+    <rect style="fill: #ffffff" x="270" y="341" width="818.5" height="84"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="270" y="341" width="818.5" height="84"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="273" y="354.2">-pubENSRegistar: address</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="273" y="370.2">-implementENS: string</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="273" y="386.2">-attributeENS: string</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="273" y="402.2">-ens: ENS</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="273" y="418.2">-access: PermissionControl</text>
+    <rect style="fill: #ffffff" x="270" y="425" width="818.5" height="116"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="270" y="425" width="818.5" height="116"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="273" y="438.2">+constructor(in _pubENSRegistar:address,in _imp:string,in _attlist:string)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="273" y="454.2">+updatepubENSRegistar(in _a:address)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="273" y="470.2">+updateImplementationENS(in _imp:string)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="273" y="486.2">+updateAttributeListENS(in _imp:string)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="273" y="502.2">+createNewWorkerProfileContract(in _owner:address,in _pubENSRegistar:address,out contractAddress:address)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="273" y="518.2">+_pubAccessCheck(in _caller:address,in _role:bytes32,out result:bool)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="273" y="534.2">+supportsInterface(in interfaceId:bytes4,out result:bool)</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="651.9" y="207" width="54.1" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="651.9" y="207" width="54.1" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="678.95" y="227">Roles</text>
+    <rect style="fill: #ffffff" x="651.9" y="235" width="54.1" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="651.9" y="235" width="54.1" height="8"/>
+    <rect style="fill: #ffffff" x="651.9" y="243" width="54.1" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="651.9" y="243" width="54.1" height="8"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="678.95,270.242 678.95,289.999 679.25,289.999 679.25,311.993 "/>
+    <polygon style="fill: #ffffff" points="686.95,270.242 678.95,254.242 670.95,270.242 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="686.95,270.242 678.95,254.242 670.95,270.242 "/>
+  </g>
+</svg>

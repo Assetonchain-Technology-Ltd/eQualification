@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="48cm" height="27cm" viewBox="171 86 960 536" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="172.9" y="216" width="957.1" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="172.9" y="216" width="957.1" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="651.45" y="236">WorkerProfileLogic</text>
+    <rect style="fill: #ffffff" x="172.9" y="244" width="957.1" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="172.9" y="244" width="957.1" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="257.2">-publicENSRegistarAddress;: address</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="273.2">-ens: ENS</text>
+    <rect style="fill: #ffffff" x="172.9" y="280" width="957.1" height="340"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="172.9" y="280" width="957.1" height="340"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="293.2">+constructor(in _ensaddress:address)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="309.2">+supportsInterface(in interfaceId:bytes4,out result:bool): view</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="325.2">+addAttribute(in _name:string,in _value:bytes,in _datetime:uint256,in _datatype:string,out datatosign:bytes32): onlyOwner</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="341.2">+upateAttribute(in _key:bytes32,in _value:bytes,in _datetime:uint256,in _datatype:string,out datatosign:bytes32): onlyOwner</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="357.2">+removeAttribute(in _key:bytes32,in _datetime:uint256): onlyOwner</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="373.2">+endorseAttribute(in bytes32:_key,in _datetime:uint256,in _expiryDate:uint256,in _org:string,in _signature:bytes32)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="389.2">+removeEndorsement(in _key:bytes32,in _endorseNumber:uint256,in _org:string)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="405.2">+addQualification(in  _qERC721Name:string,in _org:string,in _encryptKey:bytes,in _tokenid:uint256)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="421.2">+revokeQualification(in _qERC721Name:string,in _org:string,in _tokenid:uint256,in _receiver:address)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="437.2">+updateQualification(in _qERC721Name:string,in _org:string,in _encryptKey:bytes,in _tokenid:uint256)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="453.2">+getAttribute(in _key:bytes32,in _org:string,out value:bytes,out datatype:string)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="469.2">+listofAttribute(in _org:string,out list:sting[])</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="485.2">+getEndorsement(in _key:bytes32,in _org:string,out list:Endorse[])</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="501.2">+getQualifications(in _org:string,out list:qualificationname[])</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="517.2">+getQualificationKey(in _key:bytes32,in _org:string,out key:bytes)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="533.2">+updateENSAddress(in _ens:address)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="549.2">+_orgRoleCheck(in _org:bytes32,in _caller:address,in _role:bytes32,out result:bool)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="565.2">+_pubAccessCheck(in _caller:address,in _role:bytes32,out result:bool): internal</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="581.2">+_hasqERC721Token(in _org:bytes32,in _qERC721Name:bytes32,in _tokenid:uint256,in _owner:address,out result:bool)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="597.2">+_withdrawERC721Token(in _org:bytes32,in _qERC721Name:bytes32,in _tokenid:uint256,in _receiver:address)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="175.9" y="613.2">+_verifyAttributeSignature(in _signer:address,in _key:bytes32,in signature:bytes,out result:bool)</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="461.477" y="88" width="144.3" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="461.477" y="88" width="144.3" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="533.627" y="108">WorkerProfileDS</text>
+    <rect style="fill: #ffffff" x="461.477" y="116" width="144.3" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="461.477" y="116" width="144.3" height="8"/>
+    <rect style="fill: #ffffff" x="461.477" y="124" width="144.3" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="461.477" y="124" width="144.3" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="721.035" y="87" width="54.1" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="721.035" y="87" width="54.1" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="748.085" y="107">Roles</text>
+    <rect style="fill: #ffffff" x="721.035" y="115" width="54.1" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="721.035" y="115" width="54.1" height="8"/>
+    <rect style="fill: #ffffff" x="721.035" y="123" width="54.1" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="721.035" y="123" width="54.1" height="8"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="533.627,150.236 533.627,182 651.45,182 651.45,216 "/>
+    <polygon style="fill: #ffffff" points="541.627,150.236 533.627,134.236 525.627,150.236 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="541.627,150.236 533.627,134.236 525.627,150.236 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="748.085,149.236 748.085,181.5 651.45,181.5 651.45,216 "/>
+    <polygon style="fill: #ffffff" points="756.085,149.236 748.085,133.236 740.085,149.236 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="756.085,149.236 748.085,133.236 740.085,149.236 "/>
+  </g>
+</svg>
