@@ -1,0 +1,29 @@
+1. create 5 accounts 
+   - 1 public admin
+   - 1 worker
+   - 1 organization A (admin)
+   - 1 organization A operator
+   - 1 organization A viewer
+
+2. Deploy Pubic Directory Service 
+   - using public admin
+   - deploy access control 
+   - deploy workerProfile Factory
+   - deploy workerProfileLogic
+   - deploy attribute contract
+   - Register access ENS
+   - Register workerProfileFactory ENS
+   - Register workerProfileLogic ENS
+   - Register org A in public directory service with ISSUE
+   - Register attribute list on ENS
+ 
+3. Deploy Org A Directory Service
+   - using org admin
+   - deploy access control 
+   - deploy Qualifiation Factory
+   - deploy Qualification Logic
+   - deploy qualification attribute contract
+   - Register access ENS
+   - Register Qualification Factory ENS
+   - Register Qualification Logic ENS
+   - Register qualification attribute on ENS
