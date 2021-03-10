@@ -50,6 +50,29 @@ contract QualificationLogic is QualificationDS,Roles {
         return datatosign;
     }
     
+    function upateAttribute(bytes32 _key, bytes calldata _value, uint256 _datetime, string calldata _datatype) public 
+    returns (bytes32)
+    {
+        require(_orgAccessCheck(msg.sender,TOKEN)||_orgAccessCheck(msg.sender,OPERATOR)||_orgAccessCheck(msg.sender,ADMIN) ,"QL22");
+        bytes32 namehash = Utility._computeNamehash(attributeListENS);
+        Resolver res = Resolver(ens.resolver(namehash));
+        QualificationAttributeList ab = QualificationAttributeList(res.addr(namehash));
+        require(ab.exists(_key),"QL23");
+        require(attributeList.contains(_key),"QL24");
+        uint256 ecount = Attributes[_key].endorsementcount;
+        for(uint256 i=0;i<ecount;i++){
+            Attributes[_key].endorsements[i].active = false;
+        }
+        Attributes[_key].value=_value;
+        Attributes[_key].createDate = _datetime;
+        Attributes[_key].datatype = _datatype;
+        bytes32 datatosign = Utility._prefixed(keccak256(abi.encodePacked(msg.sender,_key,_value,_datatype,_datetime,ecount,address(this))));
+        return datatosign;
+    }
+    
+    
+    
+    
     function removeAttribute(bytes32 _key,uint256 _datetime) public  {
         
         require(_orgAccessCheck(msg.sender,TOKEN)||_orgAccessCheck(msg.sender,OPERATOR)||_orgAccessCheck(msg.sender,ADMIN) ,"QL06");
@@ -84,7 +107,7 @@ contract QualificationLogic is QualificationDS,Roles {
     function addKeyStore(bytes memory _dercert,uint256 _datetime) public{
         
         require(_orgAccessCheck(msg.sender,TOKEN)||_orgAccessCheck(msg.sender,OPERATOR)
-                ||_orgAccessCheck(msg.sender,ADMIN)||msg.sender==qualificationOwner ,"QL13");
+                ||_orgAccessCheck(msg.sender,ADMIN) ,"QL13");
         key.cert=_dercert;
         key.createDate=_datetime;
     }
@@ -92,8 +115,9 @@ contract QualificationLogic is QualificationDS,Roles {
     function delKeyStore() public{
         
         require(_orgAccessCheck(msg.sender,TOKEN)||_orgAccessCheck(msg.sender,OPERATOR)
-                ||_orgAccessCheck(msg.sender,ADMIN)||msg.sender==qualificationOwner ,"QL14");
-        delete key;
+                ||_orgAccessCheck(msg.sender,ADMIN),"QL14");
+        key.cert = "";
+        key.createDate=0;
     }
     
     function getAttribute(bytes32 _key) public
@@ -163,5 +187,33 @@ contract QualificationLogic is QualificationDS,Roles {
         datatosign = Utility._prefixed(datatosign);
         return Utility._recoverSigner(datatosign, signature) == _signer;
     }
+
+    function _hasqERC721Token(bytes32 _org,bytes32 _qERC721Name, uint256 _tokenid,address _owner) internal view
+    returns(bool)
+    {
+        Resolver res = Resolver(ens.resolver(_org));
+        require(res.addr(_org)!=address(0) && res.supportsInterface(Utility.ORG_INTERFACE_ID),"WL07");
+        address orgENSAddress =  res.addr(_org);
+        ENS orgENS = ENS(orgENSAddress);
+        res = Resolver(orgENS.resolver(_qERC721Name));
+        require(res.addr(_qERC721Name)!=address(0) && res.supportsInterface(Utility.ADDR_INTERFACE_ID),"WL09");
+        ERC721 token = ERC721(res.addr(_qERC721Name));
+        return (token.ownerOf(_tokenid) == _owner);
+        
+    }
+    
+    
+    function _withdrawERC721Token(bytes32 _org,bytes32 _qERC721Name, uint256 _tokenid,address _receiver) internal
+    {
+        Resolver res = Resolver(ens.resolver(_org));
+        require(res.addr(_org)!=address(0) && res.supportsInterface(Utility.ORG_INTERFACE_ID),"WL07");
+        address orgENSAddress =  res.addr(_org);
+        ENS orgENS = ENS(orgENSAddress);
+        res = Resolver(orgENS.resolver(_qERC721Name));
+        require(res.addr(_qERC721Name)!=address(0) && res.supportsInterface(Utility.ADDR_INTERFACE_ID),"WL09");
+        ERC721 token = ERC721(res.addr(_qERC721Name));
+        token.safeTransferFrom(address(this),_receiver,_tokenid);
+    }
+    
 
 }

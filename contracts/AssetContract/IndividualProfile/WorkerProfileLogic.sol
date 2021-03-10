@@ -53,7 +53,7 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
         Resolver res = Resolver(ens.resolver(namehash));
         AttributeList ab = AttributeList(res.addr(namehash));
         require(ab.exists(_key),"WL23");
-        require(Attributes[_key].createDate>0,"WL24");
+        require(attributeList.contains(_key),"WL24");
         uint256 ecount = Attributes[_key].endorsementcount;
         for(uint256 i=0;i<ecount;i++){
             Attributes[_key].endorsements[i].active = false;
@@ -74,6 +74,7 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
     function endorseAttribute(bytes32 _key,uint256 _datetime,uint256 _expiryDate,string memory _org,bytes calldata _signature) public {
         require(_orgRoleCheck(keccak256(bytes(_org)),msg.sender,ENDORSE),"WL09");
         require(_verifyAttributeSignature(msg.sender,_key,_signature),"WL10");
+        require(attributeList.contains(_key),"WL25");
         uint256 ecount = Attributes[_key].endorsementcount;
         Attributes[_key].endorsementcount=Attributes[_key].endorsementcount.add(1);
         Attributes[_key].endorsements[ecount].signature = _signature;

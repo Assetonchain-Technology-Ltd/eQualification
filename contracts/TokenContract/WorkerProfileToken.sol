@@ -73,7 +73,10 @@ contract WorkerProfileToken is ERC721Pausable,ERC721Burnable,Roles {
         return interfaceId == Utility.INTERFACE_ID_WORKERTOKEN;
     }
     
-    function _beforeTokenTransfer(address from, address to, uint256 tokenId) internal virtual override (ERC721,ERC721Pausable) {}
-    
+    function _beforeTokenTransfer(address from, address to, uint256 tokenId) internal virtual override (ERC721,ERC721Pausable) {
+         if(!_pubAccessCheck(msg.sender,ISSUE)){
+            super._beforeTokenTransfer(from,to,tokenId);
+        }
+    }
     
 }

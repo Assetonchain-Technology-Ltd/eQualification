@@ -90,7 +90,12 @@ contract QualificationToken is ERC721Pausable,ERC721Burnable,Roles {
     }
     
     
-    function _beforeTokenTransfer(address from, address to, uint256 tokenId) internal virtual override (ERC721,ERC721Pausable) {}
+    function _beforeTokenTransfer(address from, address to, uint256 tokenId) internal virtual override (ERC721,ERC721Pausable) {
+        if(!_orgAccessCheck(msg.sender,ISSUE)){
+            super._beforeTokenTransfer(from,to,tokenId);
+        }
+        
+    }
     
     
 }
