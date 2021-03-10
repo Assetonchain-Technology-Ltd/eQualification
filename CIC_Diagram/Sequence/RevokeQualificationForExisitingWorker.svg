@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="48cm" height="42cm" viewBox="-195 -25 942 827" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <polygon style="fill: #ffffff" points="-193.176,90.7744 -183.176,80.7744 -122.126,80.7744 -122.126,208.774 -132.126,218.774 -193.176,218.774 -193.176,90.7744 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-193.176,90.7744 -183.176,80.7744 -122.126,80.7744 -122.126,208.774 -132.126,218.774 -193.176,218.774 -193.176,90.7744 "/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="-193.176" y1="90.7744" x2="-132.126" y2="90.7744"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="-132.126" y1="90.7744" x2="-122.126" y2="80.7744"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="-132.126" y1="90.7744" x2="-132.126" y2="218.774"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-183.176" y="113.574">
+      <tspan x="-183.176" y="113.574">Third</tspan>
+      <tspan x="-183.176" y="129.574">Party</tspan>
+      <tspan x="-183.176" y="145.574">System</tspan>
+    </text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="-183.176" y1="116.224" x2="-153.876" y2="116.224"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="-183.176" y1="132.224" x2="-154.126" y2="132.224"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="-183.176" y1="148.224" x2="-142.126" y2="148.224"/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="17.4924,39.573 27.4924,29.573 120.092,29.573 120.092,81.573 110.092,91.573 17.4924,91.573 17.4924,39.573 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="17.4924,39.573 27.4924,29.573 120.092,29.573 120.092,81.573 110.092,91.573 17.4924,91.573 17.4924,39.573 "/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="17.4924" y1="39.573" x2="110.092" y2="39.573"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="110.092" y1="39.573" x2="120.092" y2="29.573"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="110.092" y1="39.573" x2="110.092" y2="91.573"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="27.4924" y="62.373">
+      <tspan x="27.4924" y="62.373">BlockChain</tspan>
+      <tspan x="27.4924" y="78.373">API Gateway</tspan>
+    </text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="27.4924" y1="65.023" x2="88.8924" y2="65.023"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="27.4924" y1="81.023" x2="100.092" y2="81.023"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="63.7924" y1="92.49" x2="63.7924" y2="124"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="63.7924" y1="744" x2="63.7924" y2="800"/>
+    <rect style="fill: #ffffff" x="56.7924" y="124" width="14" height="620"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="56.7924" y="124" width="14" height="620"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="-96.4063" y1="134.61" x2="56.7924" y2="134"/>
+    <polygon style="fill: #000000" points="-96.4263,129.61 -112.406,134.674 -96.3864,139.61 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-96.4263,129.61 -112.406,134.674 -96.3864,139.61 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-26.3156" y="118.92">getRevokeList</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="390.561" y="48.3017" width="136.45" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="390.561" y="48.3017" width="136.45" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="458.786" y="71.1017">
+      <tspan x="458.786" y="71.1017">ProfileSmartContract</tspan>
+    </text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="400.561" y1="73.7517" x2="517.011" y2="73.7517"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="171.745" y="52.2402" width="132.45" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="171.745" y="52.2402" width="132.45" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="237.97" y="75.0402">
+      <tspan x="237.97" y="75.0402">QualificationCabient</tspan>
+    </text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="181.745" y1="77.6902" x2="294.195" y2="77.6902"/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-54.8667" y="199.138">
+    <tspan x="-54.8667" y="199.138">Identify which</tspan>
+    <tspan x="-54.8667" y="215.138">Qualificaiton is it</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="237.97" y1="88.2402" x2="237.97" y2="174.776"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="237.97" y1="414.776" x2="237.97" y2="801"/>
+    <rect style="fill: #ffffff" x="230.97" y="174.776" width="14" height="240"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="230.97" y="174.776" width="14" height="240"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="580.436" y="47.0099" width="165.95" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="580.436" y="47.0099" width="165.95" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="663.411" y="69.8099">
+      <tspan x="663.411" y="69.8099">QualificationSmartCabient</tspan>
+    </text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="590.436" y1="72.4599" x2="736.386" y2="72.4599"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="663.411" y1="65.0099" x2="663.411" y2="392.998"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="663.411" y1="532.998" x2="663.411" y2="795.687"/>
+    <rect style="fill: #ffffff" x="656.411" y="392.998" width="14" height="140"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="656.411" y="392.998" width="14" height="140"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="458.786" y1="83.5306" x2="458.786" y2="334.394"/>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke-dasharray: 8; stroke: #000000" x1="458.786" y1="474.394" x2="458.786" y2="792.373"/>
+    <rect style="fill: #ffffff" x="451.786" y="334.394" width="14" height="140"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="451.786" y="334.394" width="14" height="140"/>
+  </g>
+  <text font-size="19.1911" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:700" x="-140.176" y="-4.7382">
+    <tspan x="-140.176" y="-4.7382">Revoke Qualification</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="39.7926" y1="163.922" x2="-115.72" y2="163.209"/>
+    <polygon style="fill: #000000" points="39.7697,168.922 55.7924,163.995 39.8155,158.922 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="39.7697,168.922 55.7924,163.995 39.8155,158.922 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-29.4636" y="173.605">RecordList</text>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 56.7924,174 A 15.8893,15.8893 0 1 0 48.1832,204.528"/>
+    <polygon style="fill: #000000" points="54.6815,204.738 46.8904,212.756 47.6012,207.211 43.5919,203.316 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="54.6815,204.738 46.8904,212.756 47.6012,207.211 43.5919,203.316 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="213.97" y1="214.693" x2="70.7924" y2="214"/>
+    <polygon style="fill: #000000" points="213.946,219.693 229.97,214.771 213.994,209.693 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="213.946,219.693 229.97,214.771 213.994,209.693 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="147.227" y="231.066">check qualification exists</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" x1="87.7922" y1="254.082" x2="230.97" y2="254.776"/>
+    <polygon style="fill: #000000" points="87.8164,249.082 71.7924,254.005 87.768,259.082 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="87.8164,249.082 71.7924,254.005 87.768,259.082 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="132.576" y="265.766">checkResultl</text>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 56.7924,254 A 12.9315,12.9315 0 1 0 49.1287,276.92"/>
+    <polygon style="fill: #000000" points="55.0632,275.418 50.5003,285.625 49.2634,280.173 44.16,277.892 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="55.0632,275.418 50.5003,285.625 49.2634,280.173 44.16,277.892 "/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-61.8193" y="262.373">
+    <tspan x="-61.8193" y="262.373">Report/Log down</tspan>
+    <tspan x="-61.8193" y="278.373">Those not exists</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="434.786" y1="344.377" x2="70.7924" y2="344"/>
+    <polygon style="fill: #000000" points="434.781,349.377 450.786,344.393 434.791,339.377 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="434.781,349.377 450.786,344.393 434.791,339.377 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="365.788" y="360.329">RevokeQualificiaton</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="213.97" y1="284.693" x2="70.7924" y2="284"/>
+    <polygon style="fill: #000000" points="213.946,289.693 229.97,284.771 213.994,279.693 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="213.946,289.693 229.97,284.771 213.994,279.693 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="147.227" y="301.066">query Owner</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" x1="87.7922" y1="314.082" x2="230.97" y2="314.776"/>
+    <polygon style="fill: #000000" points="87.8164,309.082 71.7924,314.005 87.768,319.082 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="87.8164,309.082 71.7924,314.005 87.768,319.082 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="132.576" y="325.766">ownerList</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="261.97" y1="374.744" x2="451.786" y2="374.394"/>
+    <polygon style="fill: #000000" points="261.961,369.744 245.97,374.774 261.979,379.744 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="261.961,369.744 245.97,374.774 261.979,379.744 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="353.498" y="392.613">burnToken/Transfer to Recycle</text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 8; stroke: #000000" x1="87.7924" y1="434.018" x2="451.786" y2="434.394"/>
+    <polygon style="fill: #000000" points="87.7976,429.018 71.7924,434.001 87.7872,439.018 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="87.7976,429.018 71.7924,434.001 87.7872,439.018 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="122.552" y="450.831">Result</text>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 55.4658,441.578 A 11.8491,11.8491 0 1 0 46.7328,459.713"/>
+    <polygon style="fill: #000000" points="52.3578,457.825 48.925,468.466 47.106,463.18 41.7859,461.463 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="52.3578,457.825 48.925,468.466 47.106,463.18 41.7859,461.463 "/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-20.1796" y="418.907">
+    <tspan x="-20.1796" y="418.907">Revoke</tspan>
+    <tspan x="-20.1796" y="434.907">Digital Cert</tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="639.411" y1="483.027" x2="70.7924" y2="484"/>
+    <polygon style="fill: #000000" points="639.42,488.027 655.411,483 639.403,478.027 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="639.42,488.027 655.411,483 639.403,478.027 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="565.937" y="499.411">deactivate/kill the contract</text>
+  </g>
+</svg>
