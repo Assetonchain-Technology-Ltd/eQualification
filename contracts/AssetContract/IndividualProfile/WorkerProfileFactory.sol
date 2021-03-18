@@ -56,7 +56,7 @@ contract WorkerProfileFactory is Roles {
         attributeENS=_imp;
         
     }
-    
+             
     function createNewWorkerProfileContract(address _owner,address _pubENSRegistar) public
     returns(address _i)
     {

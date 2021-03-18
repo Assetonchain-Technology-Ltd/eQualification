@@ -17,13 +17,15 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
     using EnumerableSet for EnumerableSet.Bytes32Set;
 
     
-    address publicENSRegistarAddress;
-    ENS ens;
     
     constructor(address _ensAddress) {
-        require(Utility._checkInterfaceID(_ensAddress,Utility.INTERFACE_ID_ENSREGISTRY),"WL01");
-        publicENSRegistarAddress = _ensAddress;
-        ens = ENS(publicENSRegistarAddress);
+        ENS ens = ENS(_ensAddress);
+        bytes32 orgAccessENS = Utility._computeNamehash(ens.getPredefineENSPrefix("access"));
+        Resolver res = Resolver(ens.resolver(orgAccessENS));
+        require(res.addr(orgAccessENS)!=address(0) && res.supportsInterface(Utility.ADDR_INTERFACE_ID),"WL28");
+        address orgAccessAdr = res.addr(orgAccessENS);
+        access = PermissionControl(orgAccessAdr);
+        require(access.hasRole(ADMIN,msg.sender),"WL29");
     }
     
     
@@ -31,27 +33,29 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
     function addAttribute(string memory _name, bytes calldata _value, uint256 _datetime, string calldata _datatype) public onlyOwner 
     returns (bytes32)
     {
+        ENS ens = ENS(publicENSRegistar);
         bytes32 _key = keccak256(bytes(_name));
-        bytes32 namehash = Utility._computeNamehash(attributeListENS);
-        Resolver res = Resolver(ens.resolver(namehash));
-        AttributeList ab = AttributeList(res.addr(namehash));
-        require(ab.exists(_key)==false,"WL03");
+        bytes32 hash = Utility._computeNamehash(attributeListENS);
+        Resolver res = Resolver(ens.resolver(hash));
+        AttributeList ab = AttributeList(res.addr(hash));
+        require(ab.exists(_key),"WL03");
+        require(attributeList.contains(_key)==false,"WL04");
         attributeList.add(_key);
-        require(Attributes[_key].createDate==0,"WL04");
         Attributes[_key].name=_name;
         Attributes[_key].value=_value;
         Attributes[_key].createDate = _datetime;
         Attributes[_key].datatype = _datatype;
-        bytes32 datatosign = Utility._prefixed(keccak256(abi.encodePacked(msg.sender,_key,_value,_datatype,_datetime,uint256(0),address(this))));
-        return datatosign;
+        hash = Utility._prefixed(keccak256(abi.encodePacked(msg.sender,_key,_value,_datatype,_datetime,uint256(0),address(this))));
+        return hash;
     }
     
     function upateAttribute(bytes32 _key, bytes calldata _value, uint256 _datetime, string calldata _datatype) public onlyOwner 
     returns (bytes32)
     {
-        bytes32 namehash = Utility._computeNamehash(attributeListENS);
-        Resolver res = Resolver(ens.resolver(namehash));
-        AttributeList ab = AttributeList(res.addr(namehash));
+        ENS ens = ENS(publicENSRegistar);
+        bytes32 hash = Utility._computeNamehash(attributeListENS);
+        Resolver res = Resolver(ens.resolver(hash));
+        AttributeList ab = AttributeList(res.addr(hash));
         require(ab.exists(_key),"WL23");
         require(attributeList.contains(_key),"WL24");
         uint256 ecount = Attributes[_key].endorsementcount;
@@ -61,8 +65,8 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
         Attributes[_key].value=_value;
         Attributes[_key].createDate = _datetime;
         Attributes[_key].datatype = _datatype;
-        bytes32 datatosign = Utility._prefixed(keccak256(abi.encodePacked(msg.sender,_key,_value,_datatype,_datetime,ecount,address(this))));
-        return datatosign;
+        hash = Utility._prefixed(keccak256(abi.encodePacked(msg.sender,_key,_value,_datatype,_datetime,ecount,address(this))));
+        return hash;
     }
     
     function removeAttribute(bytes32 _key,uint256 _datetime) public onlyOwner {
@@ -72,7 +76,7 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
     }
     
     function endorseAttribute(bytes32 _key,uint256 _datetime,uint256 _expiryDate,string memory _org,bytes calldata _signature) public {
-        require(_orgRoleCheck(keccak256(bytes(_org)),msg.sender,ENDORSE),"WL09");
+        require(_orgRoleCheck(_org,msg.sender,ENDORSE),"WL09");
         require(_verifyAttributeSignature(msg.sender,_key,_signature),"WL10");
         require(attributeList.contains(_key),"WL25");
         uint256 ecount = Attributes[_key].endorsementcount;
@@ -86,7 +90,7 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
     
 
     function removeEndorsement(bytes32 _key,uint256 _endorseNumber,string memory _org) public {
-        require(_orgRoleCheck(keccak256(bytes(_org)),msg.sender,ENDORSE),"WL11");
+        require(_orgRoleCheck(_org,msg.sender,ENDORSE),"WL11");
         require(attributeList.contains(_key),"WL12");
         require(Attributes[_key].endorsements[_endorseNumber].endorser==msg.sender,"WL13");
         delete Attributes[_key].endorsements[_endorseNumber];
@@ -95,11 +99,10 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
 
     
     function addQualification(string memory _qERC721Name,string memory _org,bytes memory _encryptKey,uint256 _tokenid) public{
-        bytes32 hashorg=keccak256(bytes(_org));
         bytes32 hashqname = Utility._computeNamehash(_qERC721Name);
-        require(_orgRoleCheck(hashorg,msg.sender,ISSUE),"WL14");
+        require(_orgRoleCheck(_org,msg.sender,ISSUE),"WL14");
         require(qualificationList.contains(hashqname)==false,"WL15");
-        require(_hasqERC721Token(hashorg,hashqname,_tokenid,address(this)),"WL16");
+        require(_hasqERC721Token(_org,hashqname,_tokenid,address(this)),"WL16");
         qualificationList.add(hashqname);
         qualificationNames[hashqname].prefix=_qERC721Name;
         qualificationNames[hashqname].postfix=_org;
@@ -107,50 +110,54 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
     }
     
     function revokeQualification(string memory _qERC721Name,string memory _org,uint256 _tokenid,address _receiver) public{
-        bytes32 hashorg=keccak256(bytes(_org));
         bytes32 hashqname = Utility._computeNamehash(_qERC721Name);
-        require(_orgRoleCheck(hashorg,msg.sender,ISSUE),"WL17");
+        require(_orgRoleCheck(_org,msg.sender,ISSUE),"WL17");
         require(qualificationList.contains(hashqname),"WL18");
-        require(_hasqERC721Token(hashorg,hashqname,_tokenid,address(this)),"WL19");
-        _withdrawERC721Token(hashorg,hashqname,_tokenid,_receiver);
+        require(_hasqERC721Token(_org,hashqname,_tokenid,address(this)),"WL19");
+        require(keccak256(bytes(qualificationNames[hashqname].postfix))==keccak256(bytes(_org)),"WL30");
+        _withdrawERC721Token(_org,hashqname,_tokenid,_receiver);
         qualificationList.remove(hashqname);
         delete qualificationNames[hashqname];
         delete keystore[hashqname];
     }
     
     function updateQualification(string memory _qERC721Name,string memory _org,bytes memory _encryptKey,uint256 _tokenid) public{
-        bytes32 hashorg=keccak256(bytes(_org));
         bytes32 hashqname = Utility._computeNamehash(_qERC721Name);
-        require(_orgRoleCheck(hashorg,msg.sender,ISSUE),"WL19");
+        require(_orgRoleCheck(_org,msg.sender,ISSUE),"WL19");
         require(qualificationList.contains(hashqname),"WL20");
-        require(_hasqERC721Token(hashorg,hashqname,_tokenid,address(this)),"WL21");
+        require(_hasqERC721Token(_org,hashqname,_tokenid,address(this)),"WL21");
         keystore[hashqname]=_encryptKey;
     }
     
     function getAttribute(bytes32 _key,string memory _org) public
     returns(bytes memory,string memory)
     {
-        require(_orgRoleCheck(keccak256(bytes(_org)),msg.sender,VIEW)||msg.sender==owner(),"WL25");
+        
+        require(_orgRoleCheck(_org,msg.sender,VIEW)||msg.sender==owner(),"WL25");
         require(attributeList.contains(_key),"WL26");
         return (Attributes[_key].value,Attributes[_key].datatype);
     }
     
-    function listofAttribute(string memory _org) public
-    returns(string[] memory)
+    function length(string memory _org) public
+    returns(uint256)
     {
-        require(_orgRoleCheck(keccak256(bytes(_org)),msg.sender,VIEW)||msg.sender==owner(),"WL25");
-        string[] memory list;
-        uint256 count = attributeList.length();
-        for(uint256 i=0;i<count;i++){
-            list[i]=Attributes[attributeList.at(i)].name;
-        }
-        return list;
+        require(_orgRoleCheck(_org,msg.sender,VIEW)||msg.sender==owner(),"WL25");
+        return attributeList.length();
+    }
+    
+    function getAttributeByIndex(string memory _org,uint256 _i) public
+    returns(bytes32,bytes memory,string memory)
+    {
+        require(_orgRoleCheck(_org,msg.sender,VIEW)||msg.sender==owner(),"WL25");
+        require(_i<attributeList.length(),"WL27");
+        bytes32 _key = attributeList.at(_i);
+        return (_key,Attributes[_key].value,Attributes[_key].datatype);
     }
     
     function getEndorsement(bytes32 _key,string memory _org) public
     returns(Endorse[] memory)
     {
-        require(_orgRoleCheck(keccak256(bytes(_org)),msg.sender,VIEW)||msg.sender==owner(),"WL25");
+        require(_orgRoleCheck(_org,msg.sender,VIEW)||msg.sender==owner(),"WL25");
         Endorse[] memory list;
         uint256 count = Attributes[_key].endorsementcount;
         for(uint256 i=0;i<count;i++){
@@ -162,7 +169,7 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
     function getQualifications(string memory _org) public 
     returns(qualificationname[] memory)
     {
-        require(_orgRoleCheck(keccak256(bytes(_org)),msg.sender,VIEW)||msg.sender==owner(),"WL25");
+        require(_orgRoleCheck(_org,msg.sender,VIEW)||msg.sender==owner(),"WL25");
         qualificationname [] memory list;
         uint256 count = qualificationList.length();
         for(uint256 i=0;i<count;i++){
@@ -174,30 +181,26 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
     function getQualificationKey(bytes32 _key,string memory _org) public
     returns(bytes memory)
     {
-        require(_orgRoleCheck(keccak256(bytes(_org)),msg.sender,VIEW)||msg.sender==owner(),"WL25");
+        require(_orgRoleCheck(_org,msg.sender,VIEW)||msg.sender==owner(),"WL25");
         require(qualificationList.contains(_key));
         return keystore[_key];
     }
     
     function supportsInterface(bytes4 interfaceId) public view returns (bool) {
-        return interfaceId == Utility.INTERFACE_ID_WORKERPROFILE;
+        return interfaceId == Utility.INTERFACE_ID_WORKERLOGIC;
     }
     
-    function updateENSAddress(address _ens) public {
-        require(_pubAccessCheck(msg.sender,ADMIN),"WL27");
-        require(Utility._checkInterfaceID(_ens,Utility.INTERFACE_ID_ENSREGISTRY),"WP28");
-        publicENSRegistarAddress = _ens;
-        ens = ENS(publicENSRegistarAddress);
-    }
     
-    function _orgRoleCheck(bytes32 _org,address _caller,bytes32 _role) internal 
+    function _orgRoleCheck(string memory _org,address _caller,bytes32 _role) internal 
     returns(bool)
     {
-        Resolver res = Resolver(ens.resolver(_org));
-        require(res.addr(_org)!=address(0) && res.supportsInterface(Utility.ORG_INTERFACE_ID),"WL07");
-        address orgENSAddress =  res.addr(_org);
+        ENS ens = ENS(publicENSRegistar);
+        bytes32 namehash = Utility._computeNamehash(_org);
+        Resolver res = Resolver(ens.resolver(namehash));
+        require(res.addr(namehash)!=address(0) && res.supportsInterface(Utility.ORG_INTERFACE_ID),"WL07");
+        address orgENSAddress =  res.addr(namehash);
         if(_role==ISSUE || _role==ENDORSE)
-            require(res.hasRole(_org,_role),"WL08");
+            require(res.hasRole(namehash,_role),"WL08");
         ENS orgENS = ENS(orgENSAddress);
         bytes32 orgAccessENS = Utility._computeNamehash(orgENS.getPredefineENSPrefix("access"));
         res = Resolver(orgENS.resolver(orgAccessENS));
@@ -211,6 +214,7 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
     function _pubAccessCheck(address _caller,bytes32 _role) internal 
     returns(bool)
     {
+        ENS ens = ENS(publicENSRegistar);
         bytes32 orgAccessENS = Utility._computeNamehash(ens.getPredefineENSPrefix("access"));
         Resolver res = Resolver(ens.resolver(orgAccessENS));
         require(res.addr(orgAccessENS)!=address(0) && res.supportsInterface(Utility.ADDR_INTERFACE_ID),"QL07");
@@ -222,12 +226,14 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
     
     
     
-    function _hasqERC721Token(bytes32 _org,bytes32 _qERC721Name, uint256 _tokenid,address _owner) internal view
+    function _hasqERC721Token(string memory _org,bytes32 _qERC721Name, uint256 _tokenid,address _owner) internal view
     returns(bool)
     {
-        Resolver res = Resolver(ens.resolver(_org));
-        require(res.addr(_org)!=address(0) && res.supportsInterface(Utility.ORG_INTERFACE_ID),"WL07");
-        address orgENSAddress =  res.addr(_org);
+        bytes32 namehash = Utility._computeNamehash(_org);
+        ENS ens = ENS(publicENSRegistar);
+        Resolver res = Resolver(ens.resolver(namehash));
+        require(res.addr(namehash)!=address(0) && res.supportsInterface(Utility.ORG_INTERFACE_ID),"WL07");
+        address orgENSAddress =  res.addr(namehash);
         ENS orgENS = ENS(orgENSAddress);
         res = Resolver(orgENS.resolver(_qERC721Name));
         require(res.addr(_qERC721Name)!=address(0) && res.supportsInterface(Utility.ADDR_INTERFACE_ID),"WL09");
@@ -237,11 +243,13 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
     }
     
     
-    function _withdrawERC721Token(bytes32 _org,bytes32 _qERC721Name, uint256 _tokenid,address _receiver) internal
+    function _withdrawERC721Token(string memory _org,bytes32 _qERC721Name, uint256 _tokenid,address _receiver) internal
     {
-        Resolver res = Resolver(ens.resolver(_org));
-        require(res.addr(_org)!=address(0) && res.supportsInterface(Utility.ORG_INTERFACE_ID),"WL07");
-        address orgENSAddress =  res.addr(_org);
+        bytes32 namehash = Utility._computeNamehash(_org);
+        ENS ens = ENS(publicENSRegistar);
+        Resolver res = Resolver(ens.resolver(namehash));
+        require(res.addr(namehash)!=address(0) && res.supportsInterface(Utility.ORG_INTERFACE_ID),"WL07");
+        address orgENSAddress =  res.addr(namehash);
         ENS orgENS = ENS(orgENSAddress);
         res = Resolver(orgENS.resolver(_qERC721Name));
         require(res.addr(_qERC721Name)!=address(0) && res.supportsInterface(Utility.ADDR_INTERFACE_ID),"WL09");

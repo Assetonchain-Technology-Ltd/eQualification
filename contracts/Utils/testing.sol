@@ -36,13 +36,14 @@ contract Test {
         return(parts[_index]);
     }
     
-    function computeNamehash() public view
+    function computeNamehash(bytes32 _label) public view
     returns (bytes32) 
     {
         bytes32 namehash = 0x0000000000000000000000000000000000000000000000000000000000000000;
-        for(uint i = parts.length ; i>0 ; i--) {
-             namehash = keccak256(abi.encodePacked(namehash, keccak256(abi.encodePacked(parts[i-1]))));
-        }
+        //for(uint i = parts.length ; i>0 ; i--) {
+            
+             namehash = keccak256(abi.encodePacked(namehash,_label ));
+        //}
       
         return namehash; 
     }
@@ -60,10 +61,11 @@ contract Test {
              
         }
         for(uint i=p.length;i>0;i--){
-            namehash = keccak256(abi.encodePacked(namehash, keccak256(abi.encodePacked(p[i-1]))));
+            bytes32 label =     keccak256(abi.encodePacked(p[i-1]));
+            namehash = keccak256(abi.encodePacked(namehash, label));
         }
         
-        
+    
       return namehash;
       
     }
@@ -86,5 +88,11 @@ contract Test {
         
       return namehash;
       
+    }
+    
+    function convertUint256_Address(uint256 _d) public
+    returns(address)
+    {
+        return(address(_d));
     }
 }

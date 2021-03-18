@@ -18,14 +18,17 @@ contract QualificationLogic is QualificationDS,Roles {
     
 
     
-    address orgRegistarAddress;
-    ENS ens;
+
     
     constructor(address _ensAddress) {
-        require(_orgAccessCheck(msg.sender,ADMIN),"QL01");
         require(Utility._checkInterfaceID(_ensAddress,Utility.INTERFACE_ID_ENSREGISTRY),"QL02");
-        orgRegistarAddress = _ensAddress;
-        ens = ENS(orgRegistarAddress);
+        ENS ens = ENS(_ensAddress);
+        bytes32 orgAccessENS = Utility._computeNamehash(ens.getPredefineENSPrefix("access"));
+        Resolver res = Resolver(ens.resolver(orgAccessENS));
+        require(res.addr(orgAccessENS)!=address(0) && res.supportsInterface(Utility.ADDR_INTERFACE_ID),"QL09");
+        address orgAccessAdr = res.addr(orgAccessENS);
+        access = PermissionControl(orgAccessAdr);
+        require(access.hasRole(ADMIN,msg.sender),"QL01");
     }
     
     
@@ -33,12 +36,13 @@ contract QualificationLogic is QualificationDS,Roles {
     function addAttribute(string memory _name, bytes calldata _value, uint256 _datetime, string calldata _datatype) public 
     returns (bytes32)
     {
+        ENS ens = ENS(orgENSRegistar);
         require(_orgAccessCheck(msg.sender,TOKEN)||_orgAccessCheck(msg.sender,OPERATOR)||_orgAccessCheck(msg.sender,ADMIN) ,"QL03");
         bytes32 _key = keccak256(bytes(_name));
         bytes32 namehash = Utility._computeNamehash(attributeListENS);
         Resolver res = Resolver(ens.resolver(namehash));
         QualificationAttributeList ab = QualificationAttributeList(res.addr(namehash));
-        require(attributeList.contains(_key),"QL04");
+        require(attributeList.contains(_key)==false,"QL04");
         require(ab.exists(_key)==false,"QL05");
         attributeList.add(_key);
         Attributes[_key].name=_name;
@@ -46,13 +50,14 @@ contract QualificationLogic is QualificationDS,Roles {
         Attributes[_key].createDate = _datetime;
         Attributes[_key].datatype = _datatype;
         Attributes[_key].initiator = msg.sender;
-        bytes32 datatosign = Utility._prefixed(keccak256(abi.encodePacked(msg.sender,_key,_value,_datatype,_datetime,uint256(0),address(this))));
-        return datatosign;
+        namehash = Utility._prefixed(keccak256(abi.encodePacked(msg.sender,_key,_value,_datatype,_datetime,uint256(0),address(this))));
+        return namehash;
     }
     
     function upateAttribute(bytes32 _key, bytes calldata _value, uint256 _datetime, string calldata _datatype) public 
     returns (bytes32)
     {
+        ENS ens = ENS(orgENSRegistar);
         require(_orgAccessCheck(msg.sender,TOKEN)||_orgAccessCheck(msg.sender,OPERATOR)||_orgAccessCheck(msg.sender,ADMIN) ,"QL22");
         bytes32 namehash = Utility._computeNamehash(attributeListENS);
         Resolver res = Resolver(ens.resolver(namehash));
@@ -66,8 +71,8 @@ contract QualificationLogic is QualificationDS,Roles {
         Attributes[_key].value=_value;
         Attributes[_key].createDate = _datetime;
         Attributes[_key].datatype = _datatype;
-        bytes32 datatosign = Utility._prefixed(keccak256(abi.encodePacked(msg.sender,_key,_value,_datatype,_datetime,ecount,address(this))));
-        return datatosign;
+        namehash= Utility._prefixed(keccak256(abi.encodePacked(msg.sender,_key,_value,_datatype,_datetime,ecount,address(this))));
+        return namehash;
     }
     
     
@@ -152,13 +157,7 @@ contract QualificationLogic is QualificationDS,Roles {
                 ||_orgAccessCheck(msg.sender,ADMIN)||msg.sender==qualificationOwner ,"QL19");
         return (key.cert,key.createDate);
     }
-    
-    function updateENSAddress(address _ens) public {
-        require(_orgAccessCheck(msg.sender,ADMIN),"QL20");
-        require(Utility._checkInterfaceID(_ens,Utility.INTERFACE_ID_ENSREGISTRY),"QL21");
-        orgRegistarAddress = _ens;
-        ens = ENS(orgRegistarAddress);
-    }
+
     
         
     function supportsInterface(bytes4 interfaceId) public view returns (bool) {
@@ -170,6 +169,7 @@ contract QualificationLogic is QualificationDS,Roles {
     function _orgAccessCheck(address _caller,bytes32 _role) internal 
     returns(bool)
     {
+        ENS ens = ENS(orgENSRegistar);
         bytes32 orgAccessENS = Utility._computeNamehash(ens.getPredefineENSPrefix("access"));
         Resolver res = Resolver(ens.resolver(orgAccessENS));
         require(res.addr(orgAccessENS)!=address(0) && res.supportsInterface(Utility.ADDR_INTERFACE_ID),"QL07");
@@ -191,6 +191,7 @@ contract QualificationLogic is QualificationDS,Roles {
     function _hasqERC721Token(bytes32 _org,bytes32 _qERC721Name, uint256 _tokenid,address _owner) internal view
     returns(bool)
     {
+        ENS ens = ENS(orgENSRegistar);
         Resolver res = Resolver(ens.resolver(_org));
         require(res.addr(_org)!=address(0) && res.supportsInterface(Utility.ORG_INTERFACE_ID),"WL07");
         address orgENSAddress =  res.addr(_org);
@@ -205,6 +206,7 @@ contract QualificationLogic is QualificationDS,Roles {
     
     function _withdrawERC721Token(bytes32 _org,bytes32 _qERC721Name, uint256 _tokenid,address _receiver) internal
     {
+        ENS ens = ENS(orgENSRegistar);
         Resolver res = Resolver(ens.resolver(_org));
         require(res.addr(_org)!=address(0) && res.supportsInterface(Utility.ORG_INTERFACE_ID),"WL07");
         address orgENSAddress =  res.addr(_org);

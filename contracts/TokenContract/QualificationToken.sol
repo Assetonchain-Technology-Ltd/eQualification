@@ -4,7 +4,7 @@ pragma abicoder v2;
 import "../Utils/ENS.sol";
 import "../Utils/Resolver.sol";
 import "../Utils/Roles.sol";
-import "../Utils/access.sol";
+import "../Utils/RBAC.sol";
 import "../Utils/Library.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721Pausable.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721Burnable.sol";
@@ -56,7 +56,7 @@ contract QualificationToken is ERC721Pausable,ERC721Burnable,Roles {
         bytes32 hashname = Utility._computeNamehash(qFactory);
         Resolver res = Resolver(ens.resolver(hashname));
         address _a = res.addr(hashname);
-        bytes memory payload = abi.encodeWithSignature("createNewQualificaitonContract(address,address) ",_individual,orgRoot);
+        bytes memory payload = abi.encodeWithSignature("createNewQualificaitonContract(address,address)",_individual,orgRoot);
         (bool success, bytes memory result) = _a.call(payload);
         require(success,"QT08");
         address qaddress = abi.decode(result, (address)); 

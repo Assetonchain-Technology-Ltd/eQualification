@@ -47,14 +47,17 @@ contract QualificationAttributeList {
         return attributeList.contains(_key);
     }
     
-    function listAttribute() public view
-    returns(string[] memory ){
-        string[] memory list;
-        uint256 count=attributeList.length();
-        for(uint256 i=0;i<count;i++){
-            list[i]=attributename[attributeList.at(i)];
-        }
-        return list;
+    function length() public view
+    returns(uint256 _i ){
+        return attributeList.length();
     }
+    
+    function getAttributeNamebyIndex(uint256 _i) public view
+    returns(string memory _name)
+    {
+        require(_i<attributeList.length(),"AL02");
+        return (attributename[attributeList.at(_i)]);
+    }
+    
     function qualificationattributeListInterface() public{}
 }

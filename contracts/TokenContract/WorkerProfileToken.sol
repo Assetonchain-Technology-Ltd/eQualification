@@ -4,13 +4,14 @@ pragma abicoder v2;
 import "../Utils/ENS.sol";
 import "../Utils/Resolver.sol";
 import "../Utils/Roles.sol";
-import "../Utils/access.sol";
+import "../Utils/RBAC.sol";
 import "../Utils/Library.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721Pausable.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721Burnable.sol";
 
 
 contract WorkerProfileToken is ERC721Pausable,ERC721Burnable,Roles {
+    event NewWorkerToken(address _a,uint256 _tokenid);
     
     address pubENSRegistry;
     PermissionControl access;
@@ -40,11 +41,12 @@ contract WorkerProfileToken is ERC721Pausable,ERC721Burnable,Roles {
         Resolver res = Resolver(ens.resolver(hashname));
         address _a = res.addr(hashname);
         
-        bytes memory payload = abi.encodeWithSignature("createNewWorkerProfileContract(address,address) ",_individual,pubENSRegistry);
+        bytes memory payload = abi.encodeWithSignature("createNewWorkerProfileContract(address,address)",_individual,pubENSRegistry);
         (bool success, bytes memory result) = _a.call(payload);
-        require(success,"WT07");
+        require(success,"WT10");
         address waddress = abi.decode(result, (address)); 
         _mint(_individual,uint256(waddress));
+        emit NewWorkerToken(waddress,uint256(waddress));
              
     }
     

@@ -1,7 +1,6 @@
 pragma solidity >=0.7.0;
 // SPDX-License-Identifier: GPL-3.0-or-later
 import "./WorkerProfileDS.sol";
-import "../../Utils/access.sol";
 import "../../Utils/ENS.sol";
 import "../../Utils/Resolver.sol";
 import "../../Utils/Library.sol";
@@ -83,6 +82,7 @@ contract WorkerProfileProxy is WorkerProfileDS,Roles {
                 switch result
                 case 0 { revert(0, returndatasize()) }
                 default { return(0, returndatasize()) }
+                
             }
     }
     

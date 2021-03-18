@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@ensdomains/ens": "^0.5.0",
-    "@ensdomains/resolver": "^0.2.4",
+    "@ensdomains/resolver": "^0.3.0",
     "@openzeppelin/contracts": "^3.4.0"
   }
 }

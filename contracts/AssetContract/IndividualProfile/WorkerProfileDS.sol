@@ -1,13 +1,13 @@
 pragma solidity >=0.7.0;
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import "../../Utils/access.sol";
+import "../../Utils/RBAC.sol";
 import "./AttributeList.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/math/SafeMath.sol";
 import "@openzeppelin/contracts/utils/EnumerableSet.sol";
 
-contract WorkerProfileDS is Ownable,Access {
+contract WorkerProfileDS is Ownable {
     
 
     using SafeMath for uint256;
@@ -47,5 +47,6 @@ contract WorkerProfileDS is Ownable,Access {
     mapping (bytes32=>qualificationname) qualificationNames;
     mapping (bytes32=>bytes) keystore;
     string status;
+    PermissionControl access;
     
 }
