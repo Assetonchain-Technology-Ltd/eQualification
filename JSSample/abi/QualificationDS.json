@@ -1,0 +1,1711 @@
+{
+  "contractName": "QualificationDS",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/dickchan/CIC/contracts/AssetContract/Qualification/QualificationDS.sol\":\"QualificationDS\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/dickchan/CIC/contracts/AssetContract/Qualification/QualificationAttributeList.sol\":{\"keccak256\":\"0x5a5c44a0a2c49b82bcc7ad2e5d5479931a619461c2907b250141aa34e7f31899\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://88d2808b11ed4307563554b3caf09d568b5c52f824d88c3f9fc2a71fc6c31c87\",\"dweb:/ipfs/QmVNtLpFwYVsPyzBAdLAu6FCb8sD3gDreWaRbqRsq9H3Uk\"]},\"/home/dickchan/CIC/contracts/AssetContract/Qualification/QualificationDS.sol\":{\"keccak256\":\"0x2ffe16d17b90368ec26d749b58e2c8fdb8f68f7dd5b0d6b0fab614c511c4f921\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://223fef407c78b7a2807f44c22af8241775e91278df4f1496f841aeb9a5cc9efc\",\"dweb:/ipfs/QmRJVgLdiZzQpUH1MUGzbcfXMLC6D8SqxyVtQjj7Daw1xo\"]},\"/home/dickchan/CIC/contracts/Utils/RBAC.sol\":{\"keccak256\":\"0x2f9f44309749101065844c1fa2ad75b8e36e5d6d0e344a25192ed2ec784cfd9c\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://7d6f5ca2eca39c05646c49a57636765f7029b9c5bc2667e7d7c77dd5fc8fc92c\",\"dweb:/ipfs/QmVy2ey7o7cguNdMf3v3rGkJsedtQLmAdHhGH1R1W8a4o2\"]},\"/home/dickchan/CIC/contracts/Utils/Roles.sol\":{\"keccak256\":\"0xa9cda963a6344a17861b02e449f0c39e3dba74b506514b6c8ee4faa0b4e2d37a\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://98b7fa86460eb87e5c5a4102e82389e06e27cf773a7f82caa07e24f158752312\",\"dweb:/ipfs/QmfFVozT8RxHrRntAFwPVV2goy6kQ3ya7cRJTGwSoLVioN\"]},\"@openzeppelin/contracts/access/AccessControl.sol\":{\"keccak256\":\"0x4fc155a2f7837603d69a13cfa481eb5e7f5e02cb77e2ec9edbac30986db37988\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0855147e38b5e36288a8df73b8da49132f14ec7abb19041b0c98872263643aaa\",\"dweb:/ipfs/QmSrSysyFUYQq7hbJaJXG7EyZW6ezDBzEJx3SABp6eiJSS\"]},\"@openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://526dc85e1f9b9b45830e202568d267d93dde7a4fcccf4ad7798dadcd92304d3c\",\"dweb:/ipfs/QmaoXMB972J3cSDLtBq3xBo4jLwqD2uzXTwujtSPqkYVhR\"]},\"@openzeppelin/contracts/utils/Address.sol\":{\"keccak256\":\"0x28911e614500ae7c607a432a709d35da25f3bc5ddc8bd12b278b66358070c0ea\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://256c8c8af5eb072bc473226ab2b2187149b8fc04f5f4a4820db22527f5ce8e3c\",\"dweb:/ipfs/QmRvi5BhnL7Rxf85KrJhwM6RRhukm4tzoctRdgQEheNyiN\"]},\"@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0x8d3cb350f04ff49cfb10aef08d87f19dcbaecc8027b0bed12f3275cd12f38cf0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ded47ec7c96750f9bd04bbbc84f659992d4ba901cb7b532a52cd468272cf378f\",\"dweb:/ipfs/QmfBrGtQP7rZEqEg6Wz6jh2N2Kukpj1z5v3CGWmAqrzm96\"]},\"@openzeppelin/contracts/utils/EnumerableSet.sol\":{\"keccak256\":\"0x1562cd9922fbf739edfb979f506809e2743789cbde3177515542161c3d04b164\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4580d57781513d98870d9738c7d39094336e0a70cdb90d68dad549c6ced466ec\",\"dweb:/ipfs/Qmf9YZzzRFuvMnav9dgmeRUpdYMMECiZX8w25sHWVbA18V\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220c216b4712c99c152dc06bef22e6f80a3adf4e26b9fcca26ca8aa04669652127364736f6c63430007060033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220c216b4712c99c152dc06bef22e6f80a3adf4e26b9fcca26ca8aa04669652127364736f6c63430007060033",
+  "immutableReferences": {},
+  "sourceMap": "258:949:6:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "258:949:6:-:0;;;;;",
+  "source": "pragma solidity >=0.7.0;\n// SPDX-License-Identifier: GPL-3.0-or-later\n\nimport \"../../Utils/RBAC.sol\";\nimport \"./QualificationAttributeList.sol\";\n\nimport \"@openzeppelin/contracts/math/SafeMath.sol\";\nimport \"@openzeppelin/contracts/utils/EnumerableSet.sol\";\n\n\ncontract QualificationDS  {\n    \n\n    using SafeMath for uint256;\n    using EnumerableSet for EnumerableSet.Bytes32Set;\n    \n    struct Endorse {\n        bytes signature;\n        uint256 endorseDate;\n        uint256 endorseExpiryDate;\n        address endorser;\n        bool active;\n    }\n    \n    struct Attribute {\n        string name;\n        bytes value;\n        uint256 createDate;\n        string datatype;\n        address initiator;\n        mapping(uint256 => Endorse) endorsements;\n        uint256 endorsementcount;\n    }\n    \n    struct Keystore {\n        bytes cert;\n        uint256 createDate;\n    }\n    \n    //System Para\n    string attributeListENS;\n    string qualificationLogicENSName;\n    address orgENSRegistar;\n    \n    //Profile Para\n    address qualificationOwner;\n    EnumerableSet.Bytes32Set attributeList;\n    mapping (bytes32=> Attribute) Attributes;\n    PermissionControl access;\n\n    Keystore key;\n    string status;\n \n    \n}",
+  "sourcePath": "/home/dickchan/CIC/contracts/AssetContract/Qualification/QualificationDS.sol",
+  "ast": {
+    "absolutePath": "/home/dickchan/CIC/contracts/AssetContract/Qualification/QualificationDS.sol",
+    "exportedSymbols": {
+      "AccessControl": [
+        10932
+      ],
+      "Address": [
+        12964
+      ],
+      "Context": [
+        12987
+      ],
+      "EnumerableSet": [
+        14039
+      ],
+      "PermissionControl": [
+        7187
+      ],
+      "QualificationAttributeList": [
+        3005
+      ],
+      "QualificationDS": [
+        3071
+      ],
+      "Roles": [
+        7475
+      ],
+      "SafeMath": [
+        11466
+      ]
+    },
+    "id": 3072,
+    "license": "GPL-3.0-or-later",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3007,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:6"
+      },
+      {
+        "absolutePath": "/home/dickchan/CIC/contracts/Utils/RBAC.sol",
+        "file": "../../Utils/RBAC.sol",
+        "id": 3008,
+        "nodeType": "ImportDirective",
+        "scope": 3072,
+        "sourceUnit": 7188,
+        "src": "71:30:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/home/dickchan/CIC/contracts/AssetContract/Qualification/QualificationAttributeList.sol",
+        "file": "./QualificationAttributeList.sol",
+        "id": 3009,
+        "nodeType": "ImportDirective",
+        "scope": 3072,
+        "sourceUnit": 3006,
+        "src": "102:42:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/math/SafeMath.sol",
+        "file": "@openzeppelin/contracts/math/SafeMath.sol",
+        "id": 3010,
+        "nodeType": "ImportDirective",
+        "scope": 3072,
+        "sourceUnit": 11467,
+        "src": "146:51:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/utils/EnumerableSet.sol",
+        "file": "@openzeppelin/contracts/utils/EnumerableSet.sol",
+        "id": 3011,
+        "nodeType": "ImportDirective",
+        "scope": 3072,
+        "sourceUnit": 14040,
+        "src": "198:57:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 3071,
+        "linearizedBaseContracts": [
+          3071
+        ],
+        "name": "QualificationDS",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 3014,
+            "libraryName": {
+              "id": 3012,
+              "name": "SafeMath",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 11466,
+              "src": "302:8:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SafeMath_$11466",
+                "typeString": "library SafeMath"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "296:27:6",
+            "typeName": {
+              "id": 3013,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "315:7:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            }
+          },
+          {
+            "id": 3017,
+            "libraryName": {
+              "id": 3015,
+              "name": "EnumerableSet",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 14039,
+              "src": "334:13:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_EnumerableSet_$14039",
+                "typeString": "library EnumerableSet"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "328:49:6",
+            "typeName": {
+              "id": 3016,
+              "name": "EnumerableSet.Bytes32Set",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 13738,
+              "src": "352:24:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_Bytes32Set_$13738_storage_ptr",
+                "typeString": "struct EnumerableSet.Bytes32Set"
+              }
+            }
+          },
+          {
+            "canonicalName": "QualificationDS.Endorse",
+            "id": 3028,
+            "members": [
+              {
+                "constant": false,
+                "id": 3019,
+                "mutability": "mutable",
+                "name": "signature",
+                "nodeType": "VariableDeclaration",
+                "scope": 3028,
+                "src": "412:15:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 3018,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "412:5:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3021,
+                "mutability": "mutable",
+                "name": "endorseDate",
+                "nodeType": "VariableDeclaration",
+                "scope": 3028,
+                "src": "437:19:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3020,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "437:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3023,
+                "mutability": "mutable",
+                "name": "endorseExpiryDate",
+                "nodeType": "VariableDeclaration",
+                "scope": 3028,
+                "src": "466:25:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3022,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "466:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3025,
+                "mutability": "mutable",
+                "name": "endorser",
+                "nodeType": "VariableDeclaration",
+                "scope": 3028,
+                "src": "501:16:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 3024,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "501:7:6",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3027,
+                "mutability": "mutable",
+                "name": "active",
+                "nodeType": "VariableDeclaration",
+                "scope": 3028,
+                "src": "527:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 3026,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "527:4:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Endorse",
+            "nodeType": "StructDefinition",
+            "scope": 3071,
+            "src": "387:158:6",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "QualificationDS.Attribute",
+            "id": 3045,
+            "members": [
+              {
+                "constant": false,
+                "id": 3030,
+                "mutability": "mutable",
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 3045,
+                "src": "582:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 3029,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "582:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3032,
+                "mutability": "mutable",
+                "name": "value",
+                "nodeType": "VariableDeclaration",
+                "scope": 3045,
+                "src": "603:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 3031,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "603:5:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3034,
+                "mutability": "mutable",
+                "name": "createDate",
+                "nodeType": "VariableDeclaration",
+                "scope": 3045,
+                "src": "624:18:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3033,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "624:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3036,
+                "mutability": "mutable",
+                "name": "datatype",
+                "nodeType": "VariableDeclaration",
+                "scope": 3045,
+                "src": "652:15:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 3035,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "652:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3038,
+                "mutability": "mutable",
+                "name": "initiator",
+                "nodeType": "VariableDeclaration",
+                "scope": 3045,
+                "src": "677:17:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 3037,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "677:7:6",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3042,
+                "mutability": "mutable",
+                "name": "endorsements",
+                "nodeType": "VariableDeclaration",
+                "scope": 3045,
+                "src": "704:40:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Endorse_$3028_storage_$",
+                  "typeString": "mapping(uint256 => struct QualificationDS.Endorse)"
+                },
+                "typeName": {
+                  "id": 3041,
+                  "keyType": {
+                    "id": 3039,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "712:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "704:27:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Endorse_$3028_storage_$",
+                    "typeString": "mapping(uint256 => struct QualificationDS.Endorse)"
+                  },
+                  "valueType": {
+                    "id": 3040,
+                    "name": "Endorse",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 3028,
+                    "src": "723:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Endorse_$3028_storage_ptr",
+                      "typeString": "struct QualificationDS.Endorse"
+                    }
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3044,
+                "mutability": "mutable",
+                "name": "endorsementcount",
+                "nodeType": "VariableDeclaration",
+                "scope": 3045,
+                "src": "754:24:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3043,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "754:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Attribute",
+            "nodeType": "StructDefinition",
+            "scope": 3071,
+            "src": "555:230:6",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "QualificationDS.Keystore",
+            "id": 3050,
+            "members": [
+              {
+                "constant": false,
+                "id": 3047,
+                "mutability": "mutable",
+                "name": "cert",
+                "nodeType": "VariableDeclaration",
+                "scope": 3050,
+                "src": "821:10:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 3046,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "821:5:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3049,
+                "mutability": "mutable",
+                "name": "createDate",
+                "nodeType": "VariableDeclaration",
+                "scope": 3050,
+                "src": "841:18:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3048,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "841:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Keystore",
+            "nodeType": "StructDefinition",
+            "scope": 3071,
+            "src": "795:71:6",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 3052,
+            "mutability": "mutable",
+            "name": "attributeListENS",
+            "nodeType": "VariableDeclaration",
+            "scope": 3071,
+            "src": "894:23:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 3051,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "894:6:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 3054,
+            "mutability": "mutable",
+            "name": "qualificationLogicENSName",
+            "nodeType": "VariableDeclaration",
+            "scope": 3071,
+            "src": "923:32:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 3053,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "923:6:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 3056,
+            "mutability": "mutable",
+            "name": "orgENSRegistar",
+            "nodeType": "VariableDeclaration",
+            "scope": 3071,
+            "src": "961:22:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 3055,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "961:7:6",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 3058,
+            "mutability": "mutable",
+            "name": "qualificationOwner",
+            "nodeType": "VariableDeclaration",
+            "scope": 3071,
+            "src": "1013:26:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 3057,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "1013:7:6",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 3060,
+            "mutability": "mutable",
+            "name": "attributeList",
+            "nodeType": "VariableDeclaration",
+            "scope": 3071,
+            "src": "1045:38:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_Bytes32Set_$13738_storage",
+              "typeString": "struct EnumerableSet.Bytes32Set"
+            },
+            "typeName": {
+              "id": 3059,
+              "name": "EnumerableSet.Bytes32Set",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 13738,
+              "src": "1045:24:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_Bytes32Set_$13738_storage_ptr",
+                "typeString": "struct EnumerableSet.Bytes32Set"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 3064,
+            "mutability": "mutable",
+            "name": "Attributes",
+            "nodeType": "VariableDeclaration",
+            "scope": 3071,
+            "src": "1089:40:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Attribute_$3045_storage_$",
+              "typeString": "mapping(bytes32 => struct QualificationDS.Attribute)"
+            },
+            "typeName": {
+              "id": 3063,
+              "keyType": {
+                "id": 3061,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "1098:7:6",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1089:29:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Attribute_$3045_storage_$",
+                "typeString": "mapping(bytes32 => struct QualificationDS.Attribute)"
+              },
+              "valueType": {
+                "id": 3062,
+                "name": "Attribute",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 3045,
+                "src": "1108:9:6",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Attribute_$3045_storage_ptr",
+                  "typeString": "struct QualificationDS.Attribute"
+                }
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 3066,
+            "mutability": "mutable",
+            "name": "access",
+            "nodeType": "VariableDeclaration",
+            "scope": 3071,
+            "src": "1135:24:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_PermissionControl_$7187",
+              "typeString": "contract PermissionControl"
+            },
+            "typeName": {
+              "id": 3065,
+              "name": "PermissionControl",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 7187,
+              "src": "1135:17:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_PermissionControl_$7187",
+                "typeString": "contract PermissionControl"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 3068,
+            "mutability": "mutable",
+            "name": "key",
+            "nodeType": "VariableDeclaration",
+            "scope": 3071,
+            "src": "1166:12:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_Keystore_$3050_storage",
+              "typeString": "struct QualificationDS.Keystore"
+            },
+            "typeName": {
+              "id": 3067,
+              "name": "Keystore",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3050,
+              "src": "1166:8:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_Keystore_$3050_storage_ptr",
+                "typeString": "struct QualificationDS.Keystore"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 3070,
+            "mutability": "mutable",
+            "name": "status",
+            "nodeType": "VariableDeclaration",
+            "scope": 3071,
+            "src": "1184:13:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 3069,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "1184:6:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "visibility": "internal"
+          }
+        ],
+        "scope": 3072,
+        "src": "258:949:6"
+      }
+    ],
+    "src": "0:1207:6"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/dickchan/CIC/contracts/AssetContract/Qualification/QualificationDS.sol",
+    "exportedSymbols": {
+      "AccessControl": [
+        10932
+      ],
+      "Address": [
+        12964
+      ],
+      "Context": [
+        12987
+      ],
+      "EnumerableSet": [
+        14039
+      ],
+      "PermissionControl": [
+        7187
+      ],
+      "QualificationAttributeList": [
+        3005
+      ],
+      "QualificationDS": [
+        3071
+      ],
+      "Roles": [
+        7475
+      ],
+      "SafeMath": [
+        11466
+      ]
+    },
+    "id": 3072,
+    "license": "GPL-3.0-or-later",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3007,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:6"
+      },
+      {
+        "absolutePath": "/home/dickchan/CIC/contracts/Utils/RBAC.sol",
+        "file": "../../Utils/RBAC.sol",
+        "id": 3008,
+        "nodeType": "ImportDirective",
+        "scope": 3072,
+        "sourceUnit": 7188,
+        "src": "71:30:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/home/dickchan/CIC/contracts/AssetContract/Qualification/QualificationAttributeList.sol",
+        "file": "./QualificationAttributeList.sol",
+        "id": 3009,
+        "nodeType": "ImportDirective",
+        "scope": 3072,
+        "sourceUnit": 3006,
+        "src": "102:42:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/math/SafeMath.sol",
+        "file": "@openzeppelin/contracts/math/SafeMath.sol",
+        "id": 3010,
+        "nodeType": "ImportDirective",
+        "scope": 3072,
+        "sourceUnit": 11467,
+        "src": "146:51:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/utils/EnumerableSet.sol",
+        "file": "@openzeppelin/contracts/utils/EnumerableSet.sol",
+        "id": 3011,
+        "nodeType": "ImportDirective",
+        "scope": 3072,
+        "sourceUnit": 14040,
+        "src": "198:57:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 3071,
+        "linearizedBaseContracts": [
+          3071
+        ],
+        "name": "QualificationDS",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 3014,
+            "libraryName": {
+              "id": 3012,
+              "name": "SafeMath",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 11466,
+              "src": "302:8:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SafeMath_$11466",
+                "typeString": "library SafeMath"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "296:27:6",
+            "typeName": {
+              "id": 3013,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "315:7:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            }
+          },
+          {
+            "id": 3017,
+            "libraryName": {
+              "id": 3015,
+              "name": "EnumerableSet",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 14039,
+              "src": "334:13:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_EnumerableSet_$14039",
+                "typeString": "library EnumerableSet"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "328:49:6",
+            "typeName": {
+              "id": 3016,
+              "name": "EnumerableSet.Bytes32Set",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 13738,
+              "src": "352:24:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_Bytes32Set_$13738_storage_ptr",
+                "typeString": "struct EnumerableSet.Bytes32Set"
+              }
+            }
+          },
+          {
+            "canonicalName": "QualificationDS.Endorse",
+            "id": 3028,
+            "members": [
+              {
+                "constant": false,
+                "id": 3019,
+                "mutability": "mutable",
+                "name": "signature",
+                "nodeType": "VariableDeclaration",
+                "scope": 3028,
+                "src": "412:15:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 3018,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "412:5:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3021,
+                "mutability": "mutable",
+                "name": "endorseDate",
+                "nodeType": "VariableDeclaration",
+                "scope": 3028,
+                "src": "437:19:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3020,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "437:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3023,
+                "mutability": "mutable",
+                "name": "endorseExpiryDate",
+                "nodeType": "VariableDeclaration",
+                "scope": 3028,
+                "src": "466:25:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3022,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "466:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3025,
+                "mutability": "mutable",
+                "name": "endorser",
+                "nodeType": "VariableDeclaration",
+                "scope": 3028,
+                "src": "501:16:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 3024,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "501:7:6",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3027,
+                "mutability": "mutable",
+                "name": "active",
+                "nodeType": "VariableDeclaration",
+                "scope": 3028,
+                "src": "527:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 3026,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "527:4:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Endorse",
+            "nodeType": "StructDefinition",
+            "scope": 3071,
+            "src": "387:158:6",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "QualificationDS.Attribute",
+            "id": 3045,
+            "members": [
+              {
+                "constant": false,
+                "id": 3030,
+                "mutability": "mutable",
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 3045,
+                "src": "582:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 3029,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "582:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3032,
+                "mutability": "mutable",
+                "name": "value",
+                "nodeType": "VariableDeclaration",
+                "scope": 3045,
+                "src": "603:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 3031,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "603:5:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3034,
+                "mutability": "mutable",
+                "name": "createDate",
+                "nodeType": "VariableDeclaration",
+                "scope": 3045,
+                "src": "624:18:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3033,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "624:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3036,
+                "mutability": "mutable",
+                "name": "datatype",
+                "nodeType": "VariableDeclaration",
+                "scope": 3045,
+                "src": "652:15:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 3035,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "652:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3038,
+                "mutability": "mutable",
+                "name": "initiator",
+                "nodeType": "VariableDeclaration",
+                "scope": 3045,
+                "src": "677:17:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 3037,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "677:7:6",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3042,
+                "mutability": "mutable",
+                "name": "endorsements",
+                "nodeType": "VariableDeclaration",
+                "scope": 3045,
+                "src": "704:40:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Endorse_$3028_storage_$",
+                  "typeString": "mapping(uint256 => struct QualificationDS.Endorse)"
+                },
+                "typeName": {
+                  "id": 3041,
+                  "keyType": {
+                    "id": 3039,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "712:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "704:27:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Endorse_$3028_storage_$",
+                    "typeString": "mapping(uint256 => struct QualificationDS.Endorse)"
+                  },
+                  "valueType": {
+                    "id": 3040,
+                    "name": "Endorse",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 3028,
+                    "src": "723:7:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Endorse_$3028_storage_ptr",
+                      "typeString": "struct QualificationDS.Endorse"
+                    }
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3044,
+                "mutability": "mutable",
+                "name": "endorsementcount",
+                "nodeType": "VariableDeclaration",
+                "scope": 3045,
+                "src": "754:24:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3043,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "754:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Attribute",
+            "nodeType": "StructDefinition",
+            "scope": 3071,
+            "src": "555:230:6",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "QualificationDS.Keystore",
+            "id": 3050,
+            "members": [
+              {
+                "constant": false,
+                "id": 3047,
+                "mutability": "mutable",
+                "name": "cert",
+                "nodeType": "VariableDeclaration",
+                "scope": 3050,
+                "src": "821:10:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 3046,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "821:5:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 3049,
+                "mutability": "mutable",
+                "name": "createDate",
+                "nodeType": "VariableDeclaration",
+                "scope": 3050,
+                "src": "841:18:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 3048,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "841:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Keystore",
+            "nodeType": "StructDefinition",
+            "scope": 3071,
+            "src": "795:71:6",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 3052,
+            "mutability": "mutable",
+            "name": "attributeListENS",
+            "nodeType": "VariableDeclaration",
+            "scope": 3071,
+            "src": "894:23:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 3051,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "894:6:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 3054,
+            "mutability": "mutable",
+            "name": "qualificationLogicENSName",
+            "nodeType": "VariableDeclaration",
+            "scope": 3071,
+            "src": "923:32:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 3053,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "923:6:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 3056,
+            "mutability": "mutable",
+            "name": "orgENSRegistar",
+            "nodeType": "VariableDeclaration",
+            "scope": 3071,
+            "src": "961:22:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 3055,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "961:7:6",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 3058,
+            "mutability": "mutable",
+            "name": "qualificationOwner",
+            "nodeType": "VariableDeclaration",
+            "scope": 3071,
+            "src": "1013:26:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 3057,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "1013:7:6",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 3060,
+            "mutability": "mutable",
+            "name": "attributeList",
+            "nodeType": "VariableDeclaration",
+            "scope": 3071,
+            "src": "1045:38:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_Bytes32Set_$13738_storage",
+              "typeString": "struct EnumerableSet.Bytes32Set"
+            },
+            "typeName": {
+              "id": 3059,
+              "name": "EnumerableSet.Bytes32Set",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 13738,
+              "src": "1045:24:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_Bytes32Set_$13738_storage_ptr",
+                "typeString": "struct EnumerableSet.Bytes32Set"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 3064,
+            "mutability": "mutable",
+            "name": "Attributes",
+            "nodeType": "VariableDeclaration",
+            "scope": 3071,
+            "src": "1089:40:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Attribute_$3045_storage_$",
+              "typeString": "mapping(bytes32 => struct QualificationDS.Attribute)"
+            },
+            "typeName": {
+              "id": 3063,
+              "keyType": {
+                "id": 3061,
+                "name": "bytes32",
+                "nodeType": "ElementaryTypeName",
+                "src": "1098:7:6",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1089:29:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_bytes32_$_t_struct$_Attribute_$3045_storage_$",
+                "typeString": "mapping(bytes32 => struct QualificationDS.Attribute)"
+              },
+              "valueType": {
+                "id": 3062,
+                "name": "Attribute",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 3045,
+                "src": "1108:9:6",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Attribute_$3045_storage_ptr",
+                  "typeString": "struct QualificationDS.Attribute"
+                }
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 3066,
+            "mutability": "mutable",
+            "name": "access",
+            "nodeType": "VariableDeclaration",
+            "scope": 3071,
+            "src": "1135:24:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_PermissionControl_$7187",
+              "typeString": "contract PermissionControl"
+            },
+            "typeName": {
+              "id": 3065,
+              "name": "PermissionControl",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 7187,
+              "src": "1135:17:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_PermissionControl_$7187",
+                "typeString": "contract PermissionControl"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 3068,
+            "mutability": "mutable",
+            "name": "key",
+            "nodeType": "VariableDeclaration",
+            "scope": 3071,
+            "src": "1166:12:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_Keystore_$3050_storage",
+              "typeString": "struct QualificationDS.Keystore"
+            },
+            "typeName": {
+              "id": 3067,
+              "name": "Keystore",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3050,
+              "src": "1166:8:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_Keystore_$3050_storage_ptr",
+                "typeString": "struct QualificationDS.Keystore"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 3070,
+            "mutability": "mutable",
+            "name": "status",
+            "nodeType": "VariableDeclaration",
+            "scope": 3071,
+            "src": "1184:13:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 3069,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "1184:6:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "visibility": "internal"
+          }
+        ],
+        "scope": 3072,
+        "src": "258:949:6"
+      }
+    ],
+    "src": "0:1207:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.6+commit.7338295f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.3",
+  "updatedAt": "2021-03-18T07:14:07.348Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

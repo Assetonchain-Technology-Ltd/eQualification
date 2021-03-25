@@ -1,0 +1,617 @@
+{
+  "contractName": "Roles",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/dickchan/CIC/contracts/Utils/Roles.sol\":\"Roles\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/dickchan/CIC/contracts/Utils/Roles.sol\":{\"keccak256\":\"0xa9cda963a6344a17861b02e449f0c39e3dba74b506514b6c8ee4faa0b4e2d37a\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://98b7fa86460eb87e5c5a4102e82389e06e27cf773a7f82caa07e24f158752312\",\"dweb:/ipfs/QmfFVozT8RxHrRntAFwPVV2goy6kQ3ya7cRJTGwSoLVioN\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea264697066735822122037c39091c5a5fcd6ae31b00959f1232913defd65aaf412b391287ef47c4329ef64736f6c63430007060033",
+  "deployedBytecode": "0x6080604052600080fdfea264697066735822122037c39091c5a5fcd6ae31b00959f1232913defd65aaf412b391287ef47c4329ef64736f6c63430007060033",
+  "immutableReferences": {},
+  "sourceMap": "70:741:20:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "70:741:20:-:0;;;;;",
+  "source": "pragma solidity >=0.7.0;\n// SPDX-License-Identifier: GPL-3.0-or-later\ncontract Roles {\n    //common to Org and individual rights\n    bytes32 constant internal ENDORSE = 0x9a7e9d723982bdbedb9fcad890bb0aac5fb256ffc07256673da57bdd92e3888b;\n    bytes32 constant internal ISSUE = 0x5e08e74d3db9bd033737bf4f2fd87386eec32e8b6624f7ea49a55acda9aa159b;\n    bytes32 constant internal VIEW = 0x201105a52b842adfbcdcfcac0349cd25c8a3cb322954633dd585b0958aa204f3;\n    \n    //Only individual rights\n    bytes32 constant internal TOKEN = 0x96706879d29c248edfb2a2563a8a9d571c49634c0f82013e6f5a7cde739d35d4;\n    bytes32 constant internal OPERATOR = 0x523a704056dcd17bcf83bed8b68c59416dac1119be77755efe3bde0a64e46e0c;\n    bytes32 constant internal ADMIN = 0xdf8b4c520ffe197c5343c6f5aec59570151ef9a492f2c624fd45ddde6135ec42;\n \n    \n}",
+  "sourcePath": "/home/dickchan/CIC/contracts/Utils/Roles.sol",
+  "ast": {
+    "absolutePath": "/home/dickchan/CIC/contracts/Utils/Roles.sol",
+    "exportedSymbols": {
+      "Roles": [
+        7858
+      ]
+    },
+    "id": 7859,
+    "license": "GPL-3.0-or-later",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7839,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:20"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 7858,
+        "linearizedBaseContracts": [
+          7858
+        ],
+        "name": "Roles",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": true,
+            "id": 7842,
+            "mutability": "constant",
+            "name": "ENDORSE",
+            "nodeType": "VariableDeclaration",
+            "scope": 7858,
+            "src": "133:102:20",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 7840,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "133:7:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "hexValue": "307839613765396437323339383262646265646239666361643839306262306161633566623235366666633037323536363733646135376264643932653338383862",
+              "id": 7841,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "169:66:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_69879888065652050841252542957190029839722398899625537680899849674469021026443_by_1",
+                "typeString": "int_const 6987...(69 digits omitted)...6443"
+              },
+              "value": "0x9a7e9d723982bdbedb9fcad890bb0aac5fb256ffc07256673da57bdd92e3888b"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "id": 7845,
+            "mutability": "constant",
+            "name": "ISSUE",
+            "nodeType": "VariableDeclaration",
+            "scope": 7858,
+            "src": "241:100:20",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 7843,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "241:7:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "hexValue": "307835653038653734643364623962643033333733376266346632666438373338366565633332653862363632346637656134396135356163646139616131353962",
+              "id": 7844,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "275:66:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_42533138929167727681596998985892215502426328347739344034997574420902145824155_by_1",
+                "typeString": "int_const 4253...(69 digits omitted)...4155"
+              },
+              "value": "0x5e08e74d3db9bd033737bf4f2fd87386eec32e8b6624f7ea49a55acda9aa159b"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "id": 7848,
+            "mutability": "constant",
+            "name": "VIEW",
+            "nodeType": "VariableDeclaration",
+            "scope": 7858,
+            "src": "347:99:20",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 7846,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "347:7:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "hexValue": "307832303131303561353262383432616466626364636663616330333439636432356338613363623332323935343633336464353835623039353861613230346633",
+              "id": 7847,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "380:66:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_14504086516471490082185810110060572678461699697918239070563314237373975495923_by_1",
+                "typeString": "int_const 1450...(69 digits omitted)...5923"
+              },
+              "value": "0x201105a52b842adfbcdcfcac0349cd25c8a3cb322954633dd585b0958aa204f3"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "id": 7851,
+            "mutability": "constant",
+            "name": "TOKEN",
+            "nodeType": "VariableDeclaration",
+            "scope": 7858,
+            "src": "486:100:20",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 7849,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "486:7:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "hexValue": "307839363730363837396432396332343865646662326132353633613861396435373163343936333463306638323031336536663561376364653733396433356434",
+              "id": 7850,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "520:66:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_68045535224698564919508891548816079140229906170606430517752058532450078111188_by_1",
+                "typeString": "int_const 6804...(69 digits omitted)...1188"
+              },
+              "value": "0x96706879d29c248edfb2a2563a8a9d571c49634c0f82013e6f5a7cde739d35d4"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "id": 7854,
+            "mutability": "constant",
+            "name": "OPERATOR",
+            "nodeType": "VariableDeclaration",
+            "scope": 7858,
+            "src": "592:103:20",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 7852,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "592:7:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "hexValue": "307835323361373034303536646364313762636638336265643862363863353934313664616331313139626537373735356566653362646530613634653436653063",
+              "id": 7853,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "629:66:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_37192905443760113839885143854607594264370223690986671126437686896065360719372_by_1",
+                "typeString": "int_const 3719...(69 digits omitted)...9372"
+              },
+              "value": "0x523a704056dcd17bcf83bed8b68c59416dac1119be77755efe3bde0a64e46e0c"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "id": 7857,
+            "mutability": "constant",
+            "name": "ADMIN",
+            "nodeType": "VariableDeclaration",
+            "scope": 7858,
+            "src": "701:100:20",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 7855,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "701:7:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "hexValue": "307864663862346335323066666531393763353334336336663561656335393537303135316566396134393266326336323466643435646464653631333565633432",
+              "id": 7856,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "735:66:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_101111883721194797686535296169014623465011523193779125151422136512530317962306_by_1",
+                "typeString": "int_const 1011...(70 digits omitted)...2306"
+              },
+              "value": "0xdf8b4c520ffe197c5343c6f5aec59570151ef9a492f2c624fd45ddde6135ec42"
+            },
+            "visibility": "internal"
+          }
+        ],
+        "scope": 7859,
+        "src": "70:741:20"
+      }
+    ],
+    "src": "0:811:20"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/dickchan/CIC/contracts/Utils/Roles.sol",
+    "exportedSymbols": {
+      "Roles": [
+        7858
+      ]
+    },
+    "id": 7859,
+    "license": "GPL-3.0-or-later",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7839,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:20"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 7858,
+        "linearizedBaseContracts": [
+          7858
+        ],
+        "name": "Roles",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": true,
+            "id": 7842,
+            "mutability": "constant",
+            "name": "ENDORSE",
+            "nodeType": "VariableDeclaration",
+            "scope": 7858,
+            "src": "133:102:20",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 7840,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "133:7:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "hexValue": "307839613765396437323339383262646265646239666361643839306262306161633566623235366666633037323536363733646135376264643932653338383862",
+              "id": 7841,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "169:66:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_69879888065652050841252542957190029839722398899625537680899849674469021026443_by_1",
+                "typeString": "int_const 6987...(69 digits omitted)...6443"
+              },
+              "value": "0x9a7e9d723982bdbedb9fcad890bb0aac5fb256ffc07256673da57bdd92e3888b"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "id": 7845,
+            "mutability": "constant",
+            "name": "ISSUE",
+            "nodeType": "VariableDeclaration",
+            "scope": 7858,
+            "src": "241:100:20",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 7843,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "241:7:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "hexValue": "307835653038653734643364623962643033333733376266346632666438373338366565633332653862363632346637656134396135356163646139616131353962",
+              "id": 7844,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "275:66:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_42533138929167727681596998985892215502426328347739344034997574420902145824155_by_1",
+                "typeString": "int_const 4253...(69 digits omitted)...4155"
+              },
+              "value": "0x5e08e74d3db9bd033737bf4f2fd87386eec32e8b6624f7ea49a55acda9aa159b"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "id": 7848,
+            "mutability": "constant",
+            "name": "VIEW",
+            "nodeType": "VariableDeclaration",
+            "scope": 7858,
+            "src": "347:99:20",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 7846,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "347:7:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "hexValue": "307832303131303561353262383432616466626364636663616330333439636432356338613363623332323935343633336464353835623039353861613230346633",
+              "id": 7847,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "380:66:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_14504086516471490082185810110060572678461699697918239070563314237373975495923_by_1",
+                "typeString": "int_const 1450...(69 digits omitted)...5923"
+              },
+              "value": "0x201105a52b842adfbcdcfcac0349cd25c8a3cb322954633dd585b0958aa204f3"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "id": 7851,
+            "mutability": "constant",
+            "name": "TOKEN",
+            "nodeType": "VariableDeclaration",
+            "scope": 7858,
+            "src": "486:100:20",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 7849,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "486:7:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "hexValue": "307839363730363837396432396332343865646662326132353633613861396435373163343936333463306638323031336536663561376364653733396433356434",
+              "id": 7850,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "520:66:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_68045535224698564919508891548816079140229906170606430517752058532450078111188_by_1",
+                "typeString": "int_const 6804...(69 digits omitted)...1188"
+              },
+              "value": "0x96706879d29c248edfb2a2563a8a9d571c49634c0f82013e6f5a7cde739d35d4"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "id": 7854,
+            "mutability": "constant",
+            "name": "OPERATOR",
+            "nodeType": "VariableDeclaration",
+            "scope": 7858,
+            "src": "592:103:20",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 7852,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "592:7:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "hexValue": "307835323361373034303536646364313762636638336265643862363863353934313664616331313139626537373735356566653362646530613634653436653063",
+              "id": 7853,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "629:66:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_37192905443760113839885143854607594264370223690986671126437686896065360719372_by_1",
+                "typeString": "int_const 3719...(69 digits omitted)...9372"
+              },
+              "value": "0x523a704056dcd17bcf83bed8b68c59416dac1119be77755efe3bde0a64e46e0c"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "id": 7857,
+            "mutability": "constant",
+            "name": "ADMIN",
+            "nodeType": "VariableDeclaration",
+            "scope": 7858,
+            "src": "701:100:20",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 7855,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "701:7:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "hexValue": "307864663862346335323066666531393763353334336336663561656335393537303135316566396134393266326336323466643435646464653631333565633432",
+              "id": 7856,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "735:66:20",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_101111883721194797686535296169014623465011523193779125151422136512530317962306_by_1",
+                "typeString": "int_const 1011...(70 digits omitted)...2306"
+              },
+              "value": "0xdf8b4c520ffe197c5343c6f5aec59570151ef9a492f2c624fd45ddde6135ec42"
+            },
+            "visibility": "internal"
+          }
+        ],
+        "scope": 7859,
+        "src": "70:741:20"
+      }
+    ],
+    "src": "0:811:20"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.6+commit.7338295f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.3",
+  "updatedAt": "2021-03-18T05:34:56.752Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

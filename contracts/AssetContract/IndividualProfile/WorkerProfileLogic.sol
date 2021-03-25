@@ -191,7 +191,7 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
     }
     
     
-    function _orgRoleCheck(string memory _org,address _caller,bytes32 _role) internal 
+    function _orgRoleCheck(string memory _org,address _caller,bytes32 _role) internal
     returns(bool)
     {
         ENS ens = ENS(publicENSRegistar);

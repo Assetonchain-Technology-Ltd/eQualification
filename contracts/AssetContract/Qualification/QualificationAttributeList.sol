@@ -59,5 +59,9 @@ contract QualificationAttributeList {
         return (attributename[attributeList.at(_i)]);
     }
     
+    function supportsInterface(bytes4 interfaceId) public view returns (bool) {
+        return interfaceId == 0xa4d1215e;
+    }
+    
     function qualificationattributeListInterface() public{}
 }

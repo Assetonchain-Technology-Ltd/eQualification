@@ -43,7 +43,7 @@ contract QualificationLogic is QualificationDS,Roles {
         Resolver res = Resolver(ens.resolver(namehash));
         QualificationAttributeList ab = QualificationAttributeList(res.addr(namehash));
         require(attributeList.contains(_key)==false,"QL04");
-        require(ab.exists(_key)==false,"QL05");
+        require(ab.exists(_key),"QL05");
         attributeList.add(_key);
         Attributes[_key].name=_name;
         Attributes[_key].value=_value;

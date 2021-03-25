@@ -1,0 +1,579 @@
+{
+  "contractName": "Selector",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "calcInterfaceId",
+      "outputs": [
+        {
+          "internalType": "bytes4",
+          "name": "",
+          "type": "bytes4"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"calcInterfaceId\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"\",\"type\":\"bytes4\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/dickchan/CIC/contracts/Utils/helper.sol\":\"Selector\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/dickchan/CIC/contracts/TokenContract/QualificationToken.sol\":{\"keccak256\":\"0x4ac1da37fac69fe037b157055a0b74530a487adbfb8bf3bc67f87877cdb3103a\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://6a03ed9e0b0ed5a5420a3584eea7763c196a5f1bdefa1fad7c0543d8fc79633e\",\"dweb:/ipfs/QmadBeGnQJb2yyq2JQZu2iNQLnfa6gjWNBoJJdvY7HYuqh\"]},\"/home/dickchan/CIC/contracts/Utils/ENS.sol\":{\"keccak256\":\"0x9fd11e38cfff2b26bc9c390873e9f6aecd3109ca879a5dcfbd4afe2da7c0d301\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://cd301a0bffd15870997682ef38d44e16384245c1c22b6d79e3457ffedea32893\",\"dweb:/ipfs/QmQ8MRv63BnuQSDQ4q36gyRREwcr7Zc4qKHPzLHYfMdLFW\"]},\"/home/dickchan/CIC/contracts/Utils/Library.sol\":{\"keccak256\":\"0x710fa0d72cbbd09584bc54eee620e6b51903b28206c59f3af71f46819ea38684\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://d9b102c14c6c7d29cf86f0dd9e1ea4fa5c6ccb64c2fd3a1874d0f97f11c2288b\",\"dweb:/ipfs/QmZDBTfzPK6zQCKv3tUMNiA5QfSsvSwptTm96akejN7Gjg\"]},\"/home/dickchan/CIC/contracts/Utils/RBAC.sol\":{\"keccak256\":\"0x2f9f44309749101065844c1fa2ad75b8e36e5d6d0e344a25192ed2ec784cfd9c\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://7d6f5ca2eca39c05646c49a57636765f7029b9c5bc2667e7d7c77dd5fc8fc92c\",\"dweb:/ipfs/QmVy2ey7o7cguNdMf3v3rGkJsedtQLmAdHhGH1R1W8a4o2\"]},\"/home/dickchan/CIC/contracts/Utils/Resolver.sol\":{\"keccak256\":\"0x0f403246bcef90505156ef144c2e1e15837bfebf1add8aa2c05d065c0b179729\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://f5724f7570e9b19a7399c2460ac8490f5c14ae0b7774f8dc2c86f23a28a4b4fd\",\"dweb:/ipfs/QmNs1npNBWiF7kBMswsoQETz6jctcYBqKf3bU958DQKj1V\"]},\"/home/dickchan/CIC/contracts/Utils/Roles.sol\":{\"keccak256\":\"0xa9cda963a6344a17861b02e449f0c39e3dba74b506514b6c8ee4faa0b4e2d37a\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://98b7fa86460eb87e5c5a4102e82389e06e27cf773a7f82caa07e24f158752312\",\"dweb:/ipfs/QmfFVozT8RxHrRntAFwPVV2goy6kQ3ya7cRJTGwSoLVioN\"]},\"/home/dickchan/CIC/contracts/Utils/helper.sol\":{\"keccak256\":\"0xdeeb6a169557d83e13c941e3ebcda51fd0ad2f746ef55d9451cabe4f593513d1\",\"urls\":[\"bzz-raw://12e5493c059da1c278d306a5f11de1e2c37d37fd19cb669918864165f5dcd114\",\"dweb:/ipfs/QmWSEJsTGerr5Ts2sQmbYrdq4B1o8UNRNzbQbzReZxKaKa\"]},\"/home/dickchan/CIC/contracts/Utils/strings.sol\":{\"keccak256\":\"0x053907fbc2b0eb5eb1405a137120201f5af4621d666990856c144dcf57abae9c\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://882ad814cbdb0d13f090536ce91c7d3fd31caba0e91097bcc61d3ec2643fd866\",\"dweb:/ipfs/QmVFrcTmskeGMs1DdXWCBFmmsnhkKU8m7bW6fJdSUtZDMx\"]},\"@openzeppelin/contracts/access/AccessControl.sol\":{\"keccak256\":\"0x4fc155a2f7837603d69a13cfa481eb5e7f5e02cb77e2ec9edbac30986db37988\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0855147e38b5e36288a8df73b8da49132f14ec7abb19041b0c98872263643aaa\",\"dweb:/ipfs/QmSrSysyFUYQq7hbJaJXG7EyZW6ezDBzEJx3SABp6eiJSS\"]},\"@openzeppelin/contracts/introspection/ERC165.sol\":{\"keccak256\":\"0x24141d2f6b98d4cb77a8936eae8cbaad2e261d9062bdc08036096f4550092501\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b710eb003944777135f027500a5a57b479fe857849f5f467c1ef9687401e3c95\",\"dweb:/ipfs/QmcELzi6KRzAs3DXwxdsoKWRJ13KSeipKQsJgD3unctdZM\"]},\"@openzeppelin/contracts/introspection/IERC165.sol\":{\"keccak256\":\"0xf70bc25d981e4ec9673a995ad2995d5d493ea188d3d8f388bba9c227ce09fb82\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://bd970f51e3a77790c2f02b5b1759827c3b897c3d98c407b3631e8af32e3dc93c\",\"dweb:/ipfs/QmPF85Amgbqjk3SNZKsPCsqCw8JfwYEPMnnhvMJUyX58je\"]},\"@openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://526dc85e1f9b9b45830e202568d267d93dde7a4fcccf4ad7798dadcd92304d3c\",\"dweb:/ipfs/QmaoXMB972J3cSDLtBq3xBo4jLwqD2uzXTwujtSPqkYVhR\"]},\"@openzeppelin/contracts/token/ERC721/ERC721.sol\":{\"keccak256\":\"0x7af5c445c8ec15943c526351329c58f15e2b4ab6e6c1c111efad299b94281c1e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a217a189a5191a3a98da08ea995141afe3b2e849a8949fe25a3c167002b525bd\",\"dweb:/ipfs/QmPvyrSUtWceXaiyJpfTMfWYtDmy58eyxQUuZSu7XLABuH\"]},\"@openzeppelin/contracts/token/ERC721/ERC721Burnable.sol\":{\"keccak256\":\"0x060925a04766df64ac29f56aaa3a38aafd71424ba4d996ca0f14363828b97056\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8593f0fcac22c97956ab3e779e8a55a6c33dd01059fa01f15992518e708f4e6f\",\"dweb:/ipfs/QmWYQcAy7R6v5prSfmigmrhr7nGxwzkbZkmdeMcLNLUG66\"]},\"@openzeppelin/contracts/token/ERC721/ERC721Pausable.sol\":{\"keccak256\":\"0x1c31a4c2ad1af9e25cd8f4ea941ebd6a6a932426183ab39c160cb8e51cfc704f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://77dd2448bbeb4a8f6f3273042d02326fa6ba191827e5b37f6f68492b17d022c9\",\"dweb:/ipfs/QmRiAmuxtRcVRhXUymziiTD3r8SGcjxKN95ZLVKd2jtWjN\"]},\"@openzeppelin/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0x2d99a0deb6648c34fbc66d6ac4a2d64798d7a5321b45624f6736fadc63da1962\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2dcdce5ede1e5e650d174ec0b35be7d47b6a50f30bc895ef0d9e59fb75052e45\",\"dweb:/ipfs/QmQ2XFsDLTYqfEdw7pYzHiGtFRY11yQm4b6ynYgKqDxeB8\"]},\"@openzeppelin/contracts/token/ERC721/IERC721Enumerable.sol\":{\"keccak256\":\"0xe6bd1b1218338b6f9fe17776f48623b4ac3d8a40405f74a44bc23c00abe2ca13\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0c354c3f6e9c487759aa7869be4fba68e0b2efc777b514d289c4cbd3ff8f7e1a\",\"dweb:/ipfs/QmdF9LcSYVmiUCL7JxLEYmSLrjga6zJsujfi6sgEJD4M1z\"]},\"@openzeppelin/contracts/token/ERC721/IERC721Metadata.sol\":{\"keccak256\":\"0xccb917776f826ac6b68bd5a15a5f711e3967848a52ba11e6104d9a4f593314a7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://430255ad2229ced6d880e61a67bdc6e48dbbaed8354a7c1fe918cd8b8714a886\",\"dweb:/ipfs/QmTHY56odzqEpEC6v6tafaWMYY7vmULw25q5XHJLCCAeox\"]},\"@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol\":{\"keccak256\":\"0x52146049d6709c870e8ddcd988b5155cb6c5d640cfcd8978aee52bc1ba2ec4eb\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ada84513617b7c1b2f890b44503735abaec73a1acd030112a17aac7e6c66a4a1\",\"dweb:/ipfs/QmaiFwdio67iJrfjAdkMac24eJ5sS1qD7CZW6PhUU6KjiK\"]},\"@openzeppelin/contracts/utils/Address.sol\":{\"keccak256\":\"0x28911e614500ae7c607a432a709d35da25f3bc5ddc8bd12b278b66358070c0ea\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://256c8c8af5eb072bc473226ab2b2187149b8fc04f5f4a4820db22527f5ce8e3c\",\"dweb:/ipfs/QmRvi5BhnL7Rxf85KrJhwM6RRhukm4tzoctRdgQEheNyiN\"]},\"@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0x8d3cb350f04ff49cfb10aef08d87f19dcbaecc8027b0bed12f3275cd12f38cf0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ded47ec7c96750f9bd04bbbc84f659992d4ba901cb7b532a52cd468272cf378f\",\"dweb:/ipfs/QmfBrGtQP7rZEqEg6Wz6jh2N2Kukpj1z5v3CGWmAqrzm96\"]},\"@openzeppelin/contracts/utils/EnumerableMap.sol\":{\"keccak256\":\"0x4b087f06b6670a131a5a14e53b1d2a5ef19c034cc5ec42eeebcf9554325744ad\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f6a6af5d848334e40db419773f6360601e311ffc21c2e274f730b8c542da99fd\",\"dweb:/ipfs/QmfA24cxQ2g41ZWUuDF295dxDJ4xF1bSDYtC3EaLd7CzW8\"]},\"@openzeppelin/contracts/utils/EnumerableSet.sol\":{\"keccak256\":\"0x1562cd9922fbf739edfb979f506809e2743789cbde3177515542161c3d04b164\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4580d57781513d98870d9738c7d39094336e0a70cdb90d68dad549c6ced466ec\",\"dweb:/ipfs/Qmf9YZzzRFuvMnav9dgmeRUpdYMMECiZX8w25sHWVbA18V\"]},\"@openzeppelin/contracts/utils/Pausable.sol\":{\"keccak256\":\"0x212fb1b1d4beaf74354dad9bc329f44ee3c5375ef1c32acff76b4ecefc10f1d8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d21c68cb321d1c8d0fa39fd9ecb6bbe3b2f26623b0f38af280a010c916c85f23\",\"dweb:/ipfs/Qmf2P51HRC4ekDHLYfbXu5SXR33gXrWtq6oKSmfyWqVRuC\"]},\"@openzeppelin/contracts/utils/Strings.sol\":{\"keccak256\":\"0xa1e12f97981f1d0964b1c048978606a57127c56c438bab61cdfe269cad859a74\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5eefac1760f524971e14aa3f3d79515a3d54fd28c1d3bdca0b36127da349b830\",\"dweb:/ipfs/QmUMzkyH3ytJX5gVPizQruNLhkKmuJb3nFqBDad4LPdg5U\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b5060af8061001e6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c8063573badfe14602d575b600080fd5b60336068565b60405180827bffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916815260200191505060405180910390f35b6000806371966f2560e01b9150509056fea264697066735822122044726c04d731f336aa1ac3af70a533c0c9d0a0a0d70109a3068978e00473a1f964736f6c63430007060033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c8063573badfe14602d575b600080fd5b60336068565b60405180827bffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916815260200191505060405180910390f35b6000806371966f2560e01b9150509056fea264697066735822122044726c04d731f336aa1ac3af70a533c0c9d0a0a0d70109a3068978e00473a1f964736f6c63430007060033",
+  "immutableReferences": {},
+  "sourceMap": "75:176:20:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "75:176:20:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;113:136;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;163:6;177:20;210:29;;;203:36;;;113:136;:::o",
+  "source": "pragma solidity >=0.5.8;\nimport \"../TokenContract/QualificationToken.sol\";\ncontract Selector {\n  // 0x75b24222\n  function calcInterfaceId() external pure returns (bytes4) {\n    QualificationToken i;\n    return i.qualificationToken.selector;\n    \n  }\n}",
+  "sourcePath": "/home/dickchan/CIC/contracts/Utils/helper.sol",
+  "ast": {
+    "absolutePath": "/home/dickchan/CIC/contracts/Utils/helper.sol",
+    "exportedSymbols": {
+      "AccessControl": [
+        10932
+      ],
+      "Address": [
+        12964
+      ],
+      "Context": [
+        12987
+      ],
+      "ENS": [
+        6174
+      ],
+      "ERC165": [
+        11099
+      ],
+      "ERC721": [
+        12409
+      ],
+      "ERC721Burnable": [
+        12439
+      ],
+      "ERC721Pausable": [
+        12476
+      ],
+      "EnumerableMap": [
+        13547
+      ],
+      "EnumerableSet": [
+        14039
+      ],
+      "IERC165": [
+        11111
+      ],
+      "IERC721": [
+        12592
+      ],
+      "IERC721Enumerable": [
+        12623
+      ],
+      "IERC721Metadata": [
+        12650
+      ],
+      "IERC721Receiver": [
+        12668
+      ],
+      "Pausable": [
+        14131
+      ],
+      "PermissionControl": [
+        7187
+      ],
+      "QualificationToken": [
+        5651
+      ],
+      "Resolver": [
+        7454
+      ],
+      "Roles": [
+        7475
+      ],
+      "SafeMath": [
+        11466
+      ],
+      "Selector": [
+        7492
+      ],
+      "Strings": [
+        14218
+      ],
+      "Utility": [
+        7081
+      ],
+      "strings": [
+        9064
+      ]
+    },
+    "id": 7493,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7477,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.5",
+          ".8"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:20"
+      },
+      {
+        "absolutePath": "/home/dickchan/CIC/contracts/TokenContract/QualificationToken.sol",
+        "file": "../TokenContract/QualificationToken.sol",
+        "id": 7478,
+        "nodeType": "ImportDirective",
+        "scope": 7493,
+        "sourceUnit": 5652,
+        "src": "25:49:20",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 7492,
+        "linearizedBaseContracts": [
+          7492
+        ],
+        "name": "Selector",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 7490,
+              "nodeType": "Block",
+              "src": "171:78:20",
+              "statements": [
+                {
+                  "assignments": [
+                    7484
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 7484,
+                      "mutability": "mutable",
+                      "name": "i",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 7490,
+                      "src": "177:20:20",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_QualificationToken_$5651",
+                        "typeString": "contract QualificationToken"
+                      },
+                      "typeName": {
+                        "id": 7483,
+                        "name": "QualificationToken",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 5651,
+                        "src": "177:18:20",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_QualificationToken_$5651",
+                          "typeString": "contract QualificationToken"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 7485,
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "177:20:20"
+                },
+                {
+                  "expression": {
+                    "expression": {
+                      "expression": {
+                        "id": 7486,
+                        "name": "i",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7484,
+                        "src": "210:1:20",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_QualificationToken_$5651",
+                          "typeString": "contract QualificationToken"
+                        }
+                      },
+                      "id": 7487,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "qualificationToken",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 5606,
+                      "src": "210:20:20",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$__$returns$__$",
+                        "typeString": "function () external"
+                      }
+                    },
+                    "id": 7488,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "selector",
+                    "nodeType": "MemberAccess",
+                    "src": "210:29:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "functionReturnParameters": 7482,
+                  "id": 7489,
+                  "nodeType": "Return",
+                  "src": "203:36:20"
+                }
+              ]
+            },
+            "functionSelector": "573badfe",
+            "id": 7491,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "calcInterfaceId",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7479,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "137:2:20"
+            },
+            "returnParameters": {
+              "id": 7482,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7481,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7491,
+                  "src": "163:6:20",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  },
+                  "typeName": {
+                    "id": 7480,
+                    "name": "bytes4",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "163:6:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "162:8:20"
+            },
+            "scope": 7492,
+            "src": "113:136:20",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 7493,
+        "src": "75:176:20"
+      }
+    ],
+    "src": "0:251:20"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/dickchan/CIC/contracts/Utils/helper.sol",
+    "exportedSymbols": {
+      "AccessControl": [
+        10932
+      ],
+      "Address": [
+        12964
+      ],
+      "Context": [
+        12987
+      ],
+      "ENS": [
+        6174
+      ],
+      "ERC165": [
+        11099
+      ],
+      "ERC721": [
+        12409
+      ],
+      "ERC721Burnable": [
+        12439
+      ],
+      "ERC721Pausable": [
+        12476
+      ],
+      "EnumerableMap": [
+        13547
+      ],
+      "EnumerableSet": [
+        14039
+      ],
+      "IERC165": [
+        11111
+      ],
+      "IERC721": [
+        12592
+      ],
+      "IERC721Enumerable": [
+        12623
+      ],
+      "IERC721Metadata": [
+        12650
+      ],
+      "IERC721Receiver": [
+        12668
+      ],
+      "Pausable": [
+        14131
+      ],
+      "PermissionControl": [
+        7187
+      ],
+      "QualificationToken": [
+        5651
+      ],
+      "Resolver": [
+        7454
+      ],
+      "Roles": [
+        7475
+      ],
+      "SafeMath": [
+        11466
+      ],
+      "Selector": [
+        7492
+      ],
+      "Strings": [
+        14218
+      ],
+      "Utility": [
+        7081
+      ],
+      "strings": [
+        9064
+      ]
+    },
+    "id": 7493,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7477,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.5",
+          ".8"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:20"
+      },
+      {
+        "absolutePath": "/home/dickchan/CIC/contracts/TokenContract/QualificationToken.sol",
+        "file": "../TokenContract/QualificationToken.sol",
+        "id": 7478,
+        "nodeType": "ImportDirective",
+        "scope": 7493,
+        "sourceUnit": 5652,
+        "src": "25:49:20",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 7492,
+        "linearizedBaseContracts": [
+          7492
+        ],
+        "name": "Selector",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 7490,
+              "nodeType": "Block",
+              "src": "171:78:20",
+              "statements": [
+                {
+                  "assignments": [
+                    7484
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 7484,
+                      "mutability": "mutable",
+                      "name": "i",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 7490,
+                      "src": "177:20:20",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_QualificationToken_$5651",
+                        "typeString": "contract QualificationToken"
+                      },
+                      "typeName": {
+                        "id": 7483,
+                        "name": "QualificationToken",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 5651,
+                        "src": "177:18:20",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_QualificationToken_$5651",
+                          "typeString": "contract QualificationToken"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 7485,
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "177:20:20"
+                },
+                {
+                  "expression": {
+                    "expression": {
+                      "expression": {
+                        "id": 7486,
+                        "name": "i",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7484,
+                        "src": "210:1:20",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_QualificationToken_$5651",
+                          "typeString": "contract QualificationToken"
+                        }
+                      },
+                      "id": 7487,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "qualificationToken",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 5606,
+                      "src": "210:20:20",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$__$returns$__$",
+                        "typeString": "function () external"
+                      }
+                    },
+                    "id": 7488,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "selector",
+                    "nodeType": "MemberAccess",
+                    "src": "210:29:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "functionReturnParameters": 7482,
+                  "id": 7489,
+                  "nodeType": "Return",
+                  "src": "203:36:20"
+                }
+              ]
+            },
+            "functionSelector": "573badfe",
+            "id": 7491,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "calcInterfaceId",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 7479,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "137:2:20"
+            },
+            "returnParameters": {
+              "id": 7482,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7481,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 7491,
+                  "src": "163:6:20",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  },
+                  "typeName": {
+                    "id": 7480,
+                    "name": "bytes4",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "163:6:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "162:8:20"
+            },
+            "scope": 7492,
+            "src": "113:136:20",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 7493,
+        "src": "75:176:20"
+      }
+    ],
+    "src": "0:251:20"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.6+commit.7338295f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.3",
+  "updatedAt": "2021-03-18T07:14:07.441Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

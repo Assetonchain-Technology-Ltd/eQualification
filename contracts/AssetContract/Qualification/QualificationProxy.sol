@@ -16,7 +16,7 @@ contract QualificationProxy is QualificationDS,Roles {
     
     constructor(string memory _imp,string memory _attributelist, address _ensaddress ,address _qualificationOwner)  {
         
-        require(keccak256(bytes(_imp))!=keccak256("") &&  keccak256(bytes(_attributelist))!= keccak256(""),"QP01");
+        require(keccak256(bytes(_imp))!=keccak256("") &&  keccak256(bytes(_attributelist))!= keccak256("") ,"QP01");
         require(Utility._checkInterfaceID(_ensaddress,Utility.INTERFACE_ID_ENSREGISTRY),"QP01A");
         orgENSRegistar = _ensaddress;
         ens = ENS(orgENSRegistar);

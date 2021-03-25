@@ -1,0 +1,22 @@
+22/03/2021 
+
+QualificationAttribute.sol
+1. add back supportsInterface
+
+
+QualificationLogic.sol
+1. addAttribute - change require(ab.exists(_key)==false,"QL05"); to require(ab.exists(_key),"QL05");
+
+QualificationToken.sol
+1. constructor - add checking hashname!=0x0000000000000000000000000000000000000000000000000000000000000000 in constructor to prevent "execute revert" in the case of the parent of token is root already.
+2. grantQualification - add event NewQualificationToken(string _name,address _a,uint256 _tokenid);
+3. add function getParent to return parent of the token
+4. constructor - require(parent!=address(0) && (res.supportsInterface(Utility.ADDR_INTERFACE_ID) || res.supportsInterface(Utility.ORG_INTERFACE_ID)),"QT04A" ) to require(a!=address(0) only
+5. grantQualification - need to check if owner of token(_to) == _individual , there are 2 cases on checking , workerProfile , qualificaitonToken
+6. add function _isOwnerOf for item 5. On the case of workerProfile, need to add resolver to get pub directory address , the use getPredefineENSPrefix to get workerprofiletoken address to check if _individual own _to token., On the case of qualificaitonToken, it will ask parent if _individual's worker profile is owner of _to  
+7. grantQualification - add require(_isOwnerOf(uint256(_to),_individual,2),"QT12");  and require(_isOwnerOf(uint256(_to),_individual,1),"QT13"); for item 5
+
+ENSRegistry.sol 
+1. Due to QualificaitonToken.sol item 5 checking , it is need to modify the function setPredefineENSPrefix to accept key,value pair , instead of just use the key as value.
+
+

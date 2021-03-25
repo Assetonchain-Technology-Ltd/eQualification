@@ -29,7 +29,7 @@ contract ENSRegistry is ENS {
      */
     constructor() public {
         records[0x0].owner = msg.sender;
-        setPredefineENSPrefix("access");
+        setPredefineENSPrefix("access","access");
     }
 
     /**
@@ -111,9 +111,9 @@ contract ENSRegistry is ENS {
         emit ApprovalForAll(msg.sender, operator, approved);
     }
     
-    function setPredefineENSPrefix(string memory _key) public virtual override {
+    function setPredefineENSPrefix(string memory _key,string memory _v) public virtual override {
         require(records[0x0].owner==msg.sender,"ENS01");
-        predefineENS[_key]=_key;
+        predefineENS[_key]=_v;
     }
     
     function getPredefineENSPrefix(string memory _key) public virtual override view

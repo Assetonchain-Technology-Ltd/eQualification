@@ -1,17 +1,20 @@
 1. create 5 accounts 
    - 1 public admin 0xEF6262a5B5c56971F3665474A16Af47b5A96a304
    - 1 worker 0x795AF03206d869acDdBe4193EA3eB8d193512574
-   - 1 organization A (admin)
+   - 1 worker 0xBd4D0dF0e4f515a743069482119D014891082D97
+   - 1 organization A (admin) 0xCC9D4ab2b2B27922243FD9029B94DCA2E9085D3c
    - 1 organization A operator
    - 1 organization A viewer
+   - 1 Pub viewer 0x6E6ff139d6851217066Ec1c08e541ECCa3B676F9
+
 
 2. Deploy Pubic Directory Service 
    - using public admin
    - deploy pubENS:=public directory (ENS) Util/ENSRegistry.sol	
    - deploy presolver:=PublicResolver @ensdomains/resolver/contracts/PublicResolver.sol
-
-   - deploy paccess:=permission control Utils/RBAC.sol 
-   - pubENS : setPredefineENSPrefix - access         
+  
+   - deploy paccess:=permission control Utils/RBAC.sol
+   - pubENS : setPredefineENSPrefix - access     
    - pubENS : paccessNode := setSubnodeRecord with access , node = "0x0000000000000000000000000000000000000000000000000000000000000000" , label = "0x83c54411b96c143f207b96cb5e04900ba028bd92a8d1af95482e6c161335d959" , owner = 0xEF6262a5B5c56971F3665474A16Af47b5A96a304 , resolver = 0xEF6262a5B5c56971F3665474A16Af47b5A96a304(dummy)
    - presolver : setAddr to [paccessNode,paccess contract address]
    - pubENS : setResolver of paccessNode to presolver
@@ -37,17 +40,18 @@
    - presolver : setAddr [wptENS,wpt contract address]
    - pubENS : setResolver of wptENS to presolver
    - paccess : grant Role TOKEN to wpt contract
+   - pubENS  : setPredefineENSPrefix - workerprofile
 
 3. Org Role setup
    - deploy orgRes:= orgResolver contract /contracts/Utils/OrgResolver.sol
 
-3a. Setup XXX org
+3a. Setup XXX org (it is need to setup a self referening "pub" to pubENS as VIEW role)
    - pubENS : xxxENS = setSubnodeRecord with name XXX , node = "0x0000000000000000000000000000000000000000000000000000000000000000" , label = "XXX" , owner = 0xEF6262a5B5c56971F3665474A16Af47b5A96a304 , resolver = 0xEF6262a5B5c56971F3665474A16Af47b5A96a304(dummy)
    - orgRes : setAddr of [xxxENS , org ens contract address]
    - orgRes : setRole of [xxxENS, ROLE_HASH]
    - pubENS : setResolver of xxxENS to orgRes
 
-5. Deploy orga Directory Service
+4. Deploy orga Directory Service
    - using org admin
    - deploy Org directory (ENS) 
    - deploy access control 
@@ -58,3 +62,43 @@
    - Register Qualification Factory ENS
    - Register Qualification Logic ENS
    - Register qualification attribute on ENS
+
+Deploy Org Directory Service 
+   - using Org admin
+   - deploy orgENS:=org directory (ENS) Util/ENSRegistry.sol	
+   - deploy orgsolver:=PublicResolver @ensdomains/resolver/contracts/PublicResolver.sol (0xaACcBBa085eCbd0a5C90448679276a5bd1a35f43)
+
+   - deploy oaccess:=permission control Utils/RBAC.sol 
+   - orgENS : setPredefineENSPrefix - access         
+   - orgENS : oaccessNode := setSubnodeRecord with access , node = "0x0000000000000000000000000000000000000000000000000000000000000000" , label = "0x83c54411b96c143f207b96cb5e04900ba028bd92a8d1af95482e6c161335d959" , owner = 0xCC9D4ab2b2B27922243FD9029B94DCA2E9085D3c , resolver = 0xaACcBBa085eCbd0a5C90448679276a5bd1a35f43
+   - oresolver : setAddr to [oaccessNode,oaccess contract address]
+
+   - deploy qattrlist:= attribute list /contracts/AssetContract/Qualification/QualificationAttributeList.sol.sol
+   - oENS : qattrlistENS:= setSubnodeRecord with qattrlist , node = "0x0000000000000000000000000000000000000000000000000000000000000000" , label = "0x2e6b4e4745e6baa12a1adc0ba2a33ace2125703cb6a4de236bbfe78472df8f38" , owner = 0xCC9D4ab2b2B27922243FD9029B94DCA2E9085D3c , resolver = 0xaACcBBa085eCbd0a5C90448679276a5bd1a35f43
+   - presolver : setAddr to [qattrlistENS,qattrlist contract address]
+
+   - deploy ql:= QualificationLogic /contracts/AssetContract/Qualification/QualificationLogic.sol
+   - oENS : qlENS:=setSubnodeRecord with QualificaitonLogic , node = "0x0000000000000000000000000000000000000000000000000000000000000000" , label = "0xc066d7ec75f5843e89e80a1c5c7e6791635df72299b495392f4e4095e658068f" , owner = 0xCC9D4ab2b2B27922243FD9029B94DCA2E9085D3c , resolver = 0xaACcBBa085eCbd0a5C90448679276a5bd1a35f43
+   - oresolver : setAddr to [qlENS,ql contract address]
+
+   - deploy qf:= qualificationFactory /contracts/AssetContract/Qualification/QualificationFactory.sol
+   - pubENS : wpfENS:=setSubnodeRecord with workerProfileFactory , node = "0x0000000000000000000000000000000000000000000000000000000000000000" , label = "" , owner = 0xCC9D4ab2b2B27922243FD9029B94DCA2E9085D3c , resolver = 0xaACcBBa085eCbd0a5C90448679276a5bd1a35f43
+   - oresolver : setAddr to [qfENS, qf contract address]
+
+   -orgENS : setPredefineENSPrefix - pub
+   -orgENS : opub:= setSubnodeRecord with pub , node = "0x0000000000000000000000000000000000000000000000000000000000000000" , label = "0xbbbcf8a884ef51b17478f0582a20063cd69cf91d60e2c04557953801fa762b07" , owner = 0xCC9D4ab2b2B27922243FD9029B94DCA2E9085D3c , resolver = 0xaACcBBa085eCbd0a5C90448679276a5bd1a35f43
+   -oresolver : setAddr to [opub, public ENS contract address]
+
+4a. Setup QualificaitonToken(s)
+   - oENS : qTokenENS (qtoken1) = setSubnodeRecord with qtoken1 , node = "0x0000000000000000000000000000000000000000000000000000000000000000" , label = "0xf8ab81f86a1bbcdea69337952ebe68976e34a9edd7f1f9c2d8ed755c022bba37" , owner = 0xCC9D4ab2b2B27922243FD9029B94DCA2E9085D3c , resolver = 0xaACcBBa085eCbd0a5C90448679276a5bd1a35f43
+   - deploy qToken:= QualifiaitonToken contracts/TokenContract/QualificationToken.sol
+   - oresolver : setAddr [qTokenENS,qToken contract address]
+   - oaccess : grant Role TOKEN to qToken contract
+
+4b. Setup Multi QualificaitonToken(s) ts01.qtoken1
+   - oENS : mqTokenENS (ts01.qtoken1) = setSubnodeRecord with ts01 , node = "0x6e7e4851f71ad6bc5d734db13b1da3bc1233eeae3e45eee36a76b7bc75231dfe" , label = "0x9d6396eda5a6e5aba762c03aa64e3cc43ce4ed94ee17195be8a3f6b14729c534" , owner = 0xCC9D4ab2b2B27922243FD9029B94DCA2E9085D3c , resolver = 0xaACcBBa085eCbd0a5C90448679276a5bd1a35f43
+   - deploy qToken:= QualifiaitonToken contracts/TokenContract/QualificationToken.sol
+   - oresolver : setAddr [mqTokenENS,mqToken contract address]
+   - oaccess : grant Role TOKEN to qToken contract
+
+

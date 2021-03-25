@@ -1,0 +1,43 @@
+WorkerProfile Logic
+1. updateAttribute  require(Attributes[_key].createDate>0,"WL24"); , should check with attributeList.
+2. endorseAttribute need to check existen of the _key
+3. revokeQualification need to check if msg.sender's _org == qualification issuing org
+4. supportsInterface fix return interfaceId == Utility.INTERFACE_ID_WORKERPROFILE to  return interfaceId == Utility.INTERFACE_ID_WORKERLOGIC
+5. addAttribute remove ==false on ab exists checking
+6. addAttribute use attributeList.contains instead of checking is createDate==0
+7. The contract is not work due to variable ens and publicENSRegistarAddress is volatiling the design of proxy pattern, it is changed to instantiate ens object during each function call by using address publicENSRegistar in workerProfileDS
+8. updateAttribute and addAttribute has report stack too deep error after the change of item 11, reduce local variable by using the same variable hash on namehash and datatoSign.
+9. remove listAttribute, not working
+10._orgRoleCheck,_hasqERC721Token,_withdrawERC721Token has change _org as string and do the namehash inside the function, this change has affect function that call _orgRoleCheck and ERC721 related.
+11.add length and getAttributeByIndex to replace the listAttribute function
+
+QualificationLogic
+1. add updateAttribute , _hasqERC721Token , _withdrawERC721Token
+2. addKeystore - remove checking on _qualificationOwner
+3. delKeystore - should not del key , just clean the content , del will destory the key variable.
+4. delKeystore - remove checking on _qualificationOwner
+5. The contract is not work due to variable ens and orgENSRegistarAddress is volatiling the design of proxy pattern, it is changed to instantiate ens object during each function call by using address orgENSRegistar in QualificationDS
+6. updateAttribute and addAttribute has report stack too deep error after the change of item 19, reduce local variable by using the same variable hash on namehash and datatoSign.
+7. addAttribute change checking require(attributeList.contains(_key)==false,"QL04")
+
+QualificationAttributeList/AttributeList
+1. remove listAttribute not working
+2. add length and getAttributeNamebyIndex to replace the listAttribute function
+3. AttributeList.sol remove listAttribute not working
+4. AttributeList.sol add length and getAttributeNamebyIndex to replace the listAttribute function
+
+
+Token
+1. QualificationToken grantQualification : abi.encodeWithSignature("createNewQualificaitonContract(address,address) ", there is a extra space at the end of the signature, removed.
+2. WorkerProfileToken createWorkerProfile : require(success,"WT07") , duplicate error code , change to WT10
+3. WorkerProfileToken createWorkerProfile : abi.encodeWithSignature("createNewWorkerProfileContract(address,address) ", there is a extra space at the end of the signature, removed.
+
+
+Utils
+1. OrgResolver.sol after udpate ens resovler version to 0.3.0 , change OrgResolver to inherit from PublicResolver
+2. PublicResolver.sol add modifier of PublicResolver supportsInterface with virtual for OrgResovler to override
+3. access.sol - remove and merge to RBAC.sol
+
+Features :
+1. add event NewWorkerToken in WorkerProfileToken , emit at createWorkerProfile
+2. Add access control in constructor of WorkerProfileLogic

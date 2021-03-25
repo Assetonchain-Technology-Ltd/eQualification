@@ -29,7 +29,7 @@ interface ENS {
     function ttl(bytes32 node) external virtual view returns (uint64);
     function recordExists(bytes32 node) external virtual view returns (bool);
     function isApprovedForAll(address owner, address operator) external virtual view returns (bool);
-    function setPredefineENSPrefix(string memory _key) external virtual;
+    function setPredefineENSPrefix(string memory _key,string memory _v) external virtual;
     function getPredefineENSPrefix(string memory _key) external virtual view returns (string memory);
     
 }
