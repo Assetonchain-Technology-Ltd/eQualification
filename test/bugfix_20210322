@@ -20,3 +20,5 @@ ENSRegistry.sol
 1. Due to QualificaitonToken.sol item 5 checking , it is need to modify the function setPredefineENSPrefix to accept key,value pair , instead of just use the key as value.
 
 
+Feature 
+1. add JSSample for sample on interacting with Contract

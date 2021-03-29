@@ -1,0 +1,6 @@
+bugfix_20210325
+
+QualificationLogic.sol
+1. remove listofAttribute function 
+2. add length to return current count of attribute for the qualification contract
+3. add getAttributeByIndex to return attribute value,data type by index

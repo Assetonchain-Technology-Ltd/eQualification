@@ -135,18 +135,22 @@ contract QualificationLogic is QualificationDS,Roles {
         return (Attributes[_key].value,Attributes[_key].datatype);
     }
     
-    function listofAttribute() public
-    returns(string[] memory)
+    function length(string memory _org) public
+    returns(uint256)
     {
-       
         require(_orgAccessCheck(msg.sender,TOKEN)||_orgAccessCheck(msg.sender,OPERATOR)
                 ||_orgAccessCheck(msg.sender,ADMIN)||msg.sender==qualificationOwner ,"QL18");
-       string[] memory list;
-        uint256 count = attributeList.length();
-        for(uint256 i=0;i<count;i++){
-            list[i]=Attributes[attributeList.at(i)].name;
-        }
-        return list;
+        return attributeList.length();
+    }
+    
+    function getAttributeByIndex(string memory _org,uint256 _i) public
+    returns(bytes32,bytes memory,string memory)
+    {
+        require(_orgAccessCheck(msg.sender,TOKEN)||_orgAccessCheck(msg.sender,OPERATOR)
+                ||_orgAccessCheck(msg.sender,ADMIN)||msg.sender==qualificationOwner ,"QL25");
+        require(_i<attributeList.length(),"QL26");
+        bytes32 _key = attributeList.at(_i);
+        return (_key,Attributes[_key].value,Attributes[_key].datatype);
     }
     
     function getKey() public 
