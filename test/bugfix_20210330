@@ -1,0 +1,28 @@
+bugfix - 30 March 2021
+
+WorkerProfileLogic.sol
+1. remove - getQualifications not working!! 
+2. add qLenght and getQualificationByIndex function to replace getQualifications function
+3. add isExistsQualificaiton function to check if the profile's qualificationList contains that qualifications and return qualification name and reference
+4. getQualificaitonKey - require(qualificationList.contains(_key)) missing return error code.
+
+WorkerProfileDS.sol
+Y - 1. struct qualificationname add new field string reference to store reference number
+
+QualificaitonLogic.sol
+1. remove _hasqERC721Token and _withdrawERC721Token dur to design change below.
+
+QualificationToken.sol
+1. remove _isOwnerOf
+2. change grantQualification to remove all parent related checking due to design change below 
+
+Feature:
+
+WorkerProfielToken.sol
+1. createWorkerProfile - change to register ENS after token is mint to _individual, it will accept one more parameter _id, the ens is in the format of id.workerprofile-> wallet address 
+
+QualificationToken.sol
+1. grantQualification - change to register ENS after token is mint to _individual, the ens is in the format of individual_address.qualificationname-> qualification contract address
+
+Design Changes :
+1. Structure changes, all qualification token will be grant to worker profile, but keep parent as logical structure for multi case. 

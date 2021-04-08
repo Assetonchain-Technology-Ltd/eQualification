@@ -35,17 +35,25 @@ contract WorkerProfileToken is ERC721Pausable,ERC721Burnable,Roles {
         pubENSRegistry=_pubENSRoot;
     }
     
-    function createWorkerProfile(address _individual) public {
+    function createWorkerProfile(address _individual,string memory _id) public {
         require(_pubAccessCheck(msg.sender,ISSUE),"WT05");
         bytes32 hashname = Utility._computeNamehash(wFactory);
-        Resolver res = Resolver(ens.resolver(hashname));
+        address resolverAddr = ens.resolver(hashname);
+        Resolver res = Resolver(resolverAddr);
         address _a = res.addr(hashname);
-        
         bytes memory payload = abi.encodeWithSignature("createNewWorkerProfileContract(address,address)",_individual,pubENSRegistry);
         (bool success, bytes memory result) = _a.call(payload);
         require(success,"WT10");
         address waddress = abi.decode(result, (address)); 
         _mint(_individual,uint256(waddress));
+        string memory p = ens.getPredefineENSPrefix("workerprofile");
+        require(keccak256(bytes(p))!=keccak256(""),"WT11");
+        hashname = Utility._computeNamehash(p);
+        _a = ens.owner(hashname);
+        bytes32 fullhashname = keccak256(abi.encodePacked(hashname, keccak256(bytes(_id))));
+        res.setAddr(fullhashname,_individual);
+        if(!ens.recordExists(fullhashname))
+            ens.setSubnodeRecord(hashname,keccak256(bytes(_id)),_a,resolverAddr,120000); 
         emit NewWorkerToken(waddress,uint256(waddress));
              
     }

@@ -49,23 +49,26 @@ contract QualificationToken is ERC721Pausable,ERC721Burnable,Roles {
         orgRoot=_orgENSRoot;
     }
     
-    function grantQualification(address _individual,address payable _to) public {
+    function grantQualification(address _workerprofile,address _individual) public {
         require(_orgAccessCheck(msg.sender,ISSUE),"QT05");
-        if(parent!=address(0)){
-            require(Utility._checkInterfaceID(_to,Utility.INTERFACE_ID_QUALIFICATIONPROXY),"QT06");
-            require(_isOwnerOf(uint256(_to),_individual,2),"QT12");
-        }else{
-            require(Utility._checkInterfaceID(_to,Utility.INTERFACE_ID_WORKERPROFILE),"QT07");
-            require(_isOwnerOf(uint256(_to),_individual,1),"QT13");
-        }
         bytes32 hashname = Utility._computeNamehash(qFactory);
-        Resolver res = Resolver(ens.resolver(hashname));
+        address resolverAddr = ens.resolver(hashname);
+        Resolver res = Resolver(resolverAddr);
         address _a = res.addr(hashname);
         bytes memory payload = abi.encodeWithSignature("createNewQualificaitonContract(address,address)",_individual,orgRoot);
         (bool success, bytes memory result) = _a.call(payload);
         require(success,"QT08");
         address qaddress = abi.decode(result, (address)); 
-        _mint(_to,uint256(qaddress));
+        _mint(_workerprofile,uint256(qaddress));
+        
+        hashname = Utility._computeNamehash(name());
+        _a = ens.owner(hashname);
+        bytes32 fullhashname = keccak256(abi.encodePacked(hashname, keccak256(abi.encodePacked(_individual))));
+        res.setAddr(fullhashname,qaddress);
+        if(!ens.recordExists(fullhashname))
+            ens.setSubnodeRecord(hashname,keccak256(abi.encodePacked(_individual)),_a,resolverAddr,120000); 
+        
+        
         emit NewQualificationToken(name(),qaddress,uint256(qaddress));
     }
     
@@ -88,42 +91,6 @@ contract QualificationToken is ERC721Pausable,ERC721Burnable,Roles {
         
     }
     
-    //Normal case : _tokenid is workerprofile tokenid , check if _tokenid is owned by _owner
-    //Multi case : _tokenid is parent's tokenid ,  worker profile is the owner of parnet token 
-    function _isOwnerOf(uint256 _tokenid,address _owner,uint256 _type) internal
-    returns(bool)
-    {
-        address a;
-        uint8 mask;
-        mask = (parent!=address(0))?((_type!=1)?mask:(mask|1)):mask;
-        mask = (parent==address(0))?((_type==1)?mask:(mask|2)):mask;
-        require(mask==0,"QT14");
-        string memory t = ens.getPredefineENSPrefix("pub");
-        require(keccak256(bytes(t))!=keccak256(""),"QT15");
-        bytes32 namehash = Utility._computeNamehash(t);
-        Resolver res = Resolver(ens.resolver(namehash));
-        a = res.addr(namehash);
-        require(Utility._checkInterfaceID(a,Utility.INTERFACE_ID_ENSREGISTRY),"QT16");
-        ENS pubENS = ENS(a);
-        t = pubENS.getPredefineENSPrefix("workerprofile");
-        require(keccak256(bytes(t))!=keccak256(""),"QT17");
-        namehash = Utility._computeNamehash(t);
-        res = Resolver(pubENS.resolver(namehash));
-        require(res.addr(namehash)!=address(0) && Utility._checkInterfaceID(res.addr(namehash),Utility.INTERFACE_ID_WORKERTOKEN),"QT18");
-        a = res.addr(namehash);
-        //token is workerprofiletoken
-        ERC721 token = ERC721(a);
-        if(_type==1){
-            //Normal token case
-            return (token.ownerOf(_tokenid) == _owner);
-        }
-        // Multi token case , _tokenid is parent's tokenid , check ( getowner of it == _ower's wp address )
-        uint256 wpid = token.tokenOfOwnerByIndex(_owner,0);
-        //token is change to parent now
-        token =ERC721(parent);
-        return (token.ownerOf(_tokenid)==address(wpid));
-        
-    }
     
     function getParent() public view
     returns(address)

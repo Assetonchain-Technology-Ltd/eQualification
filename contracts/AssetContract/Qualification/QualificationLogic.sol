@@ -192,34 +192,5 @@ contract QualificationLogic is QualificationDS,Roles {
         return Utility._recoverSigner(datatosign, signature) == _signer;
     }
 
-    function _hasqERC721Token(bytes32 _org,bytes32 _qERC721Name, uint256 _tokenid,address _owner) internal view
-    returns(bool)
-    {
-        ENS ens = ENS(orgENSRegistar);
-        Resolver res = Resolver(ens.resolver(_org));
-        require(res.addr(_org)!=address(0) && res.supportsInterface(Utility.ORG_INTERFACE_ID),"WL07");
-        address orgENSAddress =  res.addr(_org);
-        ENS orgENS = ENS(orgENSAddress);
-        res = Resolver(orgENS.resolver(_qERC721Name));
-        require(res.addr(_qERC721Name)!=address(0) && res.supportsInterface(Utility.ADDR_INTERFACE_ID),"WL09");
-        ERC721 token = ERC721(res.addr(_qERC721Name));
-        return (token.ownerOf(_tokenid) == _owner);
-        
-    }
-    
-    
-    function _withdrawERC721Token(bytes32 _org,bytes32 _qERC721Name, uint256 _tokenid,address _receiver) internal
-    {
-        ENS ens = ENS(orgENSRegistar);
-        Resolver res = Resolver(ens.resolver(_org));
-        require(res.addr(_org)!=address(0) && res.supportsInterface(Utility.ORG_INTERFACE_ID),"WL07");
-        address orgENSAddress =  res.addr(_org);
-        ENS orgENS = ENS(orgENSAddress);
-        res = Resolver(orgENS.resolver(_qERC721Name));
-        require(res.addr(_qERC721Name)!=address(0) && res.supportsInterface(Utility.ADDR_INTERFACE_ID),"WL09");
-        ERC721 token = ERC721(res.addr(_qERC721Name));
-        token.safeTransferFrom(address(this),_receiver,_tokenid);
-    }
-    
 
 }

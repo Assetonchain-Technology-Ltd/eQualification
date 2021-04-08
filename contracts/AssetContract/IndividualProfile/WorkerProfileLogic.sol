@@ -98,7 +98,7 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
     }
 
     
-    function addQualification(string memory _qERC721Name,string memory _org,bytes memory _encryptKey,uint256 _tokenid) public{
+    function addQualification(string memory _qERC721Name,string memory _org,bytes memory _encryptKey,uint256 _tokenid,string memory _ref) public{
         bytes32 hashqname = Utility._computeNamehash(_qERC721Name);
         require(_orgRoleCheck(_org,msg.sender,ISSUE),"WL14");
         require(qualificationList.contains(hashqname)==false,"WL15");
@@ -106,6 +106,7 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
         qualificationList.add(hashqname);
         qualificationNames[hashqname].prefix=_qERC721Name;
         qualificationNames[hashqname].postfix=_org;
+        qualificationNames[hashqname].ref = _ref;
         keystore[hashqname]=_encryptKey;
     }
     
@@ -166,23 +167,40 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
         return list;
     }
     
-    function getQualifications(string memory _org) public 
-    returns(qualificationname[] memory)
+    function qlength(string memory _org) public
+    returns(uint256)
     {
-        require(_orgRoleCheck(_org,msg.sender,VIEW)||msg.sender==owner(),"WL25");
-        qualificationname [] memory list;
-        uint256 count = qualificationList.length();
-        for(uint256 i=0;i<count;i++){
-            list[i]=qualificationNames[qualificationList.at(i)];
+        require(_orgRoleCheck(_org,msg.sender,VIEW)||msg.sender==owner(),"WL31");
+        return qualificationList.length();
+    }
+    
+    function getQualificationByIndex(string memory _org,uint256 _i) public
+    returns(string memory,string memory,string memory _ref)
+    {
+        require(_orgRoleCheck(_org,msg.sender,VIEW)||msg.sender==owner(),"WL32");
+        require(_i<qualificationList.length(),"WL33");
+        bytes32 _key = qualificationList.at(_i);
+        return (qualificationNames[_key].prefix,qualificationNames[_key].postfix,qualificationNames[_key].ref);
+    }
+    
+    function isExistsQualificaiton(string memory _org,string memory _q) public
+    returns(bool,string memory,string memory,string memory)
+    {
+        bytes32 _hash = keccak256(bytes(_q));
+        require(_orgRoleCheck(_org,msg.sender,VIEW)||msg.sender==owner(),"WL34");
+        if(qualificationList.contains(_hash)){
+            
+            return (true,qualificationNames[_hash].prefix,qualificationNames[_hash].postfix,qualificationNames[_hash].ref);
+        }else{
+            return (false,"","","");
         }
-        return list;
     }
     
     function getQualificationKey(bytes32 _key,string memory _org) public
     returns(bytes memory)
     {
         require(_orgRoleCheck(_org,msg.sender,VIEW)||msg.sender==owner(),"WL25");
-        require(qualificationList.contains(_key));
+        require(qualificationList.contains(_key),"WL35");
         return keystore[_key];
     }
     
@@ -233,12 +251,12 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
         ENS ens = ENS(publicENSRegistar);
         Resolver res = Resolver(ens.resolver(namehash));
         require(res.addr(namehash)!=address(0) && res.supportsInterface(Utility.ORG_INTERFACE_ID),"WL07");
-        address orgENSAddress =  res.addr(namehash);
-        ENS orgENS = ENS(orgENSAddress);
+        address _a =  res.addr(namehash);
+        ENS orgENS = ENS(_a);
         res = Resolver(orgENS.resolver(_qERC721Name));
         require(res.addr(_qERC721Name)!=address(0) && res.supportsInterface(Utility.ADDR_INTERFACE_ID),"WL09");
         ERC721 token = ERC721(res.addr(_qERC721Name));
-        return (token.ownerOf(_tokenid) == _owner);
+        return (_owner==token.ownerOf(uint256(_a)));
         
     }
     

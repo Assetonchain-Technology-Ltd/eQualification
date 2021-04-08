@@ -33,6 +33,7 @@ contract WorkerProfileDS is Ownable {
     struct qualificationname{
         string prefix;
         string postfix;
+        string ref;
     }
     
     //System Para
