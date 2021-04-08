@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="49cm" height="24cm" viewBox="93 67 961 468" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <ellipse style="fill: #000000" cx="111" cy="261" rx="10" ry="10"/>
+  <g>
+    <rect style="fill: #ffffff" x="368" y="219" width="162.55" height="84" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="368" y="219" width="162.55" height="84" rx="10" ry="10"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="449.275" y="240.9">
+      <tspan x="449.275" y="240.9">New Acct (blockchain)</tspan>
+    </text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="378" y="256.9">entry/ genAccount</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="378" y="272.9">do/ savePrivateKey</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="378" y="288.9">exit/ call CICAPI</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="368" y1="245" x2="530.55" y2="245"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="122.005,261 132.005,261 356.995,261 362.523,261 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="354.759,266 364.759,261 354.759,256 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="234.5" y="251">[if account exists]</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="234.5" y="231">MobileAPI//account/create</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="777" y="219" width="204.2" height="84" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="777" y="219" width="204.2" height="84" rx="10" ry="10"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="879.1" y="240.9">
+      <tspan x="879.1" y="240.9">Established Acct(blockchain)</tspan>
+    </text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="787" y="256.9">entry/ genWorkerProfile</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="787" y="272.9">do/ setupAttributes</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="787" y="288.9">exit/ processQualifications</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="777" y1="245" x2="981.2" y2="245"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="531.555,261 541.555,261 765.994,261 771.522,261 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="763.758,266 773.758,261 763.758,256 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="643.774" y="251">[If success]</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="643.774" y="231">CICAPI/GetFullWorkerRecord</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="778.9" y="395" width="200.45" height="36" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="778.9" y="395" width="200.45" height="36" rx="10" ry="10"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="879.125" y="416.9">
+      <tspan x="879.125" y="416.9">Completed Acct(blockchain)</tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="981.2,261 1034,261 1034,194 879.1,194 879.1,213.532 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="874.1,205.768 879.1,215.768 884.1,205.768 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="930" y="191">[if genQualificaiton success]</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="932" y="166">processQualifications/genQualification</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="879.1,303.985 879.1,367 879.125,367 879.125,389.548 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="874.125,381.784 879.125,391.784 884.125,381.784 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="951" y="365">[is completed = yes]</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="952" y="345">processQualificaitons</text>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="878.9" cy="519" rx="15" ry="15"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="878.9" cy="519" rx="15" ry="15"/>
+    <ellipse style="fill: #000000" cx="878.9" cy="519" rx="10" ry="10"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="879.125,432.009 879.125,467.501 878.9,467.501 878.9,498.52 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="873.9,490.756 878.9,500.756 883.9,490.756 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="574.9" y="396" width="133.45" height="52" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="574.9" y="396" width="133.45" height="52" rx="10" ry="10"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="641.625" y="417.9">
+      <tspan x="641.625" y="417.9">Error Established </tspan>
+      <tspan x="641.625" y="433.9">Acct(blockchain)</tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="879.1,303.997 879.1,332 641.625,332 641.625,390.534 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="636.625,382.771 641.625,392.771 646.625,382.771 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="718.3" y="326">[is completed = no]</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="701.3" y="308">processQualification</text>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="641.9" cy="518" rx="15" ry="15"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="641.9" cy="518" rx="15" ry="15"/>
+    <ellipse style="fill: #000000" cx="641.9" cy="518" rx="10" ry="10"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="641.625,449.007 641.625,475.499 641.9,475.499 641.9,497.52 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="636.9,489.756 641.9,499.756 646.9,489.756 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="367.9" y="400" width="162.25" height="36" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="367.9" y="400" width="162.25" height="36" rx="10" ry="10"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="449.025" y="421.9">
+      <tspan x="449.025" y="421.9">Error Acct(blockchain)</tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="449.275,303 449.275,350.995 449.025,350.995 449.025,394.519 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="444.025,386.755 449.025,396.755 454.025,386.755 "/>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="448.9" cy="518" rx="15" ry="15"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="448.9" cy="518" rx="15" ry="15"/>
+    <ellipse style="fill: #000000" cx="448.9" cy="518" rx="10" ry="10"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="449.025,436 449.025,468.996 448.9,468.996 448.9,497.52 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="443.9,489.756 448.9,499.756 453.9,489.756 "/>
+  </g>
+  <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:700" x="94" y="82">
+    <tspan x="94" y="82">Work and Qualification Life cycle on Creation</tspan>
+  </text>
+</svg>

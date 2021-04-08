@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="35cm" height="30cm" viewBox="-322 18 690 597" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <ellipse style="fill: #000000" cx="-308.631" cy="122.566" rx="10" ry="10"/>
+  <g>
+    <rect style="fill: #ffffff" x="-75.6314" y="80.566" width="301.45" height="84" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-75.6314" y="80.566" width="301.45" height="84" rx="10" ry="10"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="75.0936" y="102.466">
+      <tspan x="75.0936" y="102.466">PreUpdate</tspan>
+    </text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-65.6314" y="118.466">entry/ Get Profile Address and Hash Version</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-65.6314" y="134.466">do/ GetFullWorkerRecord - Complete Hash</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-65.6314" y="150.466">exit/ compareHashVesion</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="-75.6314" y1="106.566" x2="225.819" y2="106.566"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-297.626,122.566 -287.626,122.566 -86.6406,122.566 -81.1128,122.566 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-88.8767,127.566 -78.8767,122.566 -88.8767,117.566 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-197.133" y="112.566">[if not error]</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-197.133" y="92.566">CICAPI - ScheduleTask/GetUpdateList</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="-19.1863" y="289.869" width="189.15" height="84" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-19.1863" y="289.869" width="189.15" height="84" rx="10" ry="10"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="75.3887" y="311.769">
+      <tspan x="75.3887" y="311.769">Update</tspan>
+    </text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-9.18628" y="327.769">entry/ getWorkerProfile</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-9.18628" y="343.769">do/ updateAttribute</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-9.18628" y="359.769">exit/ processQualifications</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="-19.1863" y1="315.869" x2="169.964" y2="315.869"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="75.0936,165.571 75.0936,227.218 75.3887,227.218 75.3887,284.392 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="70.3887,276.628 75.3887,286.628 80.3887,276.628 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="182.008" y="218.223">[If success </text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="223.727" y="200.545">compareHashVersion/FilterOutUpdateRecord</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="101.471" y="488.141" width="200.45" height="36" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="101.471" y="488.141" width="200.45" height="36" rx="10" ry="10"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="201.696" y="510.041">
+      <tspan x="201.696" y="510.041">Completed Acct(blockchain)</tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="75.3887,374.868 75.3887,437.426 201.696,437.426 201.696,482.67 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="196.696,474.906 201.696,484.906 206.696,474.906 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="210.43" y="435.426">[is completed = yes]</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="211.43" y="415.426">processQualificaitons</text>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="201.428" cy="598.635" rx="15" ry="15"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="201.428" cy="598.635" rx="15" ry="15"/>
+    <ellipse style="fill: #000000" cx="201.428" cy="598.635" rx="10" ry="10"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="201.696,525.151 201.696,553.889 201.428,553.889 201.428,578.155 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="196.428,570.392 201.428,580.392 206.428,570.392 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="-206.342" y="457.1" width="126.5" height="52" rx="10" ry="10"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-206.342" y="457.1" width="126.5" height="52" rx="10" ry="10"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-143.092" y="479">
+      <tspan x="-143.092" y="479">Dirty</tspan>
+      <tspan x="-143.092" y="495">Acct(blockchain)</tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="75.3887,374.771 75.3887,437.219 -143.092,437.219 -143.092,451.633 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-148.092,443.869 -143.092,453.869 -138.092,443.869 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-75.914" y="431.219">[is completed = no || update error]</text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="-92.914" y="413.219">processQualification/updateAttribute</text>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="-143.305" cy="576.141" rx="15" ry="15"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="-143.305" cy="576.141" rx="15" ry="15"/>
+    <ellipse style="fill: #000000" cx="-143.305" cy="576.141" rx="10" ry="10"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-143.092,510.106 -143.092,535.12 -143.305,535.12 -143.305,555.662 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-148.305,547.898 -143.305,557.898 -138.305,547.898 "/>
+  </g>
+  <text font-size="15.8044" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:700" x="-321.389" y="32.6614">
+    <tspan x="-321.389" y="32.6614">Worker and Qualification Life cycle on Update</tspan>
+  </text>
+</svg>
