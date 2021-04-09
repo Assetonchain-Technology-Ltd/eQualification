@@ -1,6 +1,6 @@
 node_modules/
-build/
 CIC_SystemIntegration/
+build/
 *.doc
 *.docx
 *.pptx
