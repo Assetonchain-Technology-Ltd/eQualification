@@ -35,8 +35,11 @@ contract WorkerProfileToken is ERC721Pausable,ERC721Burnable,Roles {
         pubENSRegistry=_pubENSRoot;
     }
     
-    function createWorkerProfile(address _individual,string memory _id) public {
+    function createWorkerProfile(address _individual,string memory _id) public 
+    returns(address,uint256)
+    {
         require(_pubAccessCheck(msg.sender,ISSUE),"WT05");
+        require(balanceOf(_individual)==0,"WT06");
         bytes32 hashname = Utility._computeNamehash(wFactory);
         address resolverAddr = ens.resolver(hashname);
         Resolver res = Resolver(resolverAddr);
@@ -45,16 +48,11 @@ contract WorkerProfileToken is ERC721Pausable,ERC721Burnable,Roles {
         (bool success, bytes memory result) = _a.call(payload);
         require(success,"WT10");
         address waddress = abi.decode(result, (address)); 
-        _mint(_individual,uint256(waddress));
-        string memory p = ens.getPredefineENSPrefix("workerprofile");
-        require(keccak256(bytes(p))!=keccak256(""),"WT11");
-        hashname = Utility._computeNamehash(p);
-        _a = ens.owner(hashname);
-        bytes32 fullhashname = keccak256(abi.encodePacked(hashname, keccak256(bytes(_id))));
-        res.setAddr(fullhashname,_individual);
-        if(!ens.recordExists(fullhashname))
-            ens.setSubnodeRecord(hashname,keccak256(bytes(_id)),_a,resolverAddr,120000); 
-        emit NewWorkerToken(waddress,uint256(waddress));
+        uint256 tokenid = uint256(uint160(waddress));
+        _mint(_individual,tokenid);
+        emit NewWorkerToken(waddress,tokenid);
+        return(waddress,tokenid);
+        
              
     }
     

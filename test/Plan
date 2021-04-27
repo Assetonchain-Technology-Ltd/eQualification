@@ -7,6 +7,8 @@
    - 1 organization A viewer
    - 1 Pub viewer 0x6E6ff139d6851217066Ec1c08e541ECCa3B676F9
 
+TMS admin - 0xe1d11E7C67015719f7AC3Fae9440031F3c0F1b34
+
 
 2. Deploy Pubic Directory Service 
    - using public admin
@@ -94,11 +96,12 @@ Deploy Org Directory Service
    - deploy qToken:= QualifiaitonToken contracts/TokenContract/QualificationToken.sol
    - oresolver : setAddr [qTokenENS,qToken contract address]
    - oaccess : grant Role TOKEN to qToken contract
+   - orgens  : setApprovalForAll to the qToken contract from org admin
 
 4b. Setup Multi QualificaitonToken(s) ts01.qtoken1
    - oENS : mqTokenENS (ts01.qtoken1) = setSubnodeRecord with ts01 , node = "0x6e7e4851f71ad6bc5d734db13b1da3bc1233eeae3e45eee36a76b7bc75231dfe" , label = "0x9d6396eda5a6e5aba762c03aa64e3cc43ce4ed94ee17195be8a3f6b14729c534" , owner = 0xCC9D4ab2b2B27922243FD9029B94DCA2E9085D3c , resolver = 0xaACcBBa085eCbd0a5C90448679276a5bd1a35f43
    - deploy qToken:= QualifiaitonToken contracts/TokenContract/QualificationToken.sol
    - oresolver : setAddr [mqTokenENS,mqToken contract address]
    - oaccess : grant Role TOKEN to qToken contract
-
+   - orgens  : setApprovalForAll to the qToken contract from org admin
 

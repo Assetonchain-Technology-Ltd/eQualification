@@ -16,7 +16,7 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
     using SafeMath for uint256;
     using EnumerableSet for EnumerableSet.Bytes32Set;
 
-    
+    event WPstatusChange(address _a,string _s);
     
     constructor(address _ensAddress) {
         ENS ens = ENS(_ensAddress);
@@ -38,8 +38,8 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
         bytes32 hash = Utility._computeNamehash(attributeListENS);
         Resolver res = Resolver(ens.resolver(hash));
         AttributeList ab = AttributeList(res.addr(hash));
-        require(ab.exists(_key),"WL03");
         require(attributeList.contains(_key)==false,"WL04");
+        require(ab.exists(_key),"WL05");
         attributeList.add(_key);
         Attributes[_key].name=_name;
         Attributes[_key].value=_value;
@@ -128,6 +128,19 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
         require(qualificationList.contains(hashqname),"WL20");
         require(_hasqERC721Token(_org,hashqname,_tokenid,address(this)),"WL21");
         keystore[hashqname]=_encryptKey;
+    }
+    
+    function setStatus(string memory _status,string memory _org) public{
+        require(_orgRoleCheck(_org,msg.sender,ADMIN),"WL36");
+        status=_status;
+        emit WPstatusChange(address(this),_status);
+        
+    }
+    
+    function getStatus() public view
+    returns(string memory)
+    {
+        return status;
     }
     
     function getAttribute(bytes32 _key,string memory _org) public
@@ -256,7 +269,7 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
         res = Resolver(orgENS.resolver(_qERC721Name));
         require(res.addr(_qERC721Name)!=address(0) && res.supportsInterface(Utility.ADDR_INTERFACE_ID),"WL09");
         ERC721 token = ERC721(res.addr(_qERC721Name));
-        return (_owner==token.ownerOf(uint256(_a)));
+        return (_owner==token.ownerOf(_tokenid));
         
     }
     

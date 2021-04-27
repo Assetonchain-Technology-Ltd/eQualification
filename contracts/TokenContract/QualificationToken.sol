@@ -11,7 +11,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721Burnable.sol";
 
 
 contract QualificationToken is ERC721Pausable,ERC721Burnable,Roles {
-    event NewQualificationToken(string _name,address _a,uint256 _tokenid);
+    event NewQualificationToken(string _name,address _a,uint256 _tokenid,bytes32 _fhash );
     
     
     address orgRoot;
@@ -49,7 +49,7 @@ contract QualificationToken is ERC721Pausable,ERC721Burnable,Roles {
         orgRoot=_orgENSRoot;
     }
     
-    function grantQualification(address _workerprofile,address _individual) public {
+    function grantQualification(address _workerprofile,address _individual,string memory _label) public {
         require(_orgAccessCheck(msg.sender,ISSUE),"QT05");
         bytes32 hashname = Utility._computeNamehash(qFactory);
         address resolverAddr = ens.resolver(hashname);
@@ -59,17 +59,15 @@ contract QualificationToken is ERC721Pausable,ERC721Burnable,Roles {
         (bool success, bytes memory result) = _a.call(payload);
         require(success,"QT08");
         address qaddress = abi.decode(result, (address)); 
-        _mint(_workerprofile,uint256(qaddress));
-        
+        uint256 id = uint256(uint160(qaddress));
+        _mint(_workerprofile,id);
         hashname = Utility._computeNamehash(name());
         _a = ens.owner(hashname);
-        bytes32 fullhashname = keccak256(abi.encodePacked(hashname, keccak256(abi.encodePacked(_individual))));
+        bytes32 fullhashname = keccak256(abi.encodePacked(hashname,keccak256(bytes(_label))));
+        ens.setSubnodeRecord(hashname,keccak256(bytes(_label)),address(this),resolverAddr,120000); 
         res.setAddr(fullhashname,qaddress);
-        if(!ens.recordExists(fullhashname))
-            ens.setSubnodeRecord(hashname,keccak256(abi.encodePacked(_individual)),_a,resolverAddr,120000); 
-        
-        
-        emit NewQualificationToken(name(),qaddress,uint256(qaddress));
+        ens.setOwner(fullhashname,_a);
+        emit NewQualificationToken(name(),qaddress,id,fullhashname);
     }
     
      function _mint(address to, uint256 tokenId) internal virtual override(ERC721) {
@@ -109,6 +107,14 @@ contract QualificationToken is ERC721Pausable,ERC721Burnable,Roles {
         if(!_orgAccessCheck(msg.sender,ISSUE)){
             super._beforeTokenTransfer(from,to,tokenId);
         }
+        
+    }
+    
+    function getSetting() public
+    returns(address _org,string memory _qfactory,address _access)
+    {
+        require(_orgAccessCheck(msg.sender,ADMIN),"QT10");
+        return (orgRoot,qFactory,address(access));
         
     }
     

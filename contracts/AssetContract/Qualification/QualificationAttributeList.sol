@@ -14,23 +14,21 @@ contract QualificationAttributeList {
     
     constructor()
     {
-        attributeList.add(keccak256("ENGNAME"));
-        attributeList.add(keccak256("CHINAME"));
-        attributeList.add(keccak256("DOB"));
-        attributeList.add(keccak256("IDNUMBER"));
-        attributeList.add(keccak256("MOBILE"));
-        attributeList.add(keccak256("RESIDENALADDRESS"));
-        attributeList.add(keccak256("MOBILE2"));
-        attributeList.add(keccak256("MOBILE3"));
+        attributeList.add(keccak256("Reference_Number"));
+        attributeList.add(keccak256("CIC_Qualification_Seq_No"));
+        attributeList.add(keccak256("Issue_Date"));
+        attributeList.add(keccak256("Validity_From"));
+        attributeList.add(keccak256("Validity_To"));
+        attributeList.add(keccak256("Trade"));
+        attributeList.add(keccak256("Card_Template_Id"));
         
-        attributename[keccak256("ENGNAME")]="ENGNAME";
-        attributename[keccak256("CHINAME")]="CHINAME";
-        attributename[keccak256("DOB")]="DOB";
-        attributename[keccak256("IDNUMBER")]="IDNUMBER";
-        attributename[keccak256("MOBILE")]="MOBILE";
-        attributename[keccak256("RESIDENALADDRESS")]="RESIDENALADDRESS";
-        attributename[keccak256("MOBILE2")]="MOBILE2";
-        attributename[keccak256("MOBILE3")]="MOBILE3";
+        attributename[keccak256("Reference_Number")]="Reference_Number";
+        attributename[keccak256("CIC_Qualification_Seq_No")]="CIC_Qualification_Seq_No";
+        attributename[keccak256("Issue_Date")]="Issue_Date";
+        attributename[keccak256("Validity_From")]="Validity_From";
+        attributename[keccak256("Validity_To")]="Validity_To";
+        attributename[keccak256("Trade")]="Trade";
+        attributename[keccak256("Card_Template_Id")]="Card_Template_Id";
         
     }
     

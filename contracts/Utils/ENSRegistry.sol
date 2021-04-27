@@ -158,7 +158,7 @@ contract ENSRegistry is ENS {
      * @param node The specified node.
      * @return Bool if record exists
      */
-    function recordExists(bytes32 node) public virtual override view returns (bool) {
+        function recordExists(bytes32 node) public virtual override view returns (bool) {
         return records[node].owner != address(0x0);
     }
 
