@@ -1,0 +1,21 @@
+bugfix - 28 April 2021
+
+
+WorkerProfielLogic.sol
+1. add modifier view  to all getter function
+2. _orgRoleCheck - add view modifier
+3. _orgRoleCheck - change access = PermissionControl(orgAccessAdr); to PermissionControl access = PermissionControl(orgAccessAdr);
+
+QualificationLogic.sol
+1. add modifier view  to all getter function
+2. _orgRoleCheck - add view modifier
+3. _orgRoleCheck - change access = PermissionControl(orgAccessAdr); to PermissionControl access = PermissionControl(orgAccessAdr);
+
+Feature Change 
+
+WorkerProfielLogic.sol
+1. addAttribute - remove checking on if the attribute is exists 
+2. addQualification - remove checking on if the qualification is exists
+
+QualificationLogic.sol
+1. addAttribute - remove checking on if the attribute is exists 

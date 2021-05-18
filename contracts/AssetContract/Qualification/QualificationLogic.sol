@@ -42,7 +42,6 @@ contract QualificationLogic is QualificationDS,Roles {
         bytes32 namehash = Utility._computeNamehash(attributeListENS);
         Resolver res = Resolver(ens.resolver(namehash));
         QualificationAttributeList ab = QualificationAttributeList(res.addr(namehash));
-        require(attributeList.contains(_key)==false,"QL04");
         require(ab.exists(_key),"QL05");
         attributeList.add(_key);
         Attributes[_key].name=_name;
@@ -125,7 +124,7 @@ contract QualificationLogic is QualificationDS,Roles {
         key.createDate=0;
     }
     
-    function getAttribute(bytes32 _key) public
+    function getAttribute(bytes32 _key) public view
     returns(bytes memory,string memory)
     {
         
@@ -135,7 +134,7 @@ contract QualificationLogic is QualificationDS,Roles {
         return (Attributes[_key].value,Attributes[_key].datatype);
     }
     
-    function length(string memory _org) public
+    function length() public view
     returns(uint256)
     {
         require(_orgAccessCheck(msg.sender,TOKEN)||_orgAccessCheck(msg.sender,OPERATOR)
@@ -143,7 +142,7 @@ contract QualificationLogic is QualificationDS,Roles {
         return attributeList.length();
     }
     
-    function getAttributeByIndex(string memory _org,uint256 _i) public
+    function getAttributeByIndex(uint256 _i) public view
     returns(bytes32,bytes memory,string memory)
     {
         require(_orgAccessCheck(msg.sender,TOKEN)||_orgAccessCheck(msg.sender,OPERATOR)
@@ -153,7 +152,7 @@ contract QualificationLogic is QualificationDS,Roles {
         return (_key,Attributes[_key].value,Attributes[_key].datatype);
     }
     
-    function getKey() public 
+    function getKey() public view
     returns(bytes memory,uint256)
     {
         
@@ -170,7 +169,7 @@ contract QualificationLogic is QualificationDS,Roles {
 
     function qualificationLogic() public{}
     
-    function _orgAccessCheck(address _caller,bytes32 _role) internal 
+    function _orgAccessCheck(address _caller,bytes32 _role) internal view
     returns(bool)
     {
         ENS ens = ENS(orgENSRegistar);
@@ -178,7 +177,7 @@ contract QualificationLogic is QualificationDS,Roles {
         Resolver res = Resolver(ens.resolver(orgAccessENS));
         require(res.addr(orgAccessENS)!=address(0) && res.supportsInterface(Utility.ADDR_INTERFACE_ID),"QL07");
         address orgAccessAdr = res.addr(orgAccessENS);
-        access = PermissionControl(orgAccessAdr);
+        PermissionControl access = PermissionControl(orgAccessAdr);
         return access.hasRole(_role,_caller);
         
     }

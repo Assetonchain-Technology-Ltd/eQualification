@@ -4,7 +4,7 @@ pragma abicoder v2;
 import "@openzeppelin/contracts/utils/EnumerableSet.sol";
 
 
-contract QualificationAttributeList {
+contract QualificationAttributeListTMS {
     
     using EnumerableSet for EnumerableSet.Bytes32Set;
     mapping(bytes32=>string) attributename;

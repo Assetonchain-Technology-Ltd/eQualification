@@ -9,7 +9,7 @@ import "../../Utils/Roles.sol";
 import "../../Utils/Library.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-contract WorkerProfileLogic is WorkerProfileDS,Roles {
+contract WorkerProfileLogic_BK is WorkerProfileDS,Roles {
     
     
     using Address for address;
@@ -48,7 +48,25 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
         return hash;
     }
     
-  
+    function upateAttribute(bytes32 _key, bytes calldata _value, uint256 _datetime, string calldata _datatype) public onlyOwner 
+    returns (bytes32)
+    {
+        ENS ens = ENS(publicENSRegistar);
+        bytes32 hash = Utility._computeNamehash(attributeListENS);
+        Resolver res = Resolver(ens.resolver(hash));
+        AttributeList ab = AttributeList(res.addr(hash));
+        require(ab.exists(_key),"WL23");
+        require(attributeList.contains(_key),"WL24");
+        uint256 ecount = Attributes[_key].endorsementcount;
+        for(uint256 i=0;i<ecount;i++){
+            Attributes[_key].endorsements[i].active = false;
+        }
+        Attributes[_key].value=_value;
+        Attributes[_key].createDate = _datetime;
+        Attributes[_key].datatype = _datatype;
+        hash = Utility._prefixed(keccak256(abi.encodePacked(msg.sender,_key,_value,_datatype,_datetime,ecount,address(this))));
+        return hash;
+    }
     
     function removeAttribute(bytes32 _key,uint256 _datetime) public onlyOwner {
         require(attributeList.contains(_key),"WL06");
@@ -56,7 +74,27 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
         attributeList.remove(_key);
     }
     
-   
+    function endorseAttribute(bytes32 _key,uint256 _datetime,uint256 _expiryDate,string memory _org,bytes calldata _signature) public {
+        require(_orgRoleCheck(_org,msg.sender,ENDORSE),"WL09");
+        require(_verifyAttributeSignature(msg.sender,_key,_signature),"WL10");
+        require(attributeList.contains(_key),"WL25");
+        uint256 ecount = Attributes[_key].endorsementcount;
+        Attributes[_key].endorsementcount=Attributes[_key].endorsementcount.add(1);
+        Attributes[_key].endorsements[ecount].signature = _signature;
+        Attributes[_key].endorsements[ecount].endorseDate = _datetime;
+        Attributes[_key].endorsements[ecount].endorseExpiryDate = _expiryDate;
+        Attributes[_key].endorsements[ecount].endorser = msg.sender;
+        Attributes[_key].endorsements[ecount].active = true;
+    }
+    
+
+    function removeEndorsement(bytes32 _key,uint256 _endorseNumber,string memory _org) public {
+        require(_orgRoleCheck(_org,msg.sender,ENDORSE),"WL11");
+        require(attributeList.contains(_key),"WL12");
+        require(Attributes[_key].endorsements[_endorseNumber].endorser==msg.sender,"WL13");
+        delete Attributes[_key].endorsements[_endorseNumber];
+        Attributes[_key].endorsementcount=Attributes[_key].endorsementcount.sub(1);
+    }
 
     
     function addQualification(string memory _qERC721Name,string memory _org,bytes memory _encryptKey,uint256 _tokenid,string memory _ref) public{
@@ -70,19 +108,16 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
         keystore[hashqname]=_encryptKey;
     }
     
-    function revokeQualification(string memory _qERC721Name,string memory _org,uint256 _tokenid,address _receiver,bool _remove) public{
+    function revokeQualification(string memory _qERC721Name,string memory _org,uint256 _tokenid,address _receiver) public{
         bytes32 hashqname = Utility._computeNamehash(_qERC721Name);
         require(_orgRoleCheck(_org,msg.sender,ISSUE),"WL17");
         require(qualificationList.contains(hashqname),"WL18");
         require(_hasqERC721Token(_org,hashqname,_tokenid,address(this)),"WL19");
         require(keccak256(bytes(qualificationNames[hashqname].postfix))==keccak256(bytes(_org)),"WL30");
         _withdrawERC721Token(_org,hashqname,_tokenid,_receiver);
-        if(_remove){
-            qualificationList.remove(hashqname);
-            delete qualificationNames[hashqname];
-            delete keystore[hashqname];
-        }
-       
+        qualificationList.remove(hashqname);
+        delete qualificationNames[hashqname];
+        delete keystore[hashqname];
     }
     
     function updateQualification(string memory _qERC721Name,string memory _org,bytes memory _encryptKey,uint256 _tokenid) public{
@@ -131,6 +166,17 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
         return (_key,Attributes[_key].value,Attributes[_key].datatype);
     }
     
+    function getEndorsement(bytes32 _key,string memory _org) public view
+    returns(Endorse[] memory)
+    {
+        require(_orgRoleCheck(_org,msg.sender,VIEW)||msg.sender==owner(),"WL25");
+        Endorse[] memory list;
+        uint256 count = Attributes[_key].endorsementcount;
+        for(uint256 i=0;i<count;i++){
+            list[i]=Attributes[_key].endorsements[i];
+        }
+        return list;
+    }
     
     function qlength(string memory _org) public view
     returns(uint256)
@@ -241,5 +287,14 @@ contract WorkerProfileLogic is WorkerProfileDS,Roles {
     }
     
     
+    function _verifyAttributeSignature(address _signer,bytes32 _key, bytes memory signature) internal view 
+    returns (bool)
+    {
+        Attribute storage attr = Attributes[_key];
+        bytes32 datatosign = Utility._prefixed(keccak256(abi.encodePacked(owner(),_key,attr.value,attr.datatype,attr.createDate,attr.endorsementcount,address(this))));
+        datatosign = Utility._prefixed(datatosign);
+        return Utility._recoverSigner(datatosign, signature) == _signer;
+    }
+
     
 }

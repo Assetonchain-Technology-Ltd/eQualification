@@ -4,7 +4,7 @@ pragma abicoder v2;
 import "@openzeppelin/contracts/utils/EnumerableSet.sol";
 
 
-contract QualificationAttributeList {
+contract QualificationAttributeListTTMS {
     
     using EnumerableSet for EnumerableSet.Bytes32Set;
     mapping(bytes32=>string) attributename;
@@ -14,25 +14,31 @@ contract QualificationAttributeList {
     
     constructor()
     {
-        attributeList.add(keccak256("Reference_Number"));
-        attributeList.add(keccak256("CIC_Qualification_Seq_No"));
-        attributeList.add(keccak256("Issue_Date"));
-        attributeList.add(keccak256("Validity_From"));
-        attributeList.add(keccak256("Validity_To"));
-        attributeList.add(keccak256("Trade"));
-        attributeList.add(keccak256("Card_Template_Id"));
+        attributeList.add(keccak256("enrollmentId"));
+        attributeList.add(keccak256("card_Number"));
+        attributeList.add(keccak256("issue_Date"));
+        attributeList.add(keccak256("valid_From"));
+        attributeList.add(keccak256("expiry_Date"));
+        attributeList.add(keccak256("tradeCode"));
+        attributeList.add(keccak256("card_Template_Id"));
         attributeList.add(keccak256("QHash"));
         attributeList.add(keccak256("Pcert"));
+        attributeList.add(keccak256("tradeType_Code"));
+        attributeList.add(keccak256("examDate"));
+        attributeList.add(keccak256("first_Issue_Date"));
         
-        attributename[keccak256("Reference_Number")]="Reference_Number";
-        attributename[keccak256("CIC_Qualification_Seq_No")]="CIC_Qualification_Seq_No";
-        attributename[keccak256("Issue_Date")]="Issue_Date";
-        attributename[keccak256("Validity_From")]="Validity_From";
-        attributename[keccak256("Validity_To")]="Validity_To";
-        attributename[keccak256("Trade")]="Trade";
-        attributename[keccak256("Card_Template_Id")]="Card_Template_Id";
+        attributename[keccak256("enrollmentId")]="enrollmentId";
+        attributename[keccak256("card_Number")]="card_Number";
+        attributename[keccak256("issue_Date")]="issue_Date";
+        attributename[keccak256("valid_From")]="valid_From";
+        attributename[keccak256("expiry_Date")]="expiry_Date";
+        attributename[keccak256("tradeCode")]="tradeCode";
+        attributename[keccak256("card_Template_Id")]="card_Template_Id";
         attributename[keccak256("QHash")]="QHash";
         attributename[keccak256("Pcert")]="Pcert";
+        attributename[keccak256("tradeType_Code")]="tradeType_Code";
+        attributename[keccak256("examDate")]="examDate";
+        attributename[keccak256("first_Issue_Date")]="first_Issue_Date";
     }
     
     function addAttribute(string memory _attr) public{

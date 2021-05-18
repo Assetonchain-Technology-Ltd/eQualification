@@ -22,6 +22,10 @@ contract AttributeList {
         attributeList.add(keccak256("RESIDENALADDRESS"));
         attributeList.add(keccak256("MOBILE"));
         attributeList.add(keccak256("MOBILE2"));
+        attributeList.add(keccak256("AHash"));
+        attributeList.add(keccak256("TMSQHash"));
+        attributeList.add(keccak256("TTMSQHash"));
+        attributeList.add(keccak256("CWRSQHash"));
         
         attributename[keccak256("Applicant_Name_English")]="Applicant_Name_English";
         attributename[keccak256("Applicant_Name_Chinese")]="Applicant_Name_Chinese";
@@ -31,7 +35,11 @@ contract AttributeList {
         attributename[keccak256("RESIDENALADDRESS")]="RESIDENALADDRESS";
         attributename[keccak256("MOBILE")]="MOBILE";
         attributename[keccak256("MOBILE2")]="MOBILE2";
-        
+        attributename[keccak256("QHash")]="QHash";
+        attributename[keccak256("AHash")]="AHash";
+        attributename[keccak256("TMSQHash")]="TMSQHash";
+        attributename[keccak256("TTMSQHash")]="TTMSQHash";
+        attributename[keccak256("CWRSQHash")]="CWRSQHash";
     }
     
     function addAttribute(string memory _attr) public{

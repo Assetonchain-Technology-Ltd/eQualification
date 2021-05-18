@@ -8,7 +8,8 @@
    - 1 Pub viewer 0x6E6ff139d6851217066Ec1c08e541ECCa3B676F9
 
 TMS admin - 0xe1d11E7C67015719f7AC3Fae9440031F3c0F1b34
-
+TTMS admin -0x6FcaB57388e30d92282d263BF358164e689e6225
+CWRS admin : 0x902C5dCB5BA49824Fa201BA65A01d9eb1aD432dc
 
 2. Deploy Pubic Directory Service 
    - using public admin
@@ -57,9 +58,9 @@ TMS admin - 0xe1d11E7C67015719f7AC3Fae9440031F3c0F1b34
    - using org admin
    - deploy Org directory (ENS) 
    - deploy access control 
-   - deploy Qualifiation Factory
    - deploy Qualification Logic
    - deploy qualification attribute contract
+   - deploy Qualifiation Factory
    - Register access ENS
    - Register Qualification Factory ENS
    - Register Qualification Logic ENS

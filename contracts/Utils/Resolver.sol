@@ -39,7 +39,7 @@ interface Resolver{
     
     /*self define function*/
     function setRoles(bytes32 node, bytes32 role) external;
-    function hasRole(bytes32 node,bytes32  role) external returns(bool);
+    function hasRole(bytes32 node,bytes32  role) external view returns(bool);
 
 
     /* Deprecated functions */

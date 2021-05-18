@@ -4,7 +4,7 @@ pragma abicoder v2;
 import "@openzeppelin/contracts/utils/EnumerableSet.sol";
 
 
-contract QualificationAttributeList {
+contract QualificationAttributeListCWRS {
     
     using EnumerableSet for EnumerableSet.Bytes32Set;
     mapping(bytes32=>string) attributename;
@@ -14,25 +14,22 @@ contract QualificationAttributeList {
     
     constructor()
     {
-        attributeList.add(keccak256("Reference_Number"));
-        attributeList.add(keccak256("CIC_Qualification_Seq_No"));
-        attributeList.add(keccak256("Issue_Date"));
-        attributeList.add(keccak256("Validity_From"));
-        attributeList.add(keccak256("Validity_To"));
-        attributeList.add(keccak256("Trade"));
-        attributeList.add(keccak256("Card_Template_Id"));
-        attributeList.add(keccak256("QHash"));
-        attributeList.add(keccak256("Pcert"));
+        attributeList.add(keccak256("TradeCode"));
+        attributeList.add(keccak256("ReferenceNo"));
+        attributeList.add(keccak256("IssueDate"));
+        attributeList.add(keccak256("ExpiryDate"));
+        attributeList.add(keccak256("AuthorityCode"));
+        attributeList.add(keccak256("SkillLevel"));
+        attributeList.add(keccak256("QualificationCode"));
+    
         
-        attributename[keccak256("Reference_Number")]="Reference_Number";
-        attributename[keccak256("CIC_Qualification_Seq_No")]="CIC_Qualification_Seq_No";
-        attributename[keccak256("Issue_Date")]="Issue_Date";
-        attributename[keccak256("Validity_From")]="Validity_From";
-        attributename[keccak256("Validity_To")]="Validity_To";
-        attributename[keccak256("Trade")]="Trade";
-        attributename[keccak256("Card_Template_Id")]="Card_Template_Id";
-        attributename[keccak256("QHash")]="QHash";
-        attributename[keccak256("Pcert")]="Pcert";
+        attributename[keccak256("TradeCode")]="TradeCode";
+        attributename[keccak256("ReferenceNo")]="ReferenceNo";
+        attributename[keccak256("IssueDate")]="IssueDate";
+        attributename[keccak256("ExpiryDate")]="ExpiryDate";
+        attributename[keccak256("AuthorityCode")]="AuthorityCode";
+        attributename[keccak256("SkillLevel")]="SkillLevel";
+        attributename[keccak256("QualificationCode")]="QualificationCode";
     }
     
     function addAttribute(string memory _attr) public{
